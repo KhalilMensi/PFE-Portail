@@ -1,0 +1,88 @@
+﻿@model PortailEbook.Models.Entity.Purchase
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container shadow col-md-12" style="margin-bottom:70px;background-color:#f8f9fd">
+    <div class="p-5">
+        <div>
+            <h3>Purchase Details</h3>
+        </div>
+        <hr />
+        <div class="mt-5 col-md-12">
+            <div class="col-md-12">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="IdUser"></label>
+                            <input asp-for="IdUser" class="form-control" readonly />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="PurchaseNumber"></label>
+                            <input asp-for="PurchaseNumber" class="form-control" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="PurchaseDate"></label>
+                            <input asp-for="PurchaseDate" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Type"></label>
+                            <input asp-for="Type" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label asp-for="DiscountPercent"></label>
+                            <input asp-for="DiscountPercent" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Discount"></label>
+                            <input asp-for="Discount" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="VatPercent"></label>
+                            <input asp-for="VatPercent" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Vat"></label>
+                                <input asp-for="Vat" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="AmountHT"></label>
+                                <input asp-for="AmountHT" class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label asp-for="AmountTTC"></label>
+                            <input asp-for="AmountTTC" class="form-control" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="mt-2 text-center">
+            <a asp-action="Index" asp-controller="Purchase">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg>
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

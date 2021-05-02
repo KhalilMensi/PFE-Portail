@@ -1,0 +1,15 @@
+﻿@{
+    
+    @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin" && @ViewContext.RouteData.Values["controller"].ToString() != "Home")
+    {
+        Layout = "_LayoutAdmin";
+    }
+    else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User" && @ViewContext.RouteData.Values["controller"].ToString() != "Home")
+    {
+        Layout = "_LayoutUser";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}

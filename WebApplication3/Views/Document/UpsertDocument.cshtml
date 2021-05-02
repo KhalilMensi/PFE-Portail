@@ -1,0 +1,285 @@
+﻿@model PortailEbook.Models.Entity.Document
+
+@{
+    ViewData["Title"] = "Upsert Document";
+}
+
+
+<div class="container shadow col-md-12" style="margin-bottom:70px;background-color:#f8f9fd">
+    <div class="p-5">
+        @if (Model == null)
+        {
+            <div class="text-center">
+                <svg id="Capa_1" enable-background="new 0 0 512 512" height="90" viewBox="0 0 512 512" width="90" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <g>
+                            <g>
+                                <g>
+                                    <g>
+                                        <g>
+                                            <path d="m65.702 0c-36.229 0-65.702 29.474-65.702 65.702v373.609l91.159-9.555 18.411-191.896-18.411-237.86z" fill="#5eb16a" />
+                                            <g><path d="m91.159 0v401.074l159.935-16.763 32.078-177.814-32.078-206.497z" fill="#89ce6d" /><path d="m403.173 0h-152.079v386.601l152.079-15.829z" fill="#5eb16a" /></g>
+                                            <g><g><path d="m80.664 386.601c-29.413 0-53.258 23.844-53.258 53.258 0 .512.024 1.019.039 1.527.811 28.705 24.318 51.73 53.219 51.73h170.43v-106.515z" fill="#f7fcff" /><path d="m360.568 441.43c0-.015.001-.03.001-.044.025-22.362 19.778-40.546 42.604-40.546l-26.251-14.239h-125.828v106.515h133.425l18.655-11.139c-22.842 0-42.606-18.165-42.606-40.547z" fill="#ecf3fb" /></g><g><path d="m70.614 400.84h20.545l9.787-16.152-9.787-13.915h-20.545c-38.937-.001-70.614 31.676-70.614 70.613s31.677 70.614 70.614 70.614h20.545l13.161-15.032-13.161-15.032-20.545-.003c-22.357 0-40.546-18.189-40.546-40.546 0-22.358 18.189-40.547 40.546-40.547z" fill="#89ce6d" /></g></g>
+                                            <g><path d="m91.159 456.154h159.935l14.819-14.768-14.819-15.3h-159.935z" fill="#ecf3fb" /><g fill="#5eb16a"><path d="m91.159 370.772v30.068h159.935l13.225-14.239-13.225-15.829z" /><path d="m91.159 512h159.935l17.137-12.898-17.137-17.145-159.935-.022z" /></g></g>
+                                            <path d="m251.094 370.772h152.08v30.068h-152.08z" fill="#009b5c" />
+                                            <path d="m363.401 456.154c-1.822-4.568-2.833-9.531-2.833-14.723 0-.015.001-.03.001-.044.006-5.412 1.106-10.576 3.082-15.3h-112.557v30.068h112.307z" fill="#e0e6f5" />
+                                            <g fill="#5eb16a"><path d="m200.984 88.171v29.945h50.11l14.819-14.973-14.819-14.972z" /><path d="m167.13 153.181v29.945h83.964l17.137-14.973-17.137-14.972z" /></g>
+                                            <g fill="#009b5c"><path d="m251.094 88.171h50.11v29.945h-50.11z" /><path d="m251.094 153.181h83.963v29.945h-83.963z" /></g>
+                                        </g>
+                                        <path d="m403.173 512v-30.023l-152.079-.02v30.043z" fill="#009b5c" />
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g><path d="m294.441 403.221c0 59.981 48.798 108.779 108.78 108.779l18.297-102.702-18.297-114.856c-59.982 0-108.78 48.798-108.78 108.779z" fill="#fd465f" /><path d="m403.221 294.442v217.559c59.981-.001 108.779-48.799 108.779-108.78s-48.798-108.779-108.779-108.779z" fill="#ce0c51" /></g>
+                        <g><path d="m388.248 357.589v30.659h-30.659v29.945h30.659v30.659h14.973l4.137-45.631-4.137-45.632z" fill="#f7fcff" /><path d="m418.194 388.248v-30.659h-14.973v91.263h14.973v-30.659h30.658v-29.945z" fill="#e0e6f5" /></g>
+                    </g>
+                </svg>
+            </div>
+            <hr />
+            <p class="text-danger text-center">Please fill in this blanc to create a new Ebook*</p>
+        }
+        else
+        {
+            <div class="text-center">
+                <svg id="Capa_1" enable-background="new 0 0 512 512" height="90" viewBox="0 0 512 512" width="90" xmlns="http://www.w3.org/2000/svg"><g><g><path d="m286 444 223-48v-300l-233 40-3 133z" fill="#9c6750" /><path d="m3 411 224 33 19-181-10-125-233-33z" fill="#9c6750" /><path d="m227 444h59l-10-308-40 2z" fill="#844f3e" /></g><g fill="#f3d544"><path d="m484 406 28-7v-33l-8 1-3 20-17 7z" /><path d="m489 96 23-4v29l-7-1-1-16-13-2z" /><path d="m0 129v-28l26 4-2 8-15 1-3 14z" /></g><g><path d="m256 159-226-103-7 337 239 43z" fill="#e7e2d5" /><path d="m256 159 221-107 12 328-227 56z" fill="#e7e2d5" /><path d="m50 356 33-328 173 131 6 277z" fill="#f4efe3" /><path d="m147 0 109 159 6 277-176-121z" fill="#fdf9f2" /><path d="m256 159 167-130 35 315-196 92z" fill="#f4efe3" /><path d="m256 159 104-159 60 311-158 125z" fill="#fdf9f2" /><path d="m252 151h8l6 361h-20z" fill="#d68034" /><g fill="#e7e2d5"><g><path d="m156 56 82 100-3 87-98-92z" /><path d="m131 172 102 85-2 13-103-88z" /><path d="m125 203 92 69-2 10-93-70z" /><path d="m120 228 106 73-2 12-106-75z" /><path d="m115 254 115 76v16l-118-82z" /><path d="m107 282 105 66-4 14-103-69z" /></g><g><path d="m271 162 81-116 3 12-82 118z" /><path d="m274 189 86-113 3 14-87.653 108.426z" /><path d="m279 218 84-92 3 14-87 92z" /><path d="m279 246 82-81 2 14-84 79z" /><path d="m386 320 17-14-7-18-13 10z" /></g></g></g><path d="m34 420-34-6v-42l11 3 2 21 20 13z" fill="#f3d544" /></g></svg>
+            </div>
+            <hr />
+        }
+        <div class="mt-3">
+            <form id="form" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="FileName" />
+                <input type="hidden" asp-for="CoverPageName" />
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Editor"></label>
+                            <input asp-for="Editor" class="form-control" id="Editor">
+                            <span id="validEditor" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Collection"></label>
+                            <input asp-for="Collection" class="form-control" id="Collection">
+                            <span id="validCollection" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Theme"></label>
+                            <input asp-for="Theme" class="form-control" id="Theme">
+                            <span id="validTheme" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Catalogue"></label>
+                            <input asp-for="Catalogue" class="form-control" id="Catalogue">
+                            <span id="validCatalogue" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Doi"></label>
+                            <input asp-for="Doi" class="form-control" id="Doi">
+                            <span id="validDoi" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="MarcRecordNumber"></label>
+                            <input asp-for="MarcRecordNumber" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="OriginalTitle"></label>
+                            <input asp-for="OriginalTitle" class="form-control" id="OriginalTitle">
+                            <span id="validOriginalTitle" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="TitlesVariants"></label>
+                            <input asp-for="TitlesVariants" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Subtitle"></label>
+                            <input asp-for="Subtitle" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Foreword"></label>
+                            <input asp-for="Foreword" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Keywords"></label>
+                            <input asp-for="Keywords" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="File"></label>
+                            <input asp-for="File" class="form-control" id="File" accept="application/pdf">
+                            <span id="validFile" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="FileFormat"></label>
+                            <input asp-for="FileFormat" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="CoverPage"></label>
+                            <input asp-for="CoverPage" class="form-control" id="CoverPage" accept="image/x-png,image/gif,image/jpeg">
+                            <span id="validCoverPage" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Url"></label>
+                            <input asp-for="Url" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="DocumentType"></label>
+                            <select asp-for="DocumentType" asp-items="@ViewBag.type" class="form-control" id="DocumentType"></select>
+                            <span id="validDocumentType" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="OriginalLanguage"></label>
+                            <input asp-for="OriginalLanguage" class="form-control" id="OriginalLanguage">
+                            <span id="validOriginalLanguage" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="LanguagesVarients"></label>
+                            <input asp-for="LanguagesVarients" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Translator"></label>
+                            <input asp-for="Translator" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="AccessType"></label>
+                            <input asp-for="AccessType" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="State"></label>
+                            <input asp-for="State" class="form-control" id="State">
+                            <span id="validState" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Price"></label>
+                            <input asp-for="Price" type="number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="PublicationDate"></label>
+                            <input asp-for="PublicationDate" class="form-control" id="PublicationDate">
+                            <span id="validPublicationDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Country"></label>
+                            <input asp-for="Country" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="PhysicalDescription"></label>
+                            <input asp-for="PhysicalDescription" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="AccompanyingMaterials"></label>
+                            <input asp-for="AccompanyingMaterials" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="AccompanyingMaterialsNb"></label>
+                            <input asp-for="AccompanyingMaterialsNb" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="VolumeNb"></label>
+                            <input asp-for="VolumeNb" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Abstract"></label>
+                            <input asp-for="Abstract" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Notes"></label>
+                            <input asp-for="Notes" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-2">
+                    <button type="button" onclick="saveDocument('@ViewBag.insert')" class="btn btn-primary col-md-5">Save Document</button>
+                </div>
+                <div class="mt-2 text-center">
+                    <a asp-action="Index" asp-controller="Document">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                        </svg>
+                        Back to List
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/assets/js/DocumentList.js" asp-append-version="true"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+ }
+

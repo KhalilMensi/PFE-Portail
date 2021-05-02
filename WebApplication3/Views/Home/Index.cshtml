@@ -1,0 +1,326 @@
+﻿@model IEnumerable<PortailEbook.Models.Entity.Document>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- OwlCarousel CSS -->
+<link rel="stylesheet" href="~/assets/owl/owl.carousel.min.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Content -->
+<div class="content-wrapper">
+    <!-- Slider -->
+    <div class="slider">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="slider-bloc" style="background-image: url(images/slider.jpg)">
+                    <h1 class="align-self-center">knowledge<br> without boundaries</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Slider -->
+    <!-- Tabs -->
+
+    <div class="content-tabs">
+        <div class="container">
+            <div class="extra-row">
+                <nav>
+                    <div class="nav nav-tabs flex-column flex-sm-row" id="nav-tab" role="tablist">
+                        <a class="flex-sm-fill nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-ouvrages" role="tab" aria-controls="nav-ouvrages" aria-selected="true">ouvrages</a>
+                        <a class="flex-sm-fill nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-revues" role="tab" aria-controls="nav-revues" aria-selected="false">revues</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-ouvrages" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-architecture"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                architecture,<br>
+                                                urbanisme<br>
+                                                et beaux-art
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-f"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                siences
+                                                fondamentales
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-f"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                médicales
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <img src="images/lettres.svg" alt="lettres" />
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                lettres et
+                                                civilisation
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-hu"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                humaines,
+                                                sociales et
+                                                religieuses
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-hu"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                juridiques et
+                                                politiques
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <img src="images/science.svg" alt="science" />
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences de
+                                                l’ingénieur
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <img src="images/sciences-eco.svg" alt="science" />
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                économiques
+                                                et gestion
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-revues" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-architecture"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                architecture,<br>
+                                                urbanisme<br>
+                                                et beaux-art
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-f"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                siences
+                                                fondamentales
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-f"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                médicales
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <img src="images/lettres.svg" alt="lettres" />
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                lettres et
+                                                civilisation
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-hu"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                humaines,
+                                                sociales et
+                                                religieuses
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <i class="icon-sciences-hu"></i>
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                juridiques et
+                                                politiques
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <img src="images/science.svg" alt="science" />
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences de
+                                                l’ingénieur
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="bloc-icon">
+                                        <div class="img-icon">
+                                            <img src="images/sciences-eco.svg" alt="science" />
+                                        </div>
+                                        <div class="text-icon">
+                                            <h3>
+                                                sciences
+                                                économiques
+                                                et gestion
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Tabs -->
+    <!-- Books Carousel -->
+    <div class="content-books">
+        @if (Model.Count() > 4)
+        {
+        @if (Model.Count() != 0)
+        {
+            <div class="container">
+                <div class="row">
+                    <!-- Books title -->
+                    <div class="col-12 text-center">
+                        <h2 class="title-divider"><span>Books Recently added</span></h2>
+                    </div>
+                    <!-- End Books title -->
+                </div>
+            </div>
+        }
+        <!-- Books List -->
+        <div class="container-fluid">
+            <div class="row-slider">
+                <div class="owl-carousel owl-theme text-center">
+                    @foreach (var document in Model)
+                    {
+                        <div class="item">
+                            <div class="book-wrapper">
+                                <div class="book-bg">
+                                    <a href="#"><img src="~/uploads/CoverPage/@document.CoverPageName" style="width:177px;height:274px"></a>
+                                    <div class="figcaption">
+                                        <div class="search-book">
+                                            <a href="#"><i class="icon-loop"></i></a>
+                                        </div>
+                                        <div class="direction-book">
+                                            <a href="#" onclick="addProduct(@document.Id)"><i class="material-icons">&#xe547;</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="book-title">
+                                <h4>@document.OriginalTitle</h4>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        }
+        <!-- End Books List -->
+    </div>
+    <!-- End Books Carousel -->
+</div>
+@section Scripts{
+    <script src="~/assets/owl/owl.carousel.min.js"></script>
+    <script src="~/assets/js/customjs.js" asp-append-version="true"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

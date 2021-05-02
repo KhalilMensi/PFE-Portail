@@ -1,0 +1,229 @@
+﻿@model PortailEbook.Models.Entity.Document
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container shadow col-md-12" style="margin-bottom:70px;background-color:#f8f9fd">
+    <div class="p-5">
+        <div>
+            <h3>Document Details</h3>
+        </div>
+        <hr />
+        <div class="mt-5 col-md-12">
+            <form>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Editor"></label>
+                            <input asp-for="Editor" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Collection"></label>
+                            <input asp-for="Collection" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Theme"></label>
+                            <input asp-for="Theme" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Catalogue"></label>
+                            <input asp-for="Catalogue" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Doi"></label>
+                            <input asp-for="Doi" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="MarcRecordNumber"></label>
+                            <input asp-for="MarcRecordNumber" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="OriginalTitle"></label>
+                            <input asp-for="OriginalTitle" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="TitlesVariants"></label>
+                            <input asp-for="TitlesVariants" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Subtitle"></label>
+                            <input asp-for="Subtitle" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Foreword"></label>
+                            <input asp-for="Foreword" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Keywords"></label>
+                            <input asp-for="Keywords" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="FileName"></label>
+                            <input asp-for="FileName" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="FileFormat"></label>
+                            <input asp-for="FileFormat" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="CoverPageName"></label>
+                            <input asp-for="CoverPageName" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Url"></label>
+                            <input asp-for="Url" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="DocumentType"></label>
+                            <input asp-for="DocumentType" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="OriginalLanguage"></label>
+                            <input asp-for="OriginalLanguage" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="LanguagesVarients"></label>
+                            <input asp-for="LanguagesVarients" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Translator"></label>
+                            <input asp-for="Translator" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="AccessType"></label>
+                            <input asp-for="AccessType" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="State"></label>
+                            <input asp-for="State" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Price"></label>
+                            <input asp-for="Price" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="PublicationDate"></label>
+                            <input asp-for="PublicationDate" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Country"></label>
+                            <input asp-for="Country" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="PhysicalDescription"></label>
+                            <input asp-for="PhysicalDescription" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="AccompanyingMaterials"></label>
+                            <input asp-for="AccompanyingMaterials" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="AccompanyingMaterialsNb"></label>
+                            <input asp-for="AccompanyingMaterialsNb" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="VolumeNb"></label>
+                            <input asp-for="VolumeNb" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Abstract"></label>
+                            <input asp-for="Abstract" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Notes"></label>
+                            <input asp-for="Notes" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 text-center">
+                    <a asp-action="Index" asp-controller="Document">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                        </svg>
+                        Back to List
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

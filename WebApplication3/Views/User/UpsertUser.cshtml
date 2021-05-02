@@ -1,0 +1,171 @@
+﻿@model PortailEbook.Models.Entity.User
+
+<div style="background-color: transparent;
+        background-image: url(https://www.sansabalibrary.org/eshelf-research/rylander-laptop.png);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size:contain">
+
+    <div class="row col-md-12 justify-content-center align-items-center p-4">
+
+        <div class="col-md-7" style="background-color: rgba(255, 255, 255, 0.9);">
+            @if (Model == null)
+            {
+                <div class="text-center p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="#4361ee" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                </div>
+                <hr />
+                <h6 class="text-danger text-center p-3">Please fill in this blanc to create or update a user account*</h6>
+            }
+            else
+            {
+                <div>
+                    <h3>Account Settings</h3>
+                </div>
+                <hr />
+                @if (Model.filename == "")
+                {
+                    <div class="text-center">
+                        <img class="rounded-circle" src="~/uploads/user/unknown.png" style="width:200px;height:200px;" alt="Alternate Text" />
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center">
+                        <img class="rounded-circle" src="~/uploads/user/@Model.filename" style="width:200px;height:200px;" alt="Alternate Text" />
+                    </div>
+                }
+                <hr />
+            }
+        <form id="form" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" id="Id" />
+            <input type="hidden" asp-for="filename" />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" id="Name" class="form-control" placeholder="Name">
+                    <span id="validName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" id="LastName" class="form-control" placeholder="Last Name">
+                    <span id="validLastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                @if (@ViewBag.filename == false || Model == null)
+                {
+                    <div class="form-group col-md-6">
+                        <label asp-for="Code"></label>
+                        <input asp-for="Code" type="text" name="Code" class="form-control" value="@ViewBag.MaxUserId" readonly>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group col-md-6">
+                        <label asp-for="Code"></label>
+                        <input asp-for="Code" type="text" name="Code" class="form-control" readonly>
+                    </div>
+                }
+                <div class="form-group col-md-6">
+                    <label asp-for="Phone"></label>
+                    <input asp-for="Phone" name="Phone" class="form-control" placeholder="+216 26501497">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" placeholder="exemple@gmail.com" id="email" required>
+                    <span id="validEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Password" id="password" required>
+                    <span id="validPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adress">Address</label>
+                <input asp-for="Adress" class="form-control" placeholder="Monastir, Tunisia" id="adress" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Country"></label>
+                    <input asp-for="Country" class="form-control" placeholder="CITE OMRANE">
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="PostalCode"></label>
+                    <input asp-for="PostalCode" class="form-control" placeholder="5000">
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
+                {
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <select asp-for="Profil" class="form-control" placeholder="Profil" id="profil" required>
+                                <option value="">--Please choose an option--</option>
+                                <option value="Admin">Admin</option>
+                                <option value="User">User</option>
+                            </select>
+                            <span id="validProfil" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
+                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choose Photo...</label>
+                                <span id="validFile" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <input asp-for="Profil" class="form-control" placeholder="Profil" value="User" type="hidden" id="profil">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
+                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choose Photo...</label>
+                                <span id="validFile" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="form-row pb-4">
+                <div class="col-md-6 text-center mt-2">
+                    <button type="button" onclick="saveUser()" class="btn btn-primary col-md-12">Save User</button>
+                </div>
+                @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
+                {
+                    <div class="text-center col-md-6 mt-2">
+                        <button type="button" class="btn btn-primary col-md-12"> <a asp-action="Index" asp-controller="User">Back to Users List</a> </button>
+                    </div>
+                }
+                else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == null)
+                {
+                    <div class="col-md-6 text-center mt-2">
+                        <a asp-action="Login" asp-controller="Account" class="btn btn-link col-md-12">
+                            Already have an account ?
+                        </a>
+                    </div>
+                }
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/assets/js/User.js" asp-append-version="true"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

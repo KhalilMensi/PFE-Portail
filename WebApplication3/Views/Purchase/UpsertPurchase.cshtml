@@ -1,0 +1,134 @@
+﻿@model PortailEbook.Models.Entity.Purchase
+
+@{
+    ViewData["Title"] = "Upsert Purchase";
+}
+<div class="container shadow col-md-12" style="margin-bottom:70px;background-color:#f8f9fd">
+    <div class="p-5">
+        @if (Model == null)
+        {
+            <div class="text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#4361ee" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
+                </svg>
+            </div>
+            <hr />
+            <p class="text-danger text-center">Please fill in this blanc to create a new user account*</p>
+        }
+        else
+        {
+            <div>
+                <h3>Update Purchase</h3>
+            </div>
+            <hr />
+        }
+        <form id="form" enctype="multipart/form-data">
+            <input asp-for="Id" type="hidden" />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="IdUser"></label>
+                    <select asp-for="IdUser" class="form-control" asp-items="@ViewBag.UsersId" id="userId"></select>
+                    <span id="validIdUser" class="text-danger"></span>
+                </div>
+
+                @if (ViewBag.Id == false)
+                {
+                    <div class="form-group col-md-6">
+                        <label asp-for="PurchaseNumber"></label>
+                        <input asp-for="PurchaseNumber" class="form-control" id="PurchaseNumber" readonly>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group col-md-6">
+                        <label asp-for="PurchaseNumber"></label>
+                        <input asp-for="PurchaseNumber" value="@ViewBag.PurchaseNumber" class="form-control" id="PurchaseNumber" readonly>
+                    </div>
+                }
+
+            </div>
+            <div class="form-row">
+
+                @if (ViewBag.Id == false)
+                {
+                    <div class="form-group col-md-6">
+                        <label asp-for="PurchaseDate"></label>
+                        <input asp-for="PurchaseDate" class="form-control" id="PurchaseDate" readonly>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group col-md-6">
+                        <label asp-for="PurchaseDate"></label>
+                        <input type="text" class="form-control" value="@ViewBag.date" id="PurchaseDate" readonly>
+                    </div>
+                }
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Type"></label>
+                    <input asp-for="Type" class="form-control" id="Type">
+                    <span id="validType" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label asp-for="DiscountPercent"></label>
+                    <input asp-for="DiscountPercent" class="form-control" id="DiscountPercent">
+                    <span id="validDiscountPercent" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Discount"></label>
+                    <input asp-for="Discount" class="form-control" id="Discount">
+                    <span id="validDiscount" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="VatPercent"></label>
+                    <input asp-for="VatPercent" class="form-control" id="VatPercent">
+                    <span id="validVatPercent" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Vat"></label>
+                        <input asp-for="Vat" class="form-control" id="Vat">
+                        <span id="validVat" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AmountHT"></label>
+                        <input asp-for="AmountHT" class="form-control" id="AmountHT">
+                        <span id="validAmountHT" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label asp-for="AmountTTC"></label>
+                    <input asp-for="AmountTTC" class="form-control" id="AmountTTC">
+                    <span id="validAmountTTC" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mt-2 col-md-12 text-center">
+                <button type="button" onclick="savePurchase()" class="btn btn-primary col-md-12">Save Purchase</button>
+            </div>
+            <div class="mt-2 text-center">
+                <a asp-action="Index" asp-controller="Purchase">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                    </svg>
+                    Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/assets/js/PurchaseList.js" asp-append-version="true"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

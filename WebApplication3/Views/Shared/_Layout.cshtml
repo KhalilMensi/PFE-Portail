@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Al-Fikr</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/bootstrap/bootstrap.min.css">
+    <!-- custome CSS -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+    <!--font-awesome-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style>
+        a.cart:hover {
+            text-decoration: none;
+            color: #d60e96;
+        }
+
+        a.cart .cart-basket {
+            font-size: .6rem;
+            position: absolute;
+            top: -6px;
+            right: -5px;
+            width: 15px;
+            height: 15px;
+            color: #fff;
+            background-color: #418deb;
+            border-radius: 50%;
+        }
+
+        a.cart {
+            width: 20px;
+            height: 20px;
+            right: 25px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="top-content">
+        <div class="header-container">
+            <!-- Start Header -->
+            <header class="top-header">
+                <!-- Top menu -->
+                <div class="top-menu">
+                    <div class="container">
+                        <div class="row justify-content-between has-border">
+                            <!-- Langauge -->
+                            <div class="col-4 col-md-4">
+                                <div class="language">
+                                    <a href="#">
+                                        <img src="~/images/flag-en.png" alt="EN" />
+                                        <span>Français</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Langauge -->
+                            <!-- Compte -->
+                            <div class="col-8 col-md-4">
+                                <div class="compte text-right">
+                                    @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin" || @User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User")
+                                    {
+                                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+                                            <i class="fas fa fa-shopping-cart fa-lg"></i>
+                                            <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
+
+                                            </span>
+                                        </a>}
+
+
+                                    @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
+                                    {
+                                        <i class="icon-compte"></i>
+                                        <a asp-action="Index" asp-controller="Role">Mon compte</a> }
+                                    else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User")
+                                    {
+                                        <a asp-action="Index" asp-controller="Role">Mon compte</a> }
+                                    else
+                                    {
+
+                                        <a asp-action="Login" asp-controller="Account">Se connecter</a>
+                                        <span> / </span>
+                                        <a asp-action="UpsertUser" asp-controller="User">S’inscrire</a>}
+                                </div>
+                            </div>
+                            <!-- End Compte -->
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <!-- End Top menu -->
+                <!-- Main menu -->
+                <div class="main-menu">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Logo -->
+                            <div class="col-12 col-md-3">
+                                <div class="logo">
+                                    <a asp-action="Index" asp-controller="Home"><img src="~/images/logo.png" alt="Alkifr" /></a>
+                                </div>
+                            </div>
+                            <!-- End Logo -->
+                            <!-- Search Form -->
+                            <div class="col-12 col-md-9">
+                                <div class="search-bloc clearfix">
+                                    <form action="#" method="post">
+                                        <div class="input-search">
+                                            <input type="text" name="search">
+                                        </div>
+                                        <div class="input-submit">
+                                            <button type="submit" class="send-form">recherche rapide</button>
+                                            <a href="#" class="search-filter">recherche avancé</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- End Search Form -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End Main menu -->
+            </header>
+            <!-- End Header -->
+        </div>
+        <!-- Other pages to be rendered -->
+        <div class="">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="menu-footer">
+                            <ul>
+                                <li>
+                                    <a href="#">A propos al fikr</a>
+                                </li>
+                                <li>
+                                    <a href="#">Politique de confidentialité</a>
+                                </li>
+                                <li>
+                                    <a href="#">Conditions d’utilisation</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- End Content -->
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/assets/jquery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="~/assets/bootstrap/bootstrap.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+    <script src="~/assets/js/User.js" asp-append-version="true"></script>
+
+    <!-- Check the user role of the site -->
+    <script>
+          var AppGlobal = {
+           "user" : {
+                  "role": "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Role)?.Value",
+                  "Name" : "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Name)?.Value"
+              },
+          };
+        $(document).ready(function () {
+            if (AppGlobal.user.role == "User" || AppGlobal.user.role == "Admin") {
+                $.ajax({
+                    url: '/PurchaseLine/NbPurchaseLine',
+                    type: 'post',
+                    dataType: 'json',
+                    cache: false,
+                    success: function (response) {
+                        $('#NbPurchaseLine').text(response)
+                    },
+                    error: function (xhr, error, status) {
+                        console.log(error, status);
+                    }
+                });
+            }
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

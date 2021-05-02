@@ -1,0 +1,251 @@
+﻿@model PortailEbook.Models.Entity.PurchaseLineViewModel
+@{
+    ViewData["Title"] = "ListPurchaseLine";
+}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+<div class="div p-4" style="background-color:#f0f2f5;">
+    <div class="row justify-content-center align-items-center">
+        <div class="row col-md-12 justify-content-center">
+            <div class="row col-md-12 ml-5">
+                <a style="font-size:20px;" href="@Url.Action("UserPurchase","Purchase")">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z" />
+                    </svg>
+                    Back
+                </a>
+            </div>
+            @{ long a = 0, nbr = 0;
+                if (Model != null)
+                {
+                    foreach (var Line in Model.ListPurchaseLine)
+                    {
+                        a += Line.Quantity;
+                    }
+                    @if (Model.Purchase.Type == "PurchaseLine")
+                    {
+                        <div class="row col-md-12 ml-5 mt-5 mb-5">
+                            <span style="font-family: 'Roboto Condensed', sans-serif;font-size:35px;" id="NbArt">Panier (@a Articles)</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row col-md-12 ml-5 mt-5 mb-5">
+                            <span style="font-family: 'Roboto Condensed', sans-serif;font-size:35px;" id="NbArt">Commande n°: @Model.Purchase.Id (@a Articles)</span>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="row col-md-12 ml-5 mt-5 mb-5">
+                        <span style="font-family: 'Roboto Condensed', sans-serif;font-size:35px;" id="NbArt">Panier (@a Articles)</span>
+                    </div>
+                }
+            }
+
+            @if (Model != null)
+            {
+                @if (Model.ListDocumentPurchased.Count() != 0 && Model.ListPurchaseLine.Count() != 0)
+                {
+                    @foreach (var Line in Model.ListPurchaseLine)
+                    {
+                        nbr++;
+                        foreach (var document in Model.ListDocumentPurchased)
+                        {
+                            if (Line.IdDocument == document.Id)
+                            {
+                                if (Model.Purchase.Type == "PurchaseLine")
+                                {
+                                    <div class="row col-md-11 justify-content-between m-2 " style="background-color:#ffffff;border-radius:3px;">
+                                        <img src="~/uploads/CoverPage/@document.CoverPageName" class="col-md-1 pt-2 pb-2" style="height:110px" alt="Alternate Text" />
+                                        <div class="row col-md-4 pt-2 pb-2">
+                                            <div class="col-md-12">
+                                                <span style="font-family: 'Roboto', sans-serif;font-size:10px">@document.Editor</span>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <span style="font-size:15px">@document.OriginalTitle (@document.OriginalLanguage)</span>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <span style="font-family: 'Roboto', sans-serif;font-size:10px">@document.OriginalLanguage</span>
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-2 justify-content-center align-items-center border-left border-right pt-2 pb-2">
+                                            <input type="number" min="1" id="Quantity-@Line.Id" value="@Line.Quantity" class="form-control col-md-10 text-center" onchange="ChangeQuantity(@Line.Id,@Line.IdPurchase,@Line.IdDocument,@Line.UnitPrice,@Line.DiscountPercent,@Line.Discount)" />
+                                        </div>
+                                        <div class="row col-md-2 justify-content-center align-items-center border-right pt-2 pb-2">
+                                            <span>@document.Price DT</span>
+                                        </div>
+                                        <div class="row col-md-2 justify-content-center align-items-center border-right pt-2 pb-2">
+                                            <span id="TotalPrice">@(document.Price * Line.Quantity) DT</span>
+                                        </div>
+                                        <div class="row col-md-1 justify-content-center text-center align-items-center border-right pt-2 pb-2">
+                                            <a href="#" onclick="deletePurchaseLine(@Line.Id,@Line.IdPurchase)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="row col-md-11 justify-content-between m-2 " style="background-color:#ffffff;border-radius:3px;">
+                                        <img src="~/uploads/CoverPage/@document.CoverPageName" class="col-md-1 pt-2 pb-2" style="height:110px" alt="Alternate Text" />
+                                        <div class="row col-md-4 pt-2 pb-2">
+                                            <div class="col-md-12">
+                                                <span style="font-family: 'Roboto', sans-serif;font-size:10px">@document.Editor</span>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <span style="font-size:15px">@document.OriginalTitle (@document.OriginalLanguage)</span>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <span style="font-family: 'Roboto', sans-serif;font-size:10px">@document.OriginalLanguage</span>
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-2 justify-content-center align-items-center border-left border-right pt-2 pb-2">
+                                            <input type="number" min="1" id="Quantity-@Line.Id" value="@Line.Quantity" class="form-control col-md-10 text-center" readonly />
+                                        </div>
+                                        <div class="row col-md-2 justify-content-center align-items-center border-right pt-2 pb-2">
+                                            <span>@document.Price DT</span>
+                                        </div>
+                                        <div class="row col-md-2 justify-content-center align-items-center border-right pt-2 pb-2">
+                                            <span id="TotalPrice">@(document.Price * Line.Quantity) DT</span>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        <div class="row col-md-11 justify-content-end mt-5 mb-3">
+            @if (ViewBag.Total == null)
+            {
+                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
+                    Total : <span style="color:coral;">
+                        0 DT
+                    </span>
+                </span>
+            }
+            else
+            {
+                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
+                    Total : <span style="color:coral;">
+                        @ViewBag.Total DT
+                    </span>
+                </span>
+            }
+        </div>
+            @if (Model != null)
+            {
+                @if (Model.Purchase.Type == "PurchaseLine")
+                {
+                    <div class="row col-md-12 justify-content-end mt-1 mb-5">
+                        <div class="row col-md-12 justify-content-end mr-3">
+                            <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Complèter vos achats" />
+                            <span class="col-md-1"></span>
+                            <input onclick="Commander()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Commander" />
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row col-md-12 justify-content-end mt-1 mb-5">
+                        <div class="row col-md-12 justify-content-end mr-3">
+                            <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Complèter vos achats" />
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="row col-md-12 justify-content-end mt-1 mb-5">
+                    <div class="row col-md-12 justify-content-end mr-3">
+                        <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Complèter vos achats" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        function deletePurchaseLine(PurchaseLineId, IdPurchase) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    console.log(PurchaseLineId)
+                    $.post('/PurchaseLine/delete', { id: PurchaseLineId }, function (response) {
+                        location.href = "/PurchaseLine/ListPurchaseLine?id=" + IdPurchase;
+                    })
+                }
+            })
+        }
+
+        function ChangeQuantity(id, idPurchase, idDocument, unitPrice, discountPercent, discount) {
+            var val = $('#Quantity-' + id).val()
+            $.ajax({
+                url: '/PurchaseLine/UpsertPurchaseLineList',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    Id: id,
+                    IdPurchase: idPurchase,
+                    IdDocument: idDocument,
+                    UnitPrice: unitPrice,
+                    Quantity: val,
+                    DiscountPercent: discountPercent,
+                    Discount: discount
+                },
+                cache: false,
+                success: function (response) {
+                    location.href = "/PurchaseLine/ListPurchaseLine?id=" + idPurchase;
+                },
+                error: function (xhr, error, status) {
+                    console.log(error, status);
+                }
+            });
+        }
+
+        function Commander() {
+
+            var email = AppGlobal.user.Name
+
+            $.ajax({
+                url: '/Purchase/Commander',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    Email: email,
+                },
+                cache: false,
+                success: function (response) {
+                    console.log(response)
+                    if (response) {
+                        location.href = "/Purchase/UserPurchase";
+                    } else {
+                        console.log("erreur")
+                    }
+                },
+                error: function (xhr, error, status) {
+                    console.log(error, status);
+                }
+            });
+        }
+
+        function CompleteAchat() {
+                window.location.href = "/"; //will redirect to your blog page (an ex: blog.html)
+        }
+    </script>
+}
