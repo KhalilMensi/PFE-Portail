@@ -4,13 +4,14 @@
 }
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
 <div class="div p-4" style="background-color:#f0f2f5;">
     <div class="row justify-content-center align-items-center">
         <div class="row col-md-12 justify-content-center">
-            <div class="row col-md-12 ml-5">
+            <div class="row col-md-12">
                 <a style="font-size:20px;" href="@Url.Action("UserPurchase","Purchase")">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z" />
@@ -27,20 +28,30 @@
                     }
                     @if (Model.Purchase.Type == "PurchaseLine")
                     {
-                        <div class="row col-md-12 ml-5 mt-5 mb-5">
-                            <span style="font-family: 'Roboto Condensed', sans-serif;font-size:35px;" id="NbArt">Panier (@a Articles)</span>
+                        <div class="row col-md-12 ml-5 mt-3 mb-5">
+                            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">Panier (@a Articles)</span>
                         </div>
                     }
                     else
                     {
-                        <div class="row col-md-12 ml-5 mt-5 mb-5">
-                            <span style="font-family: 'Roboto Condensed', sans-serif;font-size:35px;" id="NbArt">Commande n°: @Model.Purchase.Id (@a Articles)</span>
+                        <div class="row col-md-12 mt-3 mb-1">
+                            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">Commande n°: @Model.Purchase.Id (@a Articles)</span>
                         </div>
+                        <div class="row col-md-12">
+                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@a Articles </span>
+                        </div>
+                        <div class="row col-md-12">
+                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">Effectué le @Model.Purchase.PurchaseDate</span>
+                        </div>
+                        <div class="row col-md-12">
+                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">Montant Total: @ViewBag.Total DT</span>
+                        </div>
+                        <hr class="mb-5" />
                     }
                 }
                 else
                 {
-                    <div class="row col-md-12 ml-5 mt-5 mb-5">
+                    <div class="row col-md-12 ml-5 mt-2 mb-5">
                         <span style="font-family: 'Roboto Condensed', sans-serif;font-size:35px;" id="NbArt">Panier (@a Articles)</span>
                     </div>
                 }
@@ -122,24 +133,24 @@
                     }
                 }
             }
-        <div class="row col-md-11 justify-content-end mt-5 mb-3">
-            @if (ViewBag.Total == null)
-            {
-                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
-                    Total : <span style="color:coral;">
-                        0 DT
+            <div class="row col-md-11 justify-content-end mt-5 mb-3">
+                @if (ViewBag.Total == null)
+                {
+                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
+                        Total : <span style="color:coral;">
+                            0 DT
+                        </span>
                     </span>
-                </span>
-            }
-            else
-            {
-                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
-                    Total : <span style="color:coral;">
-                        @ViewBag.Total DT
+                }
+                else
+                {
+                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
+                        Total : <span style="color:coral;">
+                            @ViewBag.Total DT
+                        </span>
                     </span>
-                </span>
-            }
-        </div>
+                }
+            </div>
             @if (Model != null)
             {
                 @if (Model.Purchase.Type == "PurchaseLine")
@@ -245,7 +256,7 @@
         }
 
         function CompleteAchat() {
-                window.location.href = "/"; //will redirect to your blog page (an ex: blog.html)
+            window.location.href = "/"; //will redirect to your blog page (an ex: blog.html)
         }
     </script>
 }

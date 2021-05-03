@@ -123,6 +123,7 @@ namespace PortailEbook.Models.BLL
             if(purchase != null)
 			{
                 purchase.Type = "Commande";
+                purchase.PurchaseDate = System.DateTime.Now;
                 etat = BLLPurchase.UpdatePurchase(purchase);
 			}
             if(etat == "Purchase Updated successfuly")

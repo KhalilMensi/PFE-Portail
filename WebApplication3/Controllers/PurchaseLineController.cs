@@ -132,8 +132,8 @@ namespace PortailEbook.Controllers
 						foreach (PurchaseLine purchaseLine in lst)
 						{
 							NbArticles += purchaseLine.Quantity;
-							Total += purchaseLine.Quantity * purchaseLine.UnitPrice;
 							Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
+							Total += purchaseLine.Quantity * document.Price;
 
 							ListDocument.Add(document);
 						}
@@ -163,28 +163,28 @@ namespace PortailEbook.Controllers
 				{
 					Purchase purchase = purchases.FirstOrDefault(x => x.Id == Id);
 
-						IEnumerable<PurchaseLine> lst = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", Id.ToString());
-						List<Document> ListDocument = new List<Document>();
-						float Total = 0;
-						float NbArticles = 0;
-						foreach (PurchaseLine purchaseLine in lst)
-						{
-							NbArticles += purchaseLine.Quantity;
-							Total += purchaseLine.Quantity * purchaseLine.UnitPrice;
-							Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
+					IEnumerable<PurchaseLine> lst = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", Id.ToString());
+					List<Document> ListDocument = new List<Document>();
+					float Total = 0;
+					float NbArticles = 0;
+					foreach (PurchaseLine purchaseLine in lst)
+					{
+						NbArticles += purchaseLine.Quantity;
+						Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
+						Total += purchaseLine.Quantity * document.Price;
 
-							ListDocument.Add(document);
-						}
-						var viewModel = new PurchaseLineViewModel
-						{
-							ListPurchaseLine = lst,
-							ListDocumentPurchased = ListDocument,
-							Purchase = purchase
-						};
-						ViewBag.NbArticles = NbArticles;
-						ViewBag.Total = Total;
+						ListDocument.Add(document);
+					}
+					var viewModel = new PurchaseLineViewModel
+					{
+						ListPurchaseLine = lst,
+						ListDocumentPurchased = ListDocument,
+						Purchase = purchase
+					};
+					ViewBag.NbArticles = NbArticles;
+					ViewBag.Total = Total;
 
-						return View(viewModel);
+					return View(viewModel);
 				}
 				else
 				{

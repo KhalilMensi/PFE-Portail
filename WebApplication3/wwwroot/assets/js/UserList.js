@@ -22,7 +22,6 @@ function loadDataTable() {
                     "data": "id",
 
                     "render": function (data) {
-                        console.log()
                         return `<div class="row justify-content-center">
                         <div class="col-md-3 text-center">
                              <a href="/User/Details?id=${data}">

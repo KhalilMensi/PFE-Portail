@@ -49,7 +49,7 @@ namespace PortailEbook.Models.DAL
             {
                 SqlConnection cnn = DBConnection.GetConnection();
                 cnn.Open();
-                string sql = "If not exists (select * from sysobjects where name = 'User') CREATE TABLE [dbo].[User] (Id bigint IDENTITY(1,1) NOT NULL CONSTRAINT pkCustomerId PRIMARY KEY , Code bigint NOT NULL , Email VARCHAR(50) NOT NULL , Name VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Password VARCHAR(50) NOT NULL , Phone VARCHAR(50) , Country VARCHAR(50) , Adress VARCHAR(50) , PostalCode VARCHAR(50) , Profil VARCHAR(50) NOT NULL , Photo VARCHAR(300) NULL) ";
+                string sql = "If not exists (select * from sysobjects where name = 'User') CREATE TABLE [dbo].[User] (Id bigint IDENTITY(1000,1) NOT NULL CONSTRAINT pkCustomerId PRIMARY KEY , Code bigint NOT NULL , Email VARCHAR(50) NOT NULL , Name VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Password VARCHAR(50) NOT NULL , Phone VARCHAR(50) , Country VARCHAR(50) , Adress VARCHAR(50) , PostalCode VARCHAR(50) , Profil VARCHAR(50) NOT NULL , Photo VARCHAR(300) NULL) ";
                 using (SqlCommand command = new SqlCommand(sql, cnn))
                     command.ExecuteNonQuery();
                 cnn.Close();
@@ -75,7 +75,7 @@ namespace PortailEbook.Models.DAL
                             {
                                 User User = new User();
                                 User.Id = Int64.Parse(dataReader["Id"].ToString());
-                                User.Code = dataReader["Code"].ToString();
+                                User.Code = dataReader["Id"].ToString() + " - "+ dataReader["Name"].ToString()+" "+ dataReader["LastName"].ToString();
                                 User.Email = dataReader["Email"].ToString();
                                 User.Password = dataReader["Password"].ToString();
                                 User.Phone = dataReader["Phone"].ToString();
@@ -471,7 +471,7 @@ namespace PortailEbook.Models.DAL
                 using (SqlConnection connection = DBConnection.GetConnection())
                 {
                     connection.Open();
-                    string sql = "If exists (select * from sysobjects where name = 'User') select MAX (Code) as max from [User]";
+                    string sql = "If exists (select * from sysobjects where name = 'User') select MAX (Id) as max from [User]";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.CommandType = CommandType.Text;
