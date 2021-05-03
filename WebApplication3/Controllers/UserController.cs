@@ -74,7 +74,7 @@ namespace PortailEbook.Controllers
                 user.Id = getUserId(User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value);
             }
             User user2 = BLLUser.getUserBy("Email", user.Email);
-            if(user2.Email == user.Email && user.Id != user2.Id)
+            if(user2 != null && user.Id != user2.Id)
 			{
                 JsonResponse jsonResponse = new JsonResponse();
                 jsonResponse.success = false;

@@ -237,21 +237,21 @@
                                 <div class="compte text-right">
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin" || @User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User")
                                     {
-                                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
-                                            <i class="fas fa fa-shopping-cart fa-lg"></i>
-                                            <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
+                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+                            <i class="fas fa fa-shopping-cart fa-lg"></i>
+                            <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
 
-                                            </span>
-                                        </a>}
+                            </span>
+                        </a>}
                                     <i class="icon-compte"></i>
 
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value != null)
                                     {
-                                        <a asp-action="Logout" asp-controller="Account">Se déconnecter</a> }
-                                    else
-                                    {
-                                        <a asp-action="Login" asp-controller="Account">Se connecter</a>
-                                        <span> / </span>
+                        <a asp-action="Logout" asp-controller="Account">Se déconnecter</a> }
+                    else
+                    {
+        <a asp-action="Login" asp-controller="Account">Se connecter</a>
+                        <span> / </span>
                                         <a asp-action="UpsertUser" asp-controller="User">S’inscrire</a>}
                                 </div>
                             </div>
@@ -321,7 +321,7 @@
                                         Profile
                                     </a>
                                 </li>
-                                <li>
+                                <li class="@Html.IsActive(actions:"UpsertUser", controllers:"User")">
                                     <a href="@Url.Action("UpsertUser","User" ,new { id = -1 })">
                                         <span class="mr-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 2 16 16">
@@ -331,27 +331,26 @@
                                         Update Profile
                                     </a>
                                 </li>
-
-                                <li>
-                                    <a href="#documentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                        Document
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#documentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                Document
+                            </a>
+                            <ul class="collapse list-unstyled" id="documentSubmenu">
+                                <li class="@Html.IsActive(actions:"Index", controllers:"Ebook")">
+                                    <a href="@Url.Action("Index","Ebook")">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-right p-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
+                                        </svg>Ebook
                                     </a>
-                                    <ul class="collapse list-unstyled" id="documentSubmenu">
-                                        <li class="@Html.IsActive(actions:"Index", controllers:"Ebook")">
-                                            <a href="@Url.Action("Index","Ebook")">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-right p-1" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
-                                                </svg>Ebook
-                                            </a>
-                                        </li>
-                                        <li class="@Html.IsActive(actions:"Index", controllers:"Ejournal")">
-                                            <a href="@Url.Action("Index","Ejournal")">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-right p-1" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
-                                                </svg>Ejournal
-                                            </a>
-                                        </li>
-                                    </ul>
+                                </li>
+                                <li class="@Html.IsActive(actions:"Index", controllers:"Ejournal")">
+                                    <a href="@Url.Action("Index","Ejournal")">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-right p-1" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
+                                        </svg>Ejournal
+                                    </a>
                                 </li>
                             </ul>
                         </li>
@@ -473,7 +472,7 @@
                                 </div>*@
                         </div>
                         <div class="row justify-content-between">
-                            <div class="col-md-6 col-sm-6 col-xs-12" >
+                            <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="info-box">
                                     <span class="info-box-icon" style="background-color:#3d5a80">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ffffff" class="bi bi-folder" viewBox="0 0 16 16">
@@ -548,6 +547,7 @@
         <!-- End Footer -->
         <!-- End Content -->
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="~/assets/jquery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -577,11 +577,43 @@
                     }
                 });
             }
+
+            if ($('#homeSubmenu > li').hasClass('active')) {
+                $('#homeSubmenu').collapse()
+            }
+
+            if ($('#documentSubmenu > li').hasClass('active')) {
+                $('#documentSubmenu').collapse()
+            }
+
+            if ($('#pageSubmenu > li').hasClass('active')) {
+                $('#pageSubmenu').collapse()
+            }
+
+            if ($('#documentAddSubmenu > li').hasClass('active')) {
+                $('#pageSubmenu').collapse();
+                $('#documentAddSubmenu').collapse();
+            }
+
+            if (location.href == "https://localhost:44341/User/UpsertUser") {
+                console.log("true")
+                $('#homeSubmenu > li').removeClass('active');
+            }
+
+            if (location.href != "https://localhost:44341/User/Details/-1") {
+                $('#homeSubmenu > li').removeClass('active');
+            }
+
+            if (location.href != "https://localhost:44341/User/UpsertUser/-1") {
+                $('#homeSubmenu > li').removeClass('active');
+
+            }
         });
+
+
     </script>
 
     <!-- DataTables Implementation-->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="~/assets/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/assets/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
