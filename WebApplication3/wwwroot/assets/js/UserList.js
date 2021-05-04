@@ -17,7 +17,16 @@ function loadDataTable() {
                 { "data": "email" },
                 { "data": "password" },
                 { "data": "profil" },
-                { "data": "filename"},
+                {
+                    "data": "filename",
+                    "render": function (data) {
+                        if (data != "") {
+                            return '<img class="rounded-circle" src="uploads/user/' + data + '" style="width:25px;height:25px;"/>';
+                        } else {
+                            return '<img class="rounded-circle" src="uploads/user/unknown.png" style="width:25px;height:25px;"/>';
+                        }
+                    }
+                },
                 {
                     "data": "id",
 
@@ -106,5 +115,4 @@ function deleteUser(UserId) {
         }
     })
 }
-// save the User SUBMIT the Form
 

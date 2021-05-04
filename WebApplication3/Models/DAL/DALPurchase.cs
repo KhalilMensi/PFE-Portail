@@ -80,7 +80,6 @@
 							{
 								purchase = new Purchase();
 								purchase.Id = Int64.Parse(dataReader["Id"].ToString());
-								purchase.Id = Int64.Parse(dataReader["Id"].ToString());
 
 								if (dataReader["IdUser"] != System.DBNull.Value)
 								{
@@ -152,7 +151,7 @@
 			return lstPurchase;
 		}
 
-		internal static long getPurchaseNb()
+		public static long getPurchaseNb()
 		{
 
 			Int64 code = 0;
@@ -209,7 +208,6 @@
 							while (dataReader.Read())
 							{
 								Purchase purchase = new Purchase();
-								User user = BLLUser.getUserBy("Id", dataReader["IdUser"].ToString());
 
 								purchase.Id = Int64.Parse(dataReader["Id"].ToString());
 								if (dataReader["IdUser"] != System.DBNull.Value)
@@ -256,14 +254,13 @@
 							while (dataReader.Read())
 							{
 								Purchase purchase = new Purchase();
-								User user = BLLUser.getUserBy("Id", dataReader["IdUser"].ToString());
 
 								purchase.Id = Int64.Parse(dataReader["Id"].ToString());
 								if (dataReader["IdUser"] != System.DBNull.Value)
 								{
 									purchase.IdUser = dataReader["IdUser"].ToString();
 								}
-								purchase.PurchaseNumber = Int64.Parse(dataReader["PurchaseNumber"].ToString()); purchase.PurchaseNumber = Int64.Parse(dataReader["PurchaseNumber"].ToString());
+								purchase.PurchaseNumber = Int64.Parse(dataReader["PurchaseNumber"].ToString()); 
 								purchase.PurchaseDate = DateTime.Parse(dataReader["PurchaseDate"].ToString());
 								purchase.Type = dataReader["Type"].ToString();
 								purchase.DiscountPercent = dataReader["DiscountPercent"].ToString();
@@ -281,6 +278,7 @@
 				}
 			}
 			catch { }
+			lstPurchase.Reverse();
 			return lstPurchase;
 		}
 

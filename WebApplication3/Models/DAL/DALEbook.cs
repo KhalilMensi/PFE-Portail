@@ -185,10 +185,8 @@ namespace PortailEbook.Models.DAL
                         {
                             if (dataReader.Read())
                             {
-                                
                                 Ebook ebook = new Ebook();
                                 ebook.Id = Int64.Parse(dataReader["Id"].ToString());
-                                
                                 ebook.EditionNum = dataReader["EditionNum"].ToString();
                                 ebook.EditionPlace = dataReader["EditionPlace"].ToString();
                                 ebook.ISBN = dataReader["ISBN"].ToString();

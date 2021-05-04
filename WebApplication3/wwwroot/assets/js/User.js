@@ -85,7 +85,7 @@ function saveUser() {
                             title: 'Signed in successfully',
                         })
                         setTimeout(function () {
-                            window.location.href = "/Home"; //will redirect to your blog page (an ex: blog.html)
+                            window.location.href = "/Account/Login"; //will redirect to your blog page (an ex: blog.html)
                         }, 1500);
                     }
 
