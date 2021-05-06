@@ -79,7 +79,7 @@ namespace PortailEbook.Models.Entity
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
 		[Display(Name = "Publication Date")]
-		public DateTime PublicationDate { get; set; }
+		public string PublicationDate { get; set; }
 
 		public string Country { get; set; }
 
@@ -105,7 +105,7 @@ namespace PortailEbook.Models.Entity
 			string marcRecordNumber, string originalTitle, string titlesVariants, string subtitle,
 			string foreword, string keywords,IFormFile file, string fileFormat, IFormFile coverPage, string url, 
 			string documentType, string originalLanguage, string languagesVarients, string translator,
-			string accessType, string state, float price, DateTime publicationDate, string country,
+			string accessType, string state, float price, string publicationDate, string country,
 			string physicalDescription, string accompanyingMaterials, int accompanyingMaterialsNb,
 			int volumeNb, string abstractt, string notes)
 		{

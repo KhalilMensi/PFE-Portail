@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Recherche\" />
     <Folder Include="wwwroot\uploads\CoverPage\" />
   </ItemGroup>
 

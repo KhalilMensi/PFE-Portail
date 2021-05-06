@@ -89,7 +89,7 @@
 			{
 				SqlConnection cnn = DBConnection.GetConnection();
 				cnn.Open();
-				string sql = "If not exists (select * from sysobjects where name = 'Document') CREATE TABLE [dbo].[Document] (Id bigint IDENTITY(1, 1) NOT NULL CONSTRAINT pkDocumentId PRIMARY KEY, Editor VARCHAR(50) NOT NULL ,Collection VARCHAR(50) NOT NULL,Theme VARCHAR(50) NOT NULL,Catalogue VARCHAR(50) NOT NULL,Doi VARCHAR(50) NOT NULL,MarcRecordNumber VARCHAR(50) NULL,OriginalTitle VARCHAR(50) NOT NULL,TitlesVariants VARCHAR(50) , Subtitle VARCHAR(50), Foreword VARCHAR(50),Keywords VARCHAR(50) , DocumentFile VARCHAR(300) ,FileFormat VARCHAR(50) , CoverPage VARCHAR(50) NOT NULL,DocumentUrl VARCHAR(50),DocumentType VARCHAR(50) NOT NULL,OriginalLanguage VARCHAR(50) NOT NULL,LanguagesVarients VARCHAR(50) ,Translator VARCHAR(50) ,AccessType VARCHAR(50) , DocumentState VARCHAR(50) NOT NULL,Price float ,PublicationDate Date NOT NULL , Country VARCHAR(50),PhysicalDescription VARCHAR(50) ,AccompanyingMaterials VARCHAR(50) , AccompanyingMaterialsNb int,VolumeNb int,Abstract VARCHAR(100),Notes VARCHAR(100)) ";
+				string sql = "If not exists (select * from sysobjects where name = 'Document') CREATE TABLE [dbo].[Document] (Id bigint IDENTITY(1, 1) NOT NULL CONSTRAINT pkDocumentId PRIMARY KEY, Editor VARCHAR(50) NOT NULL ,Collection VARCHAR(50) NOT NULL,Theme VARCHAR(50) NOT NULL,Catalogue VARCHAR(50) NOT NULL,Doi VARCHAR(50) NOT NULL,MarcRecordNumber VARCHAR(50) NULL,OriginalTitle VARCHAR(50) NOT NULL,TitlesVariants VARCHAR(50) , Subtitle VARCHAR(50), Foreword VARCHAR(50),Keywords VARCHAR(50) , DocumentFile VARCHAR(300) ,FileFormat VARCHAR(50) , CoverPage VARCHAR(50) NOT NULL,DocumentUrl VARCHAR(50),DocumentType VARCHAR(50) NOT NULL,OriginalLanguage VARCHAR(50) NOT NULL,LanguagesVarients VARCHAR(50) ,Translator VARCHAR(50) ,AccessType VARCHAR(50) , DocumentState VARCHAR(50) NOT NULL,Price float ,PublicationDate VARCHAR(10) NOT NULL , Country VARCHAR(50),PhysicalDescription VARCHAR(50) ,AccompanyingMaterials VARCHAR(50) , AccompanyingMaterialsNb int,VolumeNb int,Abstract VARCHAR(100),Notes VARCHAR(100)) ";
 				using (SqlCommand command = new SqlCommand(sql, cnn))
 					command.ExecuteNonQuery();
 				cnn.Close();
@@ -139,7 +139,7 @@
 								document.AccessType = dataReader["AccessType"].ToString();
 								document.State = dataReader["DocumentState"].ToString();
 								document.Price = float.Parse(dataReader["Price"].ToString());
-								document.PublicationDate = DateTime.Parse(dataReader["PublicationDate"].ToString());
+								document.PublicationDate = dataReader["PublicationDate"].ToString();
 								document.Country = dataReader["Country"].ToString();
 								document.PhysicalDescription = dataReader["PhysicalDescription"].ToString();
 								document.AccompanyingMaterials = dataReader["AccompanyingMaterials"].ToString();
@@ -200,7 +200,7 @@
 								document.AccessType = dataReader["AccessType"].ToString();
 								document.State = dataReader["DocumentState"].ToString();
 								document.Price = float.Parse(dataReader["Price"].ToString());
-								document.PublicationDate = DateTime.Parse(dataReader["PublicationDate"].ToString());
+								document.PublicationDate = dataReader["PublicationDate"].ToString();
 								document.Country = dataReader["Country"].ToString();
 								document.PhysicalDescription = dataReader["PhysicalDescription"].ToString();
 								document.AccompanyingMaterials = dataReader["AccompanyingMaterials"].ToString();
@@ -263,7 +263,7 @@
 								document.AccessType = dataReader["AccessType"].ToString();
 								document.State = dataReader["State"].ToString();
 								document.Price = float.Parse(dataReader["Price"].ToString());
-								document.PublicationDate = DateTime.Parse(dataReader["PublicationDate"].ToString());
+								document.PublicationDate = dataReader["PublicationDate"].ToString();
 								document.Country = dataReader["Country"].ToString();
 								document.PhysicalDescription = dataReader["PhysicalDescription"].ToString();
 								document.AccompanyingMaterials = dataReader["AccompanyingMaterials"].ToString();

@@ -1,0 +1,49 @@
+﻿@model PortailEbook.Models.Entity.PurchaseLineViewModel
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
+<div>
+    <div class="container mt-4 mb-4">
+        <div>
+            <span style="font-family: 'IBM Plex Mono', monospace;font-size:20px">Merci, Votre commande a été reçu avec succés</span>
+        </div>
+        <div class="row col-md-12 mt-3 mb-1">
+            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">Commande n°: @Model.Purchase.Id</span>
+        </div>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Produit</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model != null)
+                {
+                    @if (Model.ListDocumentPurchased.Count() != 0 && Model.ListPurchaseLine.Count() != 0)
+                    {
+                        @foreach (var Line in Model.ListPurchaseLine)
+                        {
+                            foreach (var document in Model.ListDocumentPurchased)
+                            {
+                                if (Line.IdDocument == document.Id)
+                                {
+                                    if (Model.Purchase.Type == "Commande")
+                                    {
+                                        <tr>
+                                            <td>@document.OriginalTitle * @Line.Quantity</td>
+                                            <td>@(document.Price * Line.Quantity) DT</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+        <div class="row col-md-12 mt-3 mb-1">
+            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">Total : @ViewBag.Total DT</span>
+        </div>
+    </div>
+</div>

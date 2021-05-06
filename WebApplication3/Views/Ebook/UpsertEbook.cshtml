@@ -82,15 +82,25 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="Theme"></label>
-                            <input asp-for="Theme" class="form-control" id="Theme">
+                            <select asp-for="Theme" class="custom-select text-center" id="Theme">
+                                <option value="">-- Select theme --</option>
+                                <option value="Architecture">Architecture</option>
+                                <option value="Science fondamentale">Science fondamentale</option>
+                                <option value="Sciences médicales">Sciences médicales</option>
+                                <option value="Lettres et civilisation">Lettres et civilisation</option>
+                                <option value="Sciences humaines, sociales et religieuses">Sciences humaines, sociales et religieuses</option>
+                                <option value="Sciences juridiques et politiques">Sciences juridiques et politiques</option>
+                                <option value="Sciences de l’ingénieur">Sciences de l’ingénieur</option>
+                                <option value="Sciences économiques et gestion">Sciences économiques et gestion</option>
+                            </select>
                             <span id="validTheme" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label asp-for="Catalogue"></label>
-                            <input asp-for="Catalogue" class="form-control" id="Catalogue">
-                            <span id="validCatalogue" class="text-danger"></span>
+                            <label asp-for="Price"></label>
+                            <input asp-for="Price" min="0" value="0" type="number" class="form-control" id="Price">
+                            <span id="validPrice" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -124,14 +134,24 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="State"></label>
-                            <input asp-for="State" class="form-control" id="State">
+                            <select asp-for="State" class="custom-select text-center" id="State">
+                                <option value="">-- Select state --</option>
+                                <option value="Publier">Publier</option>
+                                <option value="Non publier">Non publier</option>
+                            </select>
                             <span id="validState" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="PublicationDate"></label>
-                            <input asp-for="PublicationDate" class="form-control" id="PublicationDate" type="date">
+                            <select asp-for="PublicationDate" class="custom-select text-center" id="PublicationDate">
+                                <option value="">-- Select a year --</option>
+                                @for (int i = @DateTime.Now.Year; i > @DateTime.Now.Year - 10; i--)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
                             <span id="validPublicationDate" class="text-danger"></span>
                         </div>
                     </div>
@@ -140,14 +160,20 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label asp-for="OriginalLanguage"></label>
-                            <input asp-for="OriginalLanguage" class="form-control" id="OriginalLanguage">
+                            <select asp-for="OriginalLanguage" class="custom-select text-center" id="OriginalLanguage">
+                                <option value="">-- Select language --</option>
+                                <option value="English">English</option>
+                                <option value="French">French</option>
+                                <option value="Arabic">Arabic</option>
+                            </select>
                             <span id="validOriginalLanguage" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label asp-for="LanguagesVarients"></label>
-                            <input asp-for="LanguagesVarients" class="form-control">
+                            <label asp-for="Catalogue"></label>
+                            <input asp-for="Catalogue" class="form-control" id="Catalogue">
+                            <span id="validCatalogue" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -228,9 +254,8 @@
                 <div class="form-row col-md-12">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label asp-for="Price"></label>
-                            <input asp-for="Price" min="0" value="0" type="number" class="form-control" id="Price">
-                            <span id="validPrice" class="text-danger"></span>
+                            <label asp-for="LanguagesVarients"></label>
+                            <input asp-for="LanguagesVarients" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">

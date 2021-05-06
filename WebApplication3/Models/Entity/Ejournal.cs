@@ -32,7 +32,7 @@ namespace PortailEbook.Models.Entity
 			string titlesVariants, string subtitle, string foreword, string keywords, IFormFile file,
 			string fileFormat, IFormFile coverPage, string url, string documentType,
 			string originalLanguage, string languagesVarients, string translator, string accessType,
-			string state, float price, DateTime publicationDate, string country, string physicalDescription,
+			string state, float price, string publicationDate, string country, string physicalDescription,
 			string accompanyingMaterials, int accompanyingMaterialsNb, int volumeNb, string abstractt,
 			string notes) : base(id, editor, collection, theme, catalogue, doi,
 			marcRecordNumber, originalTitle, titlesVariants, subtitle,foreword, keywords, file,

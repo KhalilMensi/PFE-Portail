@@ -13,11 +13,11 @@ function loadDataTable() {
             "dataSrc": ""
         },
         "columns": [
-            { "data": "isbn" },
-            { "data": "doi" },
             { "data": "originalTitle" },
-            { "data": "originalLanguage" },
-            { "data": "editor" },
+            { "data": "isbn" },
+            { "data": "collection" },
+            { "data": "price" },
+            { "data": "publicationDate" },
             {
                 "data": "id",
 
@@ -109,9 +109,10 @@ function deleteEbook(EbookId) {
 
 // save the Ebook SUBMIT the Form
 function saveEbook(bool) {
-    if ($('#ISBN').val().length > 0 && $('#NbPages').val().length > 0 && $('#Editor').val().length > 0 && $('#Collection').val().length > 0 && $('#Theme').val().length > 0 && $('#Catalogue').val().length > 0 && $('#Doi').val().length > 0 && $('#OriginalTitle').val().length > 0 && newFunction(bool) && newFunction2(bool) && $('#OriginalLanguage').val().length > 0 && $('#State').val().length > 0 && $('#PublicationDate').val().length > 0) {
+    if ($('#Price').val() > 0 && $('#ISBN').val().length > 0 && $('#NbPages').val().length > 0 && $('#Editor').val().length > 0 && $('#Collection').val().length > 0 && $('#Theme').val().length > 0 && $('#Catalogue').val().length > 0 && $('#Doi').val().length > 0 && $('#OriginalTitle').val().length > 0 && newFunction(bool) && newFunction2(bool) && $('#OriginalLanguage').val().length > 0 && $('#State').val().length > 0 && $('#PublicationDate').val().length > 0) {
         console.log($('#PublicationDate').val())
         $('#validISBN').text('')
+        $('#validPrice').text('')
         $('#validNbPages').text('')
         $('#validEditor').text('')
         $('#validCollection').text('')
@@ -192,7 +193,11 @@ function saveEbook(bool) {
         } else {
             $('#validISBN').text('')
         }
-
+        if ($('#Price').val() < 1) {
+            $('#validPrice').text('Champ obligatoire')
+        } else {
+            $('#validPrice').text('')
+        }
         if ($('#NbPages').val().length < 1) {
             $('#validNbPages').text('Champ obligatoire')
         } else {
