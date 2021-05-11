@@ -88,6 +88,25 @@ function addPurchase(userId, id) {
                                         cache: false,
                                         success: function (response) {
                                             $('#NbPurchaseLine').text(response)
+                                            $("#dropdown-content").empty()
+                                            $.ajax({
+                                                url: '/PurchaseLine/PurchaseLineUser',
+                                                type: 'post',
+                                                dataType: 'json',
+                                                cache: false,
+                                                success: function (response) {
+                                                    for (var j = 0; j < response.listDocumentPurchased.length; j++) {
+                                                        for (var i = 0; i < response.listPurchaseLine.length; i++) {
+                                                            if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
+                                                                $('#dropdown-content').append(`<span class="dropdown-item hover text-left" style="font-size:15px;">${response.listDocumentPurchased[j].originalTitle + " * " + response.listPurchaseLine[i].quantity}</span>`)
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                error: function (xhr, error, status) {
+                                                    console.log(error, status);
+                                                }
+                                            });
                                         },
                                         error: function (xhr, error, status) {
                                             console.log(error, status);

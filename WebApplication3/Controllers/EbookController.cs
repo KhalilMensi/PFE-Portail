@@ -10,7 +10,6 @@ using System.IO;
 
 namespace PortailEbook.Controllers
 {
-	[Authorize]
 	public class EbookController : Controller
 	{
 
@@ -27,6 +26,11 @@ namespace PortailEbook.Controllers
 		public IActionResult Index()
 		{
 			return View();
+		}
+
+		public IActionResult DetailsEbook(Int64 id)
+		{
+			return View(BLLEbook.getEbookBy("Id",id.ToString()));
 		}
 
 		// Ajout un Ebook au DB

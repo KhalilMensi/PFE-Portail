@@ -1,0 +1,183 @@
+﻿@model PortailEbook.Models.Entity.Ebook;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+<style>
+
+    .header {
+        background-color: #f1f1f1;
+        padding: 30px;
+        text-align: center;
+    }
+
+    #navbar {
+        overflow: hidden;
+        background-color: #ffffff;
+        scrollbar-darkshadow-color: grey;
+    }
+
+
+    .content {
+        padding: 16px;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    }
+
+        .sticky + .content {
+            padding-top: 60px;
+        }
+    .input-submit .addProduct {
+        width: 150px;
+        background-color: #ecb43a;
+        color: #ffffff;
+        font-family: 'poppinslight', sans-serif;
+        font-size: 14px;
+        border: 0;
+        line-height: 14px;
+        display: inline-block;
+        text-transform: capitalize;
+        padding: 15px 0;
+        text-align: center;
+        margin-left: 15px;
+    }
+
+        .input-submit .addProduct:hover {
+            text-decoration: none;
+            background-color: #f0f0f0;
+            color: #34332f;
+        }
+
+    .input-submit .retour {
+        text-decoration: none;
+        width: 150px;
+        background-color: #f0f0f0;
+        color: #34332f;
+        font-family: 'poppinslight', sans-serif;
+        font-size: 14px;
+        border: 0;
+        line-height: 14px;
+        display: inline-block;
+        text-transform: capitalize;
+        padding: 15px 0;
+        text-align: center;
+        margin-left: 15px;
+    }
+</style>
+<div class="header">
+    <div style="background-color:#f0f2f5;">
+        <div class="row col-md-12 justify-content-center align-content-center">
+            <div class="row col-md-8" style="background-color:#fff;">
+                <div class="col-md-4 p-2">
+                    <a href="#"><img src="~/uploads/CoverPage/@Model.CoverPageName" style="width:177px;height:200px"></a>
+                </div>
+                <div class="col-md-5 p-2">
+                    <div class="row col-md-12 ">
+                        <div class="row col-md-12">
+                            <span style="font-family: 'Roboto', sans-serif;font-size:25px">@Model.OriginalTitle</span>
+                        </div>
+                        <div class="row col-md-12">
+                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Par : <b style="color:#3d84b8">@Model.Editor</b></h3>
+                        </div>
+                        <div class="row col-md-12">
+                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Année : <b>@Model.PublicationDate</b></h3>
+                        </div>
+                        <div class="row col-md-12">
+                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Pages : <b>@Model.NbPages</b></h3>
+                        </div>
+                        <div class="row col-md-12">
+                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Collection : <b>@Model.Collection</b></h3>
+                        </div>
+                        <div class="row col-md-12">
+                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Price : <b>@Model.Price</b> DT</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div class="input-submit p-2">
+                        <a href="" onclick="addProduct(@Model.Id)" class="addProduct">Ajouter au Panier</a>
+                    </div>
+                    <div class="input-submit p-2">
+                        <a href="@Url.Action("Index", "Home")" class="retour">Retour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="navbar" style="height:30px">
+    <div class="container">
+        <a href="#" style="font-family: 'Roboto', sans-serif;font-size:20px;padding:3px;">
+            Sommaire
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 3 16 16">
+                <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+            </svg>
+        </a>
+    </div>
+</div>
+
+<div class="content container">
+    <h2 style="font-family: 'Open Sans', sans-serif;font-size:35px">Détails sur le produit :</h2>
+    <br />
+    <div class="row">
+        <span><b>ISBN : </b>@Model.ISBN</span>
+    </div>
+    <div class="row">
+        <span><b>Langue : </b>@Model.OriginalLanguage</span>
+    </div>
+    <div class="row">
+        <span><b>Doi : </b>@Model.Doi</span>
+    </div>
+    <div class="row">
+        <span><b>Date de publication : </b>@Model.PublicationDate</span>
+    </div>
+
+    <div class="row">
+        <span><b>Theme : </b>@Model.Theme</span>
+    </div>
+    <div class="row">
+        <span><b>Catalogue : </b>@Model.Catalogue</span>
+    </div>
+    <div class="row">
+        <span><b>LanguagesVarient : </b>@Model.LanguagesVarients</span>
+    </div>
+    <div class="row">
+        <span><b>Genre : </b>@Model.Genre</span>
+    </div>
+    <div class="row">
+        <span><b>Price : </b>@Model.Price DT</span>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-8">
+            <h2 style="font-family: 'Open Sans', sans-serif;font-size:20px">Auteur :</h2>
+            Jean-Jacques Rousseau, né le 28 juin 1712 à Genève et mort le 2 juillet 1778 à Ermenonville, est un écrivain, philosophe et musicien genevois francophone. Orphelin de mère très jeune, sa vie est marquée par l'errance. Si ses livres et lettres connaissent à partir de 1749 un fort succès, ils lui valent aussi des conflits avec l'Église catholique et Genève qui l'obligent à changer souvent de résidence et alimentent son sentiment de persécution. Après sa mort, son corps est transféré au Panthéon de Paris en 1794.
+        </div>
+        <div class="col-md-4">
+            <img src="~/uploads/CoverPage/Book_IMG_1754-1-e1481474081467.jpg" style="height:300px" alt="Alternate Text" />
+        </div>
+    </div>
+</div>
+<script src="~/assets/js/customjs.js" asp-append-version="true"></script>
+<script>
+
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
+

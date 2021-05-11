@@ -35,6 +35,34 @@
             height: 20px;
             right: 25px;
         }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content span {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align:center
+            }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
     </style>
 
 </head>
@@ -61,14 +89,18 @@
                             <div class="col-8 col-md-4">
                                 <div class="compte text-right">
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin" || @User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User")
-                                    {
-                                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
-                                            <i class="fas fa fa-shopping-cart fa-lg"></i>
-                                            <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
+                                    {<div class="dropdown">
+                                            <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+                                                <i class="fas fa fa-shopping-cart fa-lg"></i>
+                                                <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
 
-                                            </span>
-                                        </a>}
+                                                </span>
+                                            </a>
+                                            <div class="card dropdown-content text-left" id="dropdown-content">
 
+                                            </div>
+                                        </div>
+                                    }
 
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
                                     {
@@ -105,7 +137,7 @@
                             <!-- Search Form -->
                             <div class="col-12 col-md-9">
                                 <div class="search-bloc clearfix">
-                                    <form asp-action="Recherche" method="post">
+                                    <form asp-action="Recherche" asp-route-mode="Grid" method="post">
                                         <div class="input-search">
                                             <input type="text" name="search" id="search">
                                         </div>
@@ -170,7 +202,7 @@
 
     <!-- Check the user role of the site -->
     <script>
-          var AppGlobal = {
+        var AppGlobal = {
            "user" : {
                   "role": "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Role)?.Value",
                   "Name" : "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Name)?.Value"
@@ -185,6 +217,24 @@
                     cache: false,
                     success: function (response) {
                         $('#NbPurchaseLine').text(response)
+                        $.ajax({
+                            url: '/PurchaseLine/PurchaseLineUser',
+                            type: 'post',
+                            dataType: 'json',
+                            cache: false,
+                            success: function (response) {
+                                for (var j = 0; j < response.listDocumentPurchased.length; j++) {
+                                    for (var i = 0; i < response.listPurchaseLine.length; i++) {
+                                        if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
+                                            $('#dropdown-content').append(`<span class="dropdown-item hover text-left" style="font-size:15px;">${response.listDocumentPurchased[j].originalTitle + " * " + response.listPurchaseLine[i].quantity}</span>`)
+                                        }
+                                    }
+                                }
+                            },
+                            error: function (xhr, error, status) {
+                                console.log(error, status);
+                            }
+                        });
                     },
                     error: function (xhr, error, status) {
                         console.log(error, status);

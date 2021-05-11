@@ -244,5 +244,24 @@ namespace PortailEbook.Controllers
 			return count;
 		}
 
+		[HttpPost]
+		public PurchaseLineViewModel PurchaseLineUser()
+		{
+			string name = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
+			IEnumerable<PurchaseLine> ListPurchase = BLLPurchaseLine.getAllPurchaseLineByUser(name);
+			List<Document> lstDocument = new List<Document>();
+			foreach(var p in ListPurchase)
+			{
+				Document d = BLLDocument.getDocumentBy("Id", p.IdDocument.ToString());
+				lstDocument.Add(d);
+			}
+			var viewModel = new PurchaseLineViewModel
+			{
+				ListPurchaseLine = ListPurchase,
+				ListDocumentPurchased = lstDocument,
+				Purchase = null
+			};
+			return viewModel ;
+		}
 	}
 }
