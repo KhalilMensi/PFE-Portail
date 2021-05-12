@@ -18,6 +18,7 @@
         fill: #DA4567;
         cursor: pointer;
     }
+
     .input-submit .addProduct {
         width: 150px;
         background-color: #ecb43a;
@@ -38,6 +39,7 @@
             background-color: #f0f0f0;
             color: #34332f;
         }
+
     .input-submit .viewDetails {
         text-decoration: none;
         width: 150px;
@@ -205,7 +207,7 @@
                                         </div>
                                         <div class="col-md-3 p-2">
                                             <div class="input-submit p-2">
-                                                <a href="" onclick="addProduct(@document.Id)" class="addProduct">Ajouter au Panier</a>
+                                                <a href="#" onclick="addProduct(@document.Id)" class="addProduct">Ajouter au Panier</a>
                                             </div>
                                             <div class="input-submit p-2">
                                                 <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" class="viewDetails">View Details</a>
@@ -227,7 +229,8 @@
         var userId;
         var email = AppGlobal.user.Name
 
-        if (email != "") {
+        if (email != null && email != "") {
+            console.log(email)
             $.ajax({
                 url: '/User/getUserId',
                 type: 'post',
@@ -333,5 +336,7 @@
             }
         });
     }
-
 </script>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
