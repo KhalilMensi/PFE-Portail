@@ -13,6 +13,7 @@ namespace PortailEbook.Models.Entity
 		public string Email { get; set; }
 
 		[Required(ErrorMessage = "Champ obligatoire")]
+		[Display(Name = "Mot de passe")]
 		public string Password { get; set; } 
 	}
 }

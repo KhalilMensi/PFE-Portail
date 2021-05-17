@@ -9,11 +9,11 @@ namespace PortailEbook.Models.Entity
 	public class Ebook : Document
 	{
 		[StringLength(50)]
-		[Display(Name = "Edition Number")]
+		[Display(Name = "Nombre d'édition")]
 		public string EditionNum { get; set; }
 
 		[StringLength(50)]
-		[Display(Name = "Edition Place")]
+		[Display(Name = "Lieu d'édition")]
 		public string EditionPlace { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
@@ -24,10 +24,11 @@ namespace PortailEbook.Models.Entity
 		public string Genre { get; set; }
 
 		[StringLength(50)]
+		[Display(Name = "Categorie")]
 		public string Category { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Number Of Pages")]
+		[Display(Name = "Nombre des pages")]
 		public int NbPages { get; set; }
 
 		public Ebook()

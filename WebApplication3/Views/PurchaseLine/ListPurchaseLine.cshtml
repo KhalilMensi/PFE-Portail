@@ -18,14 +18,14 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z" />
                         </svg>
-                        Back to mes Commandes
+                        Retour vers mes commandes
                     </a>
                     <span class="col-md-1"></span>
                     <a style="font-size:20px;" href="@Url.Action("Index","Purchase")">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z" />
                         </svg>
-                        Back to List
+                        Retour au Liste des commandes
                     </a>
                 }
                 else
@@ -34,7 +34,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z" />
                         </svg>
-                        Back
+                        Retour
                     </a>
                 }
             </div>
@@ -164,7 +164,8 @@
                 else
                 {
                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
-                        Total : <span style="color:coral;">
+                        Total : 
+                        <span style="color:coral;">
                             @ViewBag.Total DT
                         </span>
                     </span>
@@ -174,12 +175,15 @@
             {
                 @if (Model.Purchase.Type == "PurchaseLine")
                 {
+                   
                     <div class="row col-md-12 justify-content-end mt-1 mb-5">
                         <div class="row col-md-12 justify-content-end mr-3">
-
                             <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Complèter vos achats" />
                             <span class="col-md-1"></span>
+                            @if (Model.ListPurchaseLine.Count() != 0)
+                            {
                             <a asp-action="Commander" asp-controller="Purchase" class="btn btn-info col-md-3 mt-3 mb-3" name="name">Commander</a>
+                            }
                         </div>
                     </div>
                 }
@@ -187,7 +191,7 @@
                 {
                     <div class="row col-md-12 justify-content-end mt-1 mb-5">
                         <div class="row col-md-12 justify-content-end mr-3">
-                            <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Complèter vos achats" />
+                            <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Retour page d'acceuil" />
                         </div>
                     </div>
                 }
@@ -196,7 +200,7 @@
             {
                 <div class="row col-md-12 justify-content-end mt-1 mb-5">
                     <div class="row col-md-12 justify-content-end mr-3">
-                        <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Complèter vos achats" />
+                        <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Retour page d'acceuil" />
                     </div>
                 </div>
             }

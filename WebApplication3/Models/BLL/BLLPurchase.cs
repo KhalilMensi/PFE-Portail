@@ -4,6 +4,7 @@ using PortailEbook.Models.DAL;
 using PortailEbook.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PortailEbook.Models.BLL
 {
@@ -122,9 +123,17 @@ namespace PortailEbook.Models.BLL
             Purchase purchase = BLLPurchase.GetPurchaseByEmailUser(name);
             if(purchase != null)
 			{
-                purchase.Type = "Commande";
-                purchase.PurchaseDate = System.DateTime.Now;
-                etat = BLLPurchase.UpdatePurchase(purchase);
+                List<PurchaseLine> list = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", purchase.Id.ToString()).ToList();
+                if (list.Count() != 0)
+                {
+                    purchase.Type = "Commande";
+                    purchase.PurchaseDate = System.DateTime.Now;
+                    etat = BLLPurchase.UpdatePurchase(purchase);
+				}
+				else
+				{
+                    return false;
+				}
 			}
             if(etat == "Purchase Updated successfuly")
 			{

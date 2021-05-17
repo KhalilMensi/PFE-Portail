@@ -151,28 +151,31 @@ namespace PortailEbook.Controllers
 		public ActionResult Commander()
 		{
 			string name = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
-
 			Boolean etat = BLLPurchase.CommanderPurchase(name);
-			IEnumerable<Purchase> purchase = BLLPurchase.getAllPurchasesBy("IdUser", BLLUser.getUserBy("Email", name = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value).Id.ToString()).ToList().FindAll(x => x.Type == "Commande");
-			Purchase p = purchase.FirstOrDefault();
-			IEnumerable<PurchaseLine> lst = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", p.Id.ToString());
-			List<Document> ListDocument = new List<Document>();
-			
-			float Total = 0;
-			foreach (PurchaseLine purchaseLine in lst)
+			if (etat == true)
 			{
-				Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
-				Total += purchaseLine.Quantity * document.Price;
-				ListDocument.Add(document);
+				IEnumerable<Purchase> purchase = BLLPurchase.getAllPurchasesBy("IdUser", BLLUser.getUserBy("Email", name = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value).Id.ToString()).ToList().FindAll(x => x.Type == "Commande");
+				Purchase p = purchase.FirstOrDefault();
+				IEnumerable<PurchaseLine> lst = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", p.Id.ToString());
+				List<Document> ListDocument = new List<Document>();
+
+				float Total = 0;
+				foreach (PurchaseLine purchaseLine in lst)
+				{
+					Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
+					Total += purchaseLine.Quantity * document.Price;
+					ListDocument.Add(document);
+				}
+				var viewModel = new PurchaseLineViewModel
+				{
+					ListPurchaseLine = lst,
+					ListDocumentPurchased = ListDocument,
+					Purchase = p
+				};
+				ViewBag.Total = Total;
+				return View(viewModel);
 			}
-			var viewModel = new PurchaseLineViewModel
-			{
-				ListPurchaseLine = lst,
-				ListDocumentPurchased = ListDocument,
-				Purchase = p
-			};
-			ViewBag.Total = Total;
-			return View(viewModel);
+			return RedirectToAction("UserPurchase", "Purchase");
 		}
 		public IActionResult ValidationPurchase()
 		{

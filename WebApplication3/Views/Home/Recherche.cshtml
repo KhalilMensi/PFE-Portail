@@ -6,7 +6,7 @@
     .MaDiv:hover {
         transform: scale(1.05);
         box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        transition: all 0.5s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
 
     .icon1:hover {
@@ -65,13 +65,13 @@
             @if (Model == null)
             {
                 <div class="row mt-1 mb-1">
-                    <h4>No Document available !!</h4>
+                    <h4>Aucun document disponible !!</h4>
                 </div>
             }
             else
             {
-                <div class="card row col-md-3 m-1" style="height:300px">
-                    <span class="p-3"><b>Categories :</b></span>
+                <div class="card row col-md-3 m-1 align-content-center" style="height:300px">
+                    <span class="p-3"><b>Categories</b></span>
                 </div>
                 <div class="container-fluid card col-md-8 m-1">
                     <div class="row col-md-12 pt-2 pb-2">
@@ -210,7 +210,7 @@
                                                 <a href="#" onclick="addProduct(@document.Id)" class="addProduct">Ajouter au Panier</a>
                                             </div>
                                             <div class="input-submit p-2">
-                                                <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" class="viewDetails">View Details</a>
+                                                <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" class="viewDetails">Voir détailles</a>
                                             </div>
                                         </div>
                                     </div>

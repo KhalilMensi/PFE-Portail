@@ -17,7 +17,6 @@
                 </tr>
             </thead>
             <tbody>
-
                 @if (Model != null)
                 {
                     @if (Model.ListDocumentPurchased.Count() != 0 && Model.ListPurchaseLine.Count() != 0)
@@ -44,6 +43,9 @@
         </table>
         <div class="row col-md-12 mt-3 mb-1">
             <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">Total : @ViewBag.Total DT</span>
+        </div>
+        <div class="row col-md-3 mt-3 mb-1">
+            <a asp-action="UserPurchase" asp-controller="Purchase" class="btn btn-primary">Retour à mes commandes</a>
         </div>
     </div>
 </div>

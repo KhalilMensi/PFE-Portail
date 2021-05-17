@@ -15,11 +15,11 @@ namespace PortailEbook.Models.Entity
 		public string IdUser { get; set; }
 
 		[Required]
-		[Display(Name = "Purchase Number")]
+		[Display(Name = "Numéro du commande")]
 		public Int64 PurchaseNumber { get; set; }
 
 		[Required]
-		[Display(Name = "Purchase Date")]
+		[Display(Name = "Date du commande")]
 		public DateTime PurchaseDate { get; set; }
 
 		[Required]
@@ -28,28 +28,32 @@ namespace PortailEbook.Models.Entity
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Discount Percent")]
+		[Display(Name = "Pourcentage de remise")]
 		public string DiscountPercent { get; set; }
 
 		[Required]
 		[StringLength(50)]
+		[Display(Name = "Remise")]
 		public string Discount { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Vat Percent")]
+		[Display(Name = "Pourcentage TVA")]
 		public string VatPercent { get; set; }
 
 		[Required]
 		[StringLength(50)]
+		[Display(Name = "TVA")]
 		public string Vat { get; set; }
 
 		[Required]
 		[StringLength(50)]
+		[Display(Name = "Montant HT")]
 		public string AmountHT { get; set; }
 
 		[Required]
 		[StringLength(50)]
+		[Display(Name = "Montant TTC")]
 		public string AmountTTC { get; set; }
 
 		public Purchase()

@@ -237,7 +237,7 @@
                                 <div class="compte text-right">
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin" || @User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User")
                                     {
-                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex">
                             <i class="fas fa fa-shopping-cart fa-lg"></i>
                             <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
 
@@ -307,7 +307,7 @@
                                         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
                                     </svg>
                                 </span>
-                                Home
+                                Acceuil
                             </a>
                             <ul class="collapse list-unstyled" id="homeSubmenu">
                                 <li class="@Html.IsActive(actions:"Details", controllers:"User")">
@@ -328,7 +328,7 @@
                                                 <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
                                             </svg>
                                         </span>
-                                        Update Profile
+                                        Modifier Compte
                                     </a>
                                 </li>
                             </ul>
@@ -354,14 +354,11 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="@Html.IsActive(actions:"Index", controllers:"PurchaseLine")">
-                            <a href="@Url.Action("Index","PurchaseLine")">PurchaseLine</a>
-                        </li>
                         <li class="@Html.IsActive(actions:"Index", controllers:"User")">
-                            <a href="@Url.Action("Index","User")">User</a>
+                            <a href="@Url.Action("Index","User")">Utilisateurs</a>
                         </li>
                         <li class="@Html.IsActive(actions:"Index", controllers:"Purchase")">
-                            <a href="@Url.Action("Index","Purchase")">Purchase</a>
+                            <a href="@Url.Action("Index","Purchase")">Commandes</a>
                         </li>
                         <li class="@Html.IsActive(actions:"UserPurchase", controllers:"Purchase")">
                             <a href="@Url.Action("UserPurchase","Purchase")">Mes commandes</a>
@@ -377,35 +374,34 @@
                             </a>
                             <ul class="collapse list-unstyled" id="pageSubmenu">
                                 <li class="@Html.IsActive(actions:"UpsertPurchaseLine", controllers:"PurchaseLine")">
-                                    <a href="@Url.Action("UpsertPurchaseLine","PurchaseLine")">Add PurchaseLine</a>
+                                    <a href="@Url.Action("UpsertPurchaseLine","PurchaseLine")">Ajouter Ligne de commandes</a>
                                 </li>
                                 <li class="@Html.IsActive(actions:"UpsertPurchase", controllers:"Purchase")">
-                                    <a href="@Url.Action("UpsertPurchase","Purchase")">Add Purchase</a>
+                                    <a href="@Url.Action("UpsertPurchase","Purchase")">Ajouter Commande</a>
                                 </li>
                                 <li>
                                     <a id="UpsertDocument" href="#documentAddSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                        Add Document
+                                        Ajouter Document
                                     </a>
                                     <ul class="collapse list-unstyled" id="documentAddSubmenu">
                                         <li class="@Html.IsActive(actions:"UpsertEbook", controllers:"Ebook")">
                                             <a href="@Url.Action("UpsertEbook","Ebook")">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-right p-1" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
-                                                </svg>Add Ebook
+                                                </svg>Ajouter Ebook
                                             </a>
                                         </li>
                                         <li class="@Html.IsActive(actions:"UpsertEjournal", controllers:"Ejournal")">
                                             <a href="@Url.Action("UpsertEjournal","Ejournal")">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-right p-1" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
-                                                </svg>Add Ejournal
+                                                </svg>Ajouter Ejournal
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-
                         <li>
                             <a href="#">
                                 <span class="mr-2">
@@ -413,7 +409,7 @@
                                         <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
                                     </svg>
                                 </span>
-                                About
+                                A propos
                             </a>
                             <a href="#">
                                 <span class="mr-2">
@@ -438,7 +434,7 @@
                                         </svg>
                                     </span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Number of Users</span>
+                                        <span class="info-box-text">Nombre d'utilisateurs</span>
                                         <span class="info-box-number" id="UsersNumber"></span>
                                     </div>
                                 </div>
@@ -452,7 +448,7 @@
                                         </svg>
                                     </span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Number of purchases</span>
+                                        <span class="info-box-text">Nombre des commandes</span>
                                         <span class="info-box-number" id="PurchasesNumber"></span>
                                     </div>
                                 </div>
@@ -480,7 +476,7 @@
                                         </svg>
                                     </span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Number of documents</span>
+                                        <span class="info-box-text">Nombre des documents</span>
                                         <span class="info-box-number" id="DocumentsNumber"></span>
                                     </div>
                                 </div>
@@ -493,7 +489,7 @@
                                         </svg>
                                     </span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Number of books</span>
+                                        <span class="info-box-text">Nombre d'Ebooks</span>
                                         <span class="info-box-number" id="BooksNumber"></span>
                                     </div>
                                 </div>

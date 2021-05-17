@@ -12,14 +12,15 @@ namespace PortailEbook.Models.Entity
 	{
 		[Required]
 		public string ISSN { get; set; }
+		[Display(Name = "Fréquence")]
 		public string Frequency { get; set; }
-		[Display(Name = "Total Issues Number")]
+		[Display(Name = "Nombre total d'essai")]
 		public int TotalIssuesNb { get; set; }
-		[Display(Name = "Date First Issue")]
+		[Display(Name = "Date du premiére essai")]
 		public Date DateFirstIssue { get; set; }
-		[Display(Name = "Journal Scope")]
+		[Display(Name = "Porté du journal")]
 		public string JournalScope { get; set; }
-		[Display(Name = "Impact Factor")]
+		[Display(Name = "Facteur d'impact")]
 		public string ImpactFactor { get; set; }
 
 		public Ejournal()

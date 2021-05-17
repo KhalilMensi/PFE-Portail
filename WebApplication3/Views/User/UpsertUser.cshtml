@@ -18,12 +18,12 @@
                     </svg>
                 </div>
                 <hr />
-                <h6 class="text-danger text-center p-3">Please fill in this blanc to create or update a user account*</h6>
+                <h6 class="text-danger text-center p-3">Veuillez remplir ce formulaire pour créer un nouvel utilisateur*</h6>
             }
             else
             {
                 <div>
-                    <h3>Account Settings</h3>
+                    <h3>Paramètre du compte</h3>
                 </div>
                 <hr />
                 @if (Model.filename == "")
@@ -46,12 +46,12 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Name"></label>
-                    <input asp-for="Name" type="text" id="Name" class="form-control" placeholder="Name">
+                    <input asp-for="Name" type="text" id="Name" class="form-control" placeholder="Nom">
                     <span id="validName" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="LastName"></label>
-                    <input asp-for="LastName" id="LastName" class="form-control" placeholder="Last Name">
+                    <input asp-for="LastName" id="LastName" class="form-control" placeholder="Prénom">
                     <span id="validLastName" class="text-danger"></span>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="Adress">Address</label>
+                <label asp-for="Adress"></label>
                 <input asp-for="Adress" class="form-control" placeholder="Monastir, Tunisia" id="adress" required>
             </div>
             <div class="form-row">
@@ -109,7 +109,7 @@
                         <div class="form-group">
 
                             <select asp-for="Profil" class="form-control" placeholder="Profil" id="profil" required>
-                                <option value="">--Please choose an option--</option>
+                                <option value="">--Veuillez choisir une option--</option>
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>
                             </select>
@@ -120,7 +120,7 @@
                         <div class="form-group">
                             <div class="custom-file">
                                 <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
-                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choose Photo...</label>
+                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une Photo...</label>
                                 <span id="validFile" class="text-danger"></span>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                         <div class="form-group">
                             <div class="custom-file">
                                 <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
-                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choose Photo...</label>
+                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une photo...</label>
                                 <span id="validFile" class="text-danger"></span>
                             </div>
                         </div>
@@ -143,19 +143,19 @@
             </div>
             <div class="form-row pb-4">
                 <div class="col-md-6 text-center mt-2">
-                    <button type="button" onclick="saveUser()" class="btn btn-primary col-md-12">Save User</button>
+                    <button type="button" onclick="saveUser()" class="btn btn-primary col-md-12">Enregistrer utilisateur</button>
                 </div>
                 @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
                 {
                     <div class="text-center col-md-6 mt-2">
-                        <button type="button" class="btn btn-primary col-md-12"> <a asp-action="Index" asp-controller="User">Back to Users List</a> </button>
+                        <button type="button" class="btn btn-primary col-md-12"> <a asp-action="Index" asp-controller="User">Retour vers liste des utilisateur</a> </button>
                     </div>
                 }
                 else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == null)
                 {
                     <div class="col-md-6 text-center mt-2">
                         <a asp-action="Login" asp-controller="Account" class="btn btn-link col-md-12">
-                            Already have an account ?
+                            Vous avez déjà un compte ?
                         </a>
                     </div>
                 }

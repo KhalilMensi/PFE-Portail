@@ -15,17 +15,18 @@ namespace PortailEbook.Models.Entity
 		public Int64 IdDocument { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name ="Unit Price")]
+		[Display(Name ="Prix unitaire")]
 		public float UnitPrice { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "Quantité")]
 		public Int64 Quantity { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Discount Percent")]
+		[Display(Name = "Pourcentage de remise")]
 		public Int64 DiscountPercent { get; set; }
 
-		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Required(ErrorMessage = "Remise")]
 		public Int64 Discount { get; set; }
 
 		public PurchaseLine()

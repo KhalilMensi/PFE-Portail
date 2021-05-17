@@ -13,6 +13,7 @@ namespace PortailEbook.Models.Entity
 		public Int64 Id { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "Editeur")]
 		public string Editor { get; set; }
 		[Required(ErrorMessage = "Champ Obligatoire")]
 		public string Collection { get; set; }
@@ -25,75 +26,84 @@ namespace PortailEbook.Models.Entity
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
 		public string Doi { get; set; }
-		[Display(Name = "Marc Record Number")]
+		[Display(Name = "Nombre des enregistrements")]
 		public string MarcRecordNumber { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Original Title")]
+		[Display(Name = "Titre originale")]
 		public string OriginalTitle { get; set; }
-		[Display(Name = "Titles Varients")]
-
+		[Display(Name = "Variantes de titres")]
 		public string TitlesVariants { get; set; }
 
+		[Display(Name = "Sous-titre")]
 		public string Subtitle { get; set; }
 
+		[Display(Name = "Avant-propos")]
 		public string Foreword { get; set; }
-
+		[Display(Name = "Mots clés")]
 		public string Keywords { get; set; }
 
+		[Display(Name = "Fichier")]
 		public IFormFile File { get; set; }
 
+		[Display(Name = "Nom du fichier")]
 		public string FileName { get; set; }
 
-		[Display(Name = "File Format")]
+		[Display(Name = "Format du fichier")]
 		public string FileFormat { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Cover Page")]
+		[Display(Name = "Page de couverture")]
 		public IFormFile CoverPage { get; set; }
 
+		[Display(Name = "Nom du page de couverture")]
 		public string CoverPageName { get; set; }
 
 		public string Url { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Document Type")]
+		[Display(Name = "Type du document")]
 		public string DocumentType { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Original Language")]
+		[Display(Name = "Langue original")]
 		public string OriginalLanguage { get; set; }
 
-		[Display(Name = "Languages Varients")]
+		[Display(Name = "Variantes des langues")]
 		public string LanguagesVarients { get; set; }
 
+		[Display(Name = "Traducteur")]
 		public string Translator { get; set; }
 
-		[Display(Name = "Access Type")]
+		[Display(Name = "Type d'accés")]
 		public string AccessType { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "Etat")]
 		public string State { get; set; }
 
+		[Display(Name = "Prix")]
 		public float Price { get; set; } 
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Publication Date")]
+		[Display(Name = "Date de publication")]
 		public string PublicationDate { get; set; }
 
+		[Display(Name = "Pays")]
 		public string Country { get; set; }
 
-		[Display(Name = "Physical Description")]
+		[Display(Name = "Description physique")]
 		public string PhysicalDescription { get; set; }
-		[Display(Name = "Accompanying Materials")]
+		[Display(Name = "Matériels d'accompagnement")]
 		public string AccompanyingMaterials { get; set; }
-		[Display(Name = "Accompanying Materials Number")]
+		[Display(Name = "Nombre du matériel d'accompagnement")]
 		public int AccompanyingMaterialsNb { get; set; }
-		[Display(Name = "Volume Number")]
+		[Display(Name = "Volume")]
 		public int VolumeNb { get; set; } 
 
 		public string Abstract { get; set; }
 
+		[Display(Name = "Note")]
 		public string Notes { get; set; }
 
 		public Document()

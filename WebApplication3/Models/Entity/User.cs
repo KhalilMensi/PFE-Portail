@@ -20,27 +20,33 @@ namespace PortailEbook.Models.Entity
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
 		[StringLength(50)]
+		[Display(Name = "Nom")]
 		public string Name { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
 		[StringLength(50)]
+		[Display(Name = "Prénom")]
 		public string LastName { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
 		[StringLength(50)]
+		[Display(Name = "Mot de passe")]
 		public string Password { get; set; }
 
 		[StringLength(50)]
+		[Display(Name = "Téléphone")]
 		public string Phone { get; set; }
 
 		[StringLength(50)]
+		[Display(Name = "Pays")]
 		public string Country { get; set; }
 
 		[StringLength(50)]
+		[Display(Name = "Adresse")]
 		public string Adress { get; set; }
 
 		[StringLength(50)]
-		[Display(Name ="Postal Code")]
+		[Display(Name ="Code postal")]
 		public string PostalCode { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
