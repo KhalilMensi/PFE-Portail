@@ -1,7 +1,6 @@
 ﻿var dataTable;
 $(document).ready(function () {
     loadDataTable();
-
     $('#myPurchases').on('click', 'tbody tr', function () {
         var row = dataTable.api().row($(this)).data();
         console.log(row["id"]);
@@ -19,10 +18,11 @@ function loadDataTable() {
             "dataSrc": ""
         },
         "columns": [
-            { "data": "id" },
-            { "data": "purchaseNumber" },
+            { "data": "id",'visible':false },
             { "data": "purchaseDate" },
-            { "data": "type" }
+            { "data": "type" },
+            { "data": "amountHT", render: function (data, type, full, meta) {return data+" DT" }},
+            { "data": "amountTTC", render: function (data, type, full, meta) { return data + " DT" } }
         ],
         "language": {
             "processing": "Traitement en cours...",
@@ -47,6 +47,5 @@ function loadDataTable() {
             }
         },
     });
- 
 }
 

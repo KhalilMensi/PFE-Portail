@@ -1,6 +1,12 @@
 ﻿var dataTable;
 $(document).ready(function () {
     loadDataTable();
+    $('#myTable').on('click', 'tbody tr', function () {
+        var row = dataTable.api().row($(this)).data();
+        console.log(row["id"]);
+
+        location.href = "/PurchaseLine/ListPurchaseLine/" + row["id"];
+    })
 });
 
 function loadDataTable() {
@@ -17,7 +23,7 @@ function loadDataTable() {
             { "data": "purchaseNumber" },
             { "data": "purchaseDate" },
             { "data": "type" },
-            { "data": "amountTTC" },
+            { "data": "amountTTC", render: function (data, type, full, meta) { return data + " DT" } },
             {
                 "data": "id",
 

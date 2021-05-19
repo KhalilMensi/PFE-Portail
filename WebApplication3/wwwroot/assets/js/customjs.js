@@ -95,12 +95,56 @@ function addPurchase(userId, id) {
                                                 dataType: 'json',
                                                 cache: false,
                                                 success: function (response) {
-                                                    for (var j = 0; j < response.listDocumentPurchased.length; j++) {
-                                                        for (var i = 0; i < response.listPurchaseLine.length; i++) {
-                                                            if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
-                                                                $('#dropdown-content').append(`<span class="dropdown-item hover text-left" style="font-size:15px;">${response.listDocumentPurchased[j].originalTitle + " * " + response.listPurchaseLine[i].quantity}</span>`)
+                                                    if (response != null) {
+                                                        for (var j = 0; j < response.listDocumentPurchased.length; j++) {
+                                                            for (var i = 0; i < response.listPurchaseLine.length; i++) {
+                                                                if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
+                                                                    $('#dropdown-content').append(
+                                                                        `<div class= "row justify-content-center align-content-center p-2">
+                                                                        <div class="col-md-4 text-center">
+                                                                            <div class="row justify-content-start align-content-center" style="width:100px;">
+                                                                                <img src="${"uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle}</b></span>
+                                                                            </div>
+                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div >`
+                                                                    )
+                                                                }
                                                             }
                                                         }
+                                                        $('#dropdown-content').append(`
+                                                        <div class="row justify-content-center align-content-center p-2">
+                                                            <div class="col-md-12">
+                                                                <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                                        <b style="color:#7868e6">Total TTC :</b>${response.purchase.amountTTC} DT
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>`
+                                                        )
+                                                        $('#dropdown-content').append(`
+                                                        <div class="row justify-content-center align-content-center mb-2" style="cursor:pointer;">
+                                                             <a href="PurchaseLine/ListPurchaseLine">Valider la commande</a>
+                                                        </div>`)
+                                                    } else {
+                                                        $('#dropdown-content').append(`
+                                                        <div class="row justify-content-center align-content-center p-2">
+                                                             <div class="col-md-12">
+                                                                 <div class="row justify-content-center align-content-center" style="height:25px">
+                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                                        <b>Panier Vide</b>
+                                                                    </span>
+                                                                 </div>
+                                                             </div>
+                                                        </div>`)
                                                     }
                                                 },
                                                 error: function (xhr, error, status) {

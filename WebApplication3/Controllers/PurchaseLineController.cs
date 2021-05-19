@@ -12,28 +12,6 @@ namespace PortailEbook.Controllers
 	[Authorize]
 	public class PurchaseLineController : Controller
 	{
-		// GET: PurchaseLineController
-		[Authorize(Roles = "Admin")]
-		public ActionResult Index()
-		{
-			return View();
-		}
-
-		// GET: PurchaseLineController/Details/5
-		public ActionResult Details(int id)
-		{
-			PurchaseLine purchase = BLLPurchaseLine.getPurchaseLineBy("Id", id.ToString());
-			if (purchase != null)
-			{
-				return View(purchase);
-			}
-			else
-			{
-				ViewBag.message = "PurchaseLine Not Found !!";
-				return View("Error");
-			}
-		}
-
 		// POST: PurchaseLineController/Create
 		[HttpPost]
 		public ActionResult UpsertPurchaseLine(PurchaseLine purchaseLine)
@@ -46,7 +24,7 @@ namespace PortailEbook.Controllers
 			purchaseLine.Discount = 0;
 			purchaseLine.DiscountPercent = 0;
 			PurchaseLine purchaseLineCheck = BLLPurchaseLine.getPurchaseLineByUserAndIdDocument(name, document.Id);
-			if(purchaseLineCheck != null)
+			if (purchaseLineCheck != null)
 			{
 				purchaseLineCheck.Quantity += 1;
 				return Json(BLLPurchaseLine.UpsertApi(purchaseLineCheck));
@@ -75,18 +53,18 @@ namespace PortailEbook.Controllers
 			{
 				PurchaseLine purchase = BLLPurchaseLine.getPurchaseLineBy("Id", id.ToString());
 
-				if(purchase.IdPurchase != 0 && purchase.IdDocument != 0)
+				if (purchase.IdPurchase != 0 && purchase.IdDocument != 0)
 				{
 					ViewBag.PurchaseId = BLLPurchase.getAllPurchaseId();
 					ViewBag.DocumentId = BLLDocument.getAllDocumentId();
 				}
 
-				if(purchase.IdPurchase != 0)
+				if (purchase.IdPurchase != 0)
 				{
 					ViewBag.PurchaseId = BLLPurchase.getAllPurchaseId();
 				}
 
-				if(purchase.IdDocument != 0)
+				if (purchase.IdDocument != 0)
 				{
 					ViewBag.DocumentId = BLLDocument.getAllDocumentId();
 				}
@@ -117,23 +95,24 @@ namespace PortailEbook.Controllers
 		[HttpGet]
 		public IActionResult ListPurchaseLine(Int64? Id)
 		{
-			if(Id == null )
+			if (Id == null)
 			{
 				User user = BLLUser.getUserBy("Email", User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value);
 				IEnumerable<Purchase> purchases = BLLPurchase.getAllPurchasesBy("IdUser", user.Id.ToString());
-				if(purchases.Count() != 0) { 
+				if (purchases.Count() != 0)
+				{
 					Purchase p = purchases.FirstOrDefault(x => x.Type == "PurchaseLine");
-					if (p != null) { 
+					if (p != null)
+					{
 						Id = purchases.ToList().Find(x => x.Type == "PurchaseLine").Id;
 						IEnumerable<PurchaseLine> lst = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", Id.ToString());
 						List<Document> ListDocument = new List<Document>();
-						float Total = 0;
+
 						float NbArticles = 0;
 						foreach (PurchaseLine purchaseLine in lst)
 						{
 							NbArticles += purchaseLine.Quantity;
 							Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
-							Total += purchaseLine.Quantity * document.Price;
 
 							ListDocument.Add(document);
 						}
@@ -144,7 +123,6 @@ namespace PortailEbook.Controllers
 							Purchase = p
 						};
 						ViewBag.NbArticles = NbArticles;
-						ViewBag.Total = Total;
 
 						return View(viewModel);
 					}
@@ -154,7 +132,7 @@ namespace PortailEbook.Controllers
 					return View();
 				}
 			}
-			else if(Id != -1 && User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
+			else if (Id != -1 && User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
 			{
 				IEnumerable<Purchase> purchases = BLLPurchase.getAllPurchasesBy("Id", Id.ToString());
 				int p = purchases.Where(x => x.Id == Id).Count();
@@ -202,13 +180,12 @@ namespace PortailEbook.Controllers
 
 					IEnumerable<PurchaseLine> lst = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", Id.ToString());
 					List<Document> ListDocument = new List<Document>();
-					float Total = 0;
+
 					float NbArticles = 0;
 					foreach (PurchaseLine purchaseLine in lst)
 					{
 						NbArticles += purchaseLine.Quantity;
 						Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
-						Total += purchaseLine.Quantity * document.Price;
 
 						ListDocument.Add(document);
 					}
@@ -219,7 +196,6 @@ namespace PortailEbook.Controllers
 						Purchase = purchase
 					};
 					ViewBag.NbArticles = NbArticles;
-					ViewBag.Total = Total;
 
 					return View(viewModel);
 				}
@@ -237,7 +213,7 @@ namespace PortailEbook.Controllers
 
 			IEnumerable<PurchaseLine> ListPurchase = BLLPurchaseLine.getAllPurchaseLineByUser(name);
 			Int64 count = 0;
-			foreach(var purchase in ListPurchase)
+			foreach (var purchase in ListPurchase)
 			{
 				count += purchase.Quantity;
 			}
@@ -249,19 +225,29 @@ namespace PortailEbook.Controllers
 		{
 			string name = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
 			IEnumerable<PurchaseLine> ListPurchase = BLLPurchaseLine.getAllPurchaseLineByUser(name);
+
 			List<Document> lstDocument = new List<Document>();
-			foreach(var p in ListPurchase)
+			if (ListPurchase.Count() != 0)
 			{
-				Document d = BLLDocument.getDocumentBy("Id", p.IdDocument.ToString());
-				lstDocument.Add(d);
+				Purchase purchase = BLLPurchase.getPurchaseBy("Id", ListPurchase.First().IdPurchase.ToString());
+
+				foreach (var p in ListPurchase)
+				{
+					Document d = BLLDocument.getDocumentBy("Id", p.IdDocument.ToString());
+					lstDocument.Add(d);
+				}
+				var viewModel = new PurchaseLineViewModel
+				{
+					ListPurchaseLine = ListPurchase,
+					ListDocumentPurchased = lstDocument,
+					Purchase = purchase
+				};
+				return viewModel;
 			}
-			var viewModel = new PurchaseLineViewModel
+			else
 			{
-				ListPurchaseLine = ListPurchase,
-				ListDocumentPurchased = lstDocument,
-				Purchase = null
-			};
-			return viewModel ;
+				return null;
+			}
 		}
 	}
 }

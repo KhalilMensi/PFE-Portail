@@ -199,7 +199,6 @@ namespace PortailEbook.Models.DAL
 
 		public static Int64 getPurchaseLineNb()
 		{
-
 			Int64 code = 0;
 			try
 			{
@@ -297,6 +296,7 @@ namespace PortailEbook.Models.DAL
 				{
 					Purchase purchase = BLLPurchase.getPurchaseBy("Id", purchaseLine.IdPurchase.ToString());
 					Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
+					
 					if(purchase == null)
 					{
 						return "Purchase not found";
@@ -321,7 +321,25 @@ namespace PortailEbook.Models.DAL
 
 							if (command.ExecuteNonQuery() == 1)
 							{
-								connection.Close();
+							msg = "PurchaseLine Updated successfuly";
+							float TTC = 0;
+							float HT = 0;
+							float VAT = 0;
+							List<PurchaseLine> lines = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", purchase.Id.ToString()).ToList();
+
+							foreach (var ligne in lines)
+							{
+								HT += ligne.Quantity * ligne.UnitPrice;
+								TTC = (float)(HT + HT * 0.19);
+								VAT = TTC - HT;
+							}
+
+							purchase.Vat = VAT.ToString();
+							purchase.AmountHT = HT.ToString();
+							purchase.AmountTTC = TTC.ToString();
+							purchase.AmountTTC = String.Format("{0:0.00}", float.Parse(purchase.AmountTTC));
+							BLLPurchase.UpdatePurchase(purchase);
+							connection.Close();
 								return msg = "Ajout PurchaseLine avec succes";
 							}
 							else
@@ -348,6 +366,7 @@ namespace PortailEbook.Models.DAL
 				PurchaseLine e = getPurchaseLineBy("Id", purchaseLine.Id.ToString());
 				if (e != null)
 				{
+					
 					using (SqlConnection connection = DBConnection.GetConnection())
 					{
 						connection.Open();
@@ -377,6 +396,24 @@ namespace PortailEbook.Models.DAL
 							if (command.ExecuteNonQuery() == 1)
 							{
 								msg = "PurchaseLine Updated successfuly";
+								float TTC = 0;
+								float HT = 0;
+								float VAT = 0;
+								Purchase purchase = BLLPurchase.getPurchaseBy("Id", e.IdPurchase.ToString());
+								List<PurchaseLine> lines = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", purchase.Id.ToString()).ToList();
+
+								foreach(var ligne in lines)
+								{
+									HT += ligne.Quantity * ligne.UnitPrice;
+									TTC = (float)(HT + HT * 0.19);
+									VAT = TTC - HT;
+								}
+
+								purchase.Vat = VAT.ToString();
+								purchase.AmountHT = HT.ToString();
+								purchase.AmountTTC = TTC.ToString();
+								purchase.AmountTTC = String.Format("{0:0.00}", float.Parse(purchase.AmountTTC));
+								BLLPurchase.UpdatePurchase(purchase);
 							}
 							else
 							{

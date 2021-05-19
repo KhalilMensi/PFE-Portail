@@ -76,9 +76,6 @@ function saveUser() {
                             icon: 'success',
                             title: 'User Updated successfully',
                         })
-                        setTimeout(function () {
-                            window.location.href = "/Role"; //will redirect to your blog page (an ex: blog.html)
-                        }, 1500);
                     } else {
                         Toast.fire({
                             icon: 'success',

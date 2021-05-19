@@ -42,10 +42,15 @@
             </tbody>
         </table>
         <div class="row col-md-12 mt-3 mb-1">
-            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">Total : @ViewBag.Total DT</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">Total HT : @Model.Purchase.AmountHT DT</span>
         </div>
-        <div class="row col-md-3 mt-3 mb-1">
-            <a asp-action="UserPurchase" asp-controller="Purchase" class="btn btn-primary">Retour à mes commandes</a>
+        <div class="row col-md-12 mt-3 mb-1">
+            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">Total TTC : @Model.Purchase.AmountTTC DT</span>
+        </div>
+        <div class="row col-md-4 mt-3 mb-1">
+            <a sp-action="UserPurchase" asp-controller="Purchase" class="btn btn-primary">Retour à mes commandes</a>
         </div>
     </div>
 </div>
+<script>
+</script>

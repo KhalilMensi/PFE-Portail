@@ -16,11 +16,6 @@ namespace PortailEbook.Models.BLL
             return DALPurchaseLine.getAllPurchaseLine();
         }
 
-        //public static List<PurchaseLine> getPurchaseLinesBy(string Field, string value)
-        //{
-        //    return DALPurchaseLine.getPurchaseLineBy(Field, value);
-        //}
-
         //Get PurchaseLine By Field Name
         public static PurchaseLine getPurchaseLineBy(string Field, string value)
         {

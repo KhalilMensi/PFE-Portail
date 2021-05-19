@@ -111,7 +111,7 @@ namespace PortailEbook.Controllers
 				purchase.Type = "PurchaseLine";
 				purchase.DiscountPercent = "0";
 				purchase.Discount = "0";
-				purchase.VatPercent = "0";
+				purchase.VatPercent = "19%";
 				purchase.Vat = "0";
 				purchase.AmountHT = "0";
 				purchase.AmountTTC = "0";
@@ -127,22 +127,23 @@ namespace PortailEbook.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult UserPurchase()
+		public IActionResult UserPurchase(string Email)
 		{
-			string name = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
-
-			User user = BLLUser.getUserBy("Email", name);
+			if(Email == null) { 
+				Email = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
+			}
+			User user = BLLUser.getUserBy("Email", Email);
 			IEnumerable<Purchase> purchase = BLLPurchase.getAllPurchasesBy("IdUser", user.Id.ToString()).ToList().FindAll(x => x.Type == "Commande");
 			ViewBag.Count = purchase.ToList().Count();
 			return View();
 		}
-
 		[HttpGet]
-		public JsonResult UserPurchases()
+		public JsonResult UserPurchases(string Email)
 		{
-			string name = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
-
-			User user = BLLUser.getUserBy("Email", name);
+			if(Email == null) { 
+				Email = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
+			}
+			User user = BLLUser.getUserBy("Email", Email);
 
 			return Json(BLLPurchase.getAllPurchasesBy("IdUser", user.Id.ToString()).ToList().FindAll(x => x.Type == "Commande"));
 		}
@@ -159,11 +160,9 @@ namespace PortailEbook.Controllers
 				IEnumerable<PurchaseLine> lst = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase", p.Id.ToString());
 				List<Document> ListDocument = new List<Document>();
 
-				float Total = 0;
 				foreach (PurchaseLine purchaseLine in lst)
 				{
 					Document document = BLLDocument.getDocumentBy("Id", purchaseLine.IdDocument.ToString());
-					Total += purchaseLine.Quantity * document.Price;
 					ListDocument.Add(document);
 				}
 				var viewModel = new PurchaseLineViewModel
@@ -172,7 +171,6 @@ namespace PortailEbook.Controllers
 					ListDocumentPurchased = ListDocument,
 					Purchase = p
 				};
-				ViewBag.Total = Total;
 				return View(viewModel);
 			}
 			return RedirectToAction("UserPurchase", "Purchase");

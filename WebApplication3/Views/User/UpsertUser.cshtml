@@ -40,131 +40,152 @@
                 }
                 <hr />
             }
-        <form id="form" enctype="multipart/form-data">
-            <input type="hidden" asp-for="Id" id="Id" />
-            <input type="hidden" asp-for="filename" />
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label asp-for="Name"></label>
-                    <input asp-for="Name" type="text" id="Name" class="form-control" placeholder="Nom">
-                    <span id="validName" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="LastName"></label>
-                    <input asp-for="LastName" id="LastName" class="form-control" placeholder="Prénom">
-                    <span id="validLastName" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-row">
-                @if (@ViewBag.filename == false || Model == null)
-                {
+            <form id="form" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" id="Id" />
+                <input type="hidden" asp-for="filename" />
+                <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label asp-for="Code"></label>
-                        <input asp-for="Code" type="text" name="Code" class="form-control" value="@ViewBag.MaxUserId" readonly>
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" type="text" id="Name" class="form-control" placeholder="Nom">
+                        <span id="validName" class="text-danger"></span>
                     </div>
-                }
-                else
-                {
                     <div class="form-group col-md-6">
-                        <label asp-for="Code"></label>
-                        <input asp-for="Code" type="text" name="Code" class="form-control" readonly>
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" id="LastName" class="form-control" placeholder="Prénom">
+                        <span id="validLastName" class="text-danger"></span>
                     </div>
-                }
-                <div class="form-group col-md-6">
-                    <label asp-for="Phone"></label>
-                    <input asp-for="Phone" name="Phone" class="form-control" placeholder="+216 26501497">
                 </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" placeholder="exemple@gmail.com" id="email" required>
-                    <span id="validEmail" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" placeholder="Password" id="password" required>
-                    <span id="validPassword" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adress"></label>
-                <input asp-for="Adress" class="form-control" placeholder="Monastir, Tunisia" id="adress" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label asp-for="Country"></label>
-                    <input asp-for="Country" class="form-control" placeholder="CITE OMRANE">
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="PostalCode"></label>
-                    <input asp-for="PostalCode" class="form-control" placeholder="5000">
-                </div>
-            </div>
-            <div class="form-row justify-content-center">
-                @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
-                {
-                    <div class="col-md-6">
-                        <div class="form-group">
-
-                            <select asp-for="Profil" class="form-control" placeholder="Profil" id="profil" required>
-                                <option value="">--Veuillez choisir une option--</option>
-                                <option value="Admin">Admin</option>
-                                <option value="User">User</option>
-                            </select>
-                            <span id="validProfil" class="text-danger"></span>
+                <div class="form-row">
+                    @if (@ViewBag.filename == false || Model == null)
+                    {
+                        <div class="form-group col-md-6">
+                            <label asp-for="Code"></label>
+                            <input asp-for="Code" type="text" name="Code" class="form-control" value="@ViewBag.MaxUserId" readonly>
                         </div>
+                    }
+                    else
+                    {
+                        <div class="form-group col-md-6">
+                            <label asp-for="Code"></label>
+                            <input asp-for="Code" type="text" name="Code" class="form-control" readonly>
+                        </div>
+                    }
+                    <div class="form-group col-md-6">
+                        <label asp-for="Phone"></label>
+                        <input asp-for="Phone" name="Phone" class="form-control" placeholder="+216 26501497">
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
-                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une Photo...</label>
-                                <span id="validFile" class="text-danger"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" placeholder="exemple@gmail.com" id="email" required>
+                        <span id="validEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Password"></label>
+                        <div class="input-group flex-nowrap">
+                            <input asp-for="Password" class="form-control" placeholder="Password" id="password" aria-label="Username" aria-describedby="addon-wrapping" required>
+                            <span class="input-group-text" id="addon-wrapping" style="cursor:pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="svgIcon" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                </svg>
+                            </span>
+                        </div>
+                        <span id="validPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Adress"></label>
+                    <input asp-for="Adress" class="form-control" placeholder="Monastir, Tunisia" id="adress" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Country"></label>
+                        <input asp-for="Country" class="form-control" placeholder="CITE OMRANE">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="PostalCode"></label>
+                        <input asp-for="PostalCode" class="form-control" placeholder="5000">
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
+                    {
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <select asp-for="Profil" class="form-control" placeholder="Profil" id="profil" required>
+                                    <option value="">--Veuillez choisir une option--</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                                <span id="validProfil" class="text-danger"></span>
                             </div>
                         </div>
-                    </div>
-                }
-                else
-                {
-                    <input asp-for="Profil" class="form-control" placeholder="Profil" value="User" type="hidden" id="profil">
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
-                                <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une photo...</label>
-                                <span id="validFile" class="text-danger"></span>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
+                                    <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une Photo...</label>
+                                    <span id="validFile" class="text-danger"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
-            </div>
-            <div class="form-row pb-4">
-                <div class="col-md-6 text-center mt-2">
-                    <button type="button" onclick="saveUser()" class="btn btn-primary col-md-12">Enregistrer utilisateur</button>
+                    }
+                    else
+                    {
+                        <input asp-for="Profil" class="form-control" placeholder="Profil" value="User" type="hidden" id="profil">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
+                                    <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une photo...</label>
+                                    <span id="validFile" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
-                @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
-                {
-                    <div class="text-center col-md-6 mt-2">
-                        <button type="button" class="btn btn-primary col-md-12"> <a asp-action="Index" asp-controller="User">Retour vers liste des utilisateur</a> </button>
-                    </div>
-                }
-                else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == null)
-                {
+                <div class="form-row pb-4">
                     <div class="col-md-6 text-center mt-2">
-                        <a asp-action="Login" asp-controller="Account" class="btn btn-link col-md-12">
-                            Vous avez déjà un compte ?
-                        </a>
+                        <button type="button" onclick="saveUser()" class="btn btn-primary col-md-12">Enregistrer utilisateur</button>
                     </div>
-                }
-            </div>
-        </form>
+                    @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
+                    {
+                        <div class="text-center col-md-6 mt-2">
+                            <button type="button" class="btn btn-primary col-md-12"> <a asp-action="Index" asp-controller="User">Retour vers liste des utilisateur</a> </button>
+                        </div>
+                    }
+                    else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == null)
+                    {
+                        <div class="col-md-6 text-center mt-2">
+                            <a asp-action="Login" asp-controller="Account" class="btn btn-link col-md-12">
+                                Vous avez déjà un compte ?
+                            </a>
+                        </div>
+                    }
+                </div>
+            </form>
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="~/assets/jquery/jquery-3.4.1.min.js"></script>
+<script>
+    const togglePassword = document.querySelector('#addon-wrapping');
+    const password = document.querySelector('#password');
 
+    togglePassword.addEventListener('click', function (e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+    });
+
+    $(document).ready(function () {
+        $("#password").attr("type", "password");
+    });
+</script>
 @section Scripts {
     <script src="~/assets/js/User.js" asp-append-version="true"></script>
     <partial name="_ValidationScriptsPartial" />

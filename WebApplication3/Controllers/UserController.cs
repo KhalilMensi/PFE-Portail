@@ -5,6 +5,7 @@ using PortailEbook.Extensions;
 using PortailEbook.Models.BLL;
 using PortailEbook.Models.Entity;
 using System;
+using System.Linq;
 
 namespace PortailEbook.Controllers
 {
@@ -47,7 +48,8 @@ namespace PortailEbook.Controllers
             }
             User user = BLLUser.getUserBy("Id", id.ToString());
             if (user != null)
-			{
+            {
+                ViewBag.Count = BLLPurchase.getAllPurchasesBy("IdUser", user.Id.ToString()).ToList().FindAll(x => x.Type == "Commande").Count();
                 return View(user);
 			}
 			else

@@ -104,7 +104,7 @@
                         <a href="" onclick="addProduct(@Model.Id)" class="addProduct">Ajouter au Panier</a>
                     </div>
                     <div class="input-submit p-2">
-                        <a href="@Url.Action("Index", "Home")" class="retour">Retour</a>
+                        <a style="cursor:pointer" onclick="goBack()" href="@Url.Action("Index", "Home")" class="retour">Retour</a>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,9 @@
 
     var navbar = document.getElementById("navbar");
     var sticky = navbar.offsetTop;
-
+    function goBcak() {
+        window.history.back();
+    }
     function myFunction() {
         if (window.pageYOffset >= sticky) {
             navbar.classList.add("sticky")

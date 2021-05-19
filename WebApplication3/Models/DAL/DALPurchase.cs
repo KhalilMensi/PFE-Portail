@@ -7,6 +7,7 @@
 	using System.Collections.Generic;
 	using System.Data;
 	using System.Data.SqlClient;
+	using System.Linq;
 
 	public class DALPurchase
 	{
@@ -409,11 +410,13 @@
 				Purchase e = getPurchaseBy(Field, Value);
 				if (e != null)
 				{
-					PurchaseLine purchase = BLLPurchaseLine.getPurchaseLineBy("IdPurchase", e.Id.ToString());
-					if (purchase != null)
+					List<PurchaseLine> purchases = BLLPurchaseLine.getAllPurchaseLineBy("IdPurchase",e.Id.ToString()).ToList();
+					if (purchases != null)
 					{
-						purchase.IdPurchase = 0;
-						string sql = BLLPurchaseLine.UpdatePurchaseLine(purchase);
+						foreach(var line in purchases)
+						{
+							BLLPurchaseLine.DeleteApi("Id", line.Id.ToString());
+						}
 					}
 					using (SqlConnection connection = DBConnection.GetConnection())
 					{
