@@ -2,184 +2,576 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+
+<!-- OwlCarousel CSS -->
+<link rel="stylesheet" href="~/assets/owl/owl.carousel.min.css">
+<link rel="stylesheet" href="~/assets/owl/owl.theme.default.min.css">
+
 <style>
+textarea, select, button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
 
-    .header {
-        background-color: #f1f1f1;
-        padding: 30px;
-        text-align: center;
-    }
+h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    line-height: 40px;
+    font-family: 'poppinsbold';
+}
+h2 {
+    font-size: 30px;
+    line-height: 34px;
+    font-family: 'poppins';
+}
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+h6 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+.clearfix {
+    clear:both;
+}
 
-    #navbar {
-        overflow: hidden;
-        background-color: #ffffff;
-        scrollbar-darkshadow-color: grey;
-    }
+#top-content hr {
+    margin: 0;
+    border-top: 1px solid #cacbc6;
+}
 
+.slider-bloc {
+    width: 100%;
+    height: 360px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+.slider-bloc h1{
+    color: #ffffff;
+    text-align: center;
+}
+.content-tabs .nav-tabs a {
+    background-color: #2f2e2b;
+    font-family: 'poppinssemibold', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: center;
+    border: 0;
+    border-radius: 0;
+}
+.content-tabs {
+    margin-top: -49px;
+    z-index: 1000;
+}
+.extra-row {
+    margin-left: -45px;
+    margin-right: -45px;
+}
+.content-tabs .nav-tabs .nav-item.show .nav-link, .content-tabs .nav-tabs .nav-link.active {
+    color: #2f2e2b;
+    background-color: #f0f0f0;
+    border-color: transparent;
+}
+.content-tabs .nav-link {
+    padding: .7rem 1rem;
+}
+.content-tabs .nav-tabs .nav-link:last-child {
+    position: relative;
+}
+.content-tabs .nav-tabs .nav-link:last-child:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 25px;
+    background-color: #5b5650;
+    position: absolute;
+    top: 13px;
+    left: 0;
+}
+.content-tabs .tab-content {
+    background-color: #f6f6f6;
+    padding: 80px 0;
+}
 
-    .content {
-        padding: 16px;
-    }
+.tab-content .row {
+    margin-bottom: 45px;
+}
+.tab-content .row:last-child {
+    margin-bottom: 0;
+}
 
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-    }
+.book-title {
+    padding-top: 15px;
+}
+.book-title h4 {
+    font-size: 16px;
+    font-family: 'poppinsmedium', sans-serif;
+}
 
-        .sticky + .content {
-            padding-top: 60px;
-        }
-    .input-submit .addProduct {
-        width: 150px;
-        background-color: #ecb43a;
-        color: #ffffff;
-        font-family: 'poppinslight', sans-serif;
+/* PUBLICATION PAGE */
+
+.content-tabs.publication-tabs .tab-content {
+    background-color: transparent;
+    padding: 60px 0 0;
+}
+.advanced-search {
+    display: inline-block;
+}
+.advanced-search span{
+    font-size: 24px;
+    font-family: 'poppinssemilight', sans-serif;
+    color: #2f2e2b;
+    float: left;
+    display: block;
+    padding-top: 15px;
+    padding-right: 25px;
+    text-transform: capitalize;
+}
+.advanced-search form{
+    padding: 15px;
+    background-color: #f6f5f2;
+    border: 2px solid #d2cfc6;
+    width: 800px;
+    float: left;
+    text-align: left;
+}
+.advanced-search form .custom-select{
+    float: left;
+    background: #3c3d3d url(../../assets/img/arrow-select.png) no-repeat 95% center;
+    width: 110px;
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: normal;
+    margin-right: 10px;
+}
+    .advanced-search form input {
+        float: left;
+        width: 450px;
+        border: 1px solid #696969;
+        height: 36px;
+        padding: 0 15px;
         font-size: 14px;
-        border: 0;
-        line-height: 14px;
-        display: inline-block;
-        text-transform: capitalize;
-        padding: 15px 0;
-        text-align: center;
-        margin-left: 15px;
+        color: #000;
+        background: #fff url(../../assets/img/loop.png) no-repeat 98% center;
+    }
+.advanced-search button {
+    width: 180px;
+    background-color: #696969;
+    color: #ffffff;
+    font-family: 'poppins', sans-serif;
+    font-size: 14px;
+    border: 0;
+    line-height: 14px;
+    display: inline-block;
+    text-transform: capitalize;
+    padding: 11px 0;
+    text-align: center;
+    margin-left: 15px;
+}
+.advanced-search button:hover {
+    background-color: #ecb43a;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+#top-content select.custom-select{
+    border: 1px solid #dedede;
+    border-radius: 0;
+}
+
+.books-list {
+    border: 1px solid #dedede;
+    margin: 30px 0;
+    padding: 20px 15px;
+    position: relative;
+}
+.books-list h2{
+    font-size: 20px;
+    color: #ecb43a;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+.book-picture .owl-carousel .owl-stage-outer .item {
+    padding: 10px;
+    border: 1px solid #dedede;
+    text-align: center;
+}
+.book-picture .owl-carousel .owl-stage-outer .item img {
+    width: 177px;
+    height:274px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.book-detail-title h3 a {
+    font-size: 18px;
+    color: #ecb43a;
+    text-transform: capitalize;
+}
+.book-detail-title h3 {
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+.book-detail-author h4 a {
+    font-size: 18px;
+    font-family: 'poppinsmedium', sans-serif;
+    color: #858585;
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+.book-detail-author h4 {
+    margin-bottom: 15px;
+}
+.book-detail-isbn, .book-detail-maison, .book-detail-date {
+    margin-bottom: 7px;
+}
+.book-detail-isbn span strong, .book-detail-maison strong, .book-detail-date strong{
+    font-size: 18px;
+    color: #333333;
+    font-weight: normal;
+}
+.book-detail-isbn span, .book-detail-maison span, .book-detail-date span{
+    font-size: 16px;
+    color: #333333;
+    margin-right: 20px;
+}
+.book-detail-key p{
+    font-size: 16px;
+    color: #333333;
+}
+.book-detail-key p span{
+    font-size: 18px;
+    color: #ecb43a;
+}
+.book-detail-key {
+    margin-bottom: 40px;
+}
+.book-detail-links a {
+    font-size: 18px;
+    font-family: 'poppinsmedium', sans-serif;
+    color: #858585;
+    text-transform: capitalize;
+    text-decoration: underline;
+    margin-left: 15px;
+}
+.book-detail-links a:hover {
+    color: #ecb43a;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.book-detail-links a:first-child {
+    margin-left: 0;
+}
+.books-list .book-item{
+    margin-bottom: 35px;
+}
+.share-book {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+.share-book a{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 3px;
+    color: #2f2e2b;
+}
+.share-book a:hover{
+    color: #ecb43a;
+}
+.tabs-details .nav .nav-item {
+    width: 20%;
+}
+.content-tabs .tabs-details .nav-tabs a {
+    background-color: transparent;
+    font-family: 'poppinsmedium', sans-serif;
+    font-size: 16px;
+    color: #858585;
+    text-align: center;
+    border: 1px solid #dedede;
+    border-radius: 0;
+    text-transform: initial;
+}
+.content-tabs .tabs-details .nav-tabs .nav-item.show .nav-link, .content-tabs .tabs-details .nav-tabs .nav-link.active {
+    color: #3c3d3d;
+    background-color: #ecb43a;
+}
+.content-tabs .tabs-details .nav-tabs .nav-link:last-child:after {
+    display: none;
+}
+.content-tabs.publication-tabs .tabs-details .tab-content {
+    padding: 20px 15px;
+    margin: 10px 0;
+    border: 1px solid #dedede;
+}
+
+
+    .extra-row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .tab-content .row {
+        margin-bottom: 15px;
+    }
+    .content-tabs .tab-content {
+        background-color: #f6f6f6;
+        padding: 40px 0;
+    }
+    h2 {
+        font-size: 24px;
+        line-height: 30px;
     }
 
-        .input-submit .addProduct:hover {
-            text-decoration: none;
-            background-color: #f0f0f0;
-            color: #34332f;
-        }
-
-    .input-submit .retour {
-        text-decoration: none;
-        width: 150px;
-        background-color: #f0f0f0;
-        color: #34332f;
-        font-family: 'poppinslight', sans-serif;
-        font-size: 14px;
-        border: 0;
-        line-height: 14px;
-        display: inline-block;
-        text-transform: capitalize;
-        padding: 15px 0;
-        text-align: center;
-        margin-left: 15px;
-    }
 </style>
-<div class="header">
-    <div style="background-color:#f0f2f5;">
-        <div class="row col-md-12 justify-content-center align-content-center">
-            <div class="row col-md-8" style="background-color:#fff;">
-                <div class="col-md-4 p-2">
-                    <a href="#"><img src="~/uploads/CoverPage/@Model.CoverPageName" style="width:177px;height:200px"></a>
-                </div>
-                <div class="col-md-5 p-2">
-                    <div class="row col-md-12 ">
-                        <div class="row col-md-12">
-                            <span style="font-family: 'Roboto', sans-serif;font-size:25px">@Model.OriginalTitle</span>
-                        </div>
-                        <div class="row col-md-12">
-                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Par : <b style="color:#3d84b8">@Model.Editor</b></h3>
-                        </div>
-                        <div class="row col-md-12">
-                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Année : <b>@Model.PublicationDate</b></h3>
-                        </div>
-                        <div class="row col-md-12">
-                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Pages : <b>@Model.NbPages</b></h3>
-                        </div>
-                        <div class="row col-md-12">
-                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Collection : <b>@Model.Collection</b></h3>
-                        </div>
-                        <div class="row col-md-12">
-                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Price : <b>@Model.Price</b> DT</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 p-2">
-                    <div class="input-submit p-2">
-                        <a href="" onclick="addProduct(@Model.Id)" class="addProduct">Ajouter au Panier</a>
-                    </div>
-                    <div class="input-submit p-2">
-                        <a style="cursor:pointer" onclick="goBack()" href="@Url.Action("Index", "Home")" class="retour">Retour</a>
+<div id="top-content">
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Slider -->
+        <div class="slider">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="slider-bloc" style="background-image: url(../../images/slider.jpg)">
+                        <h1 class="align-self-center">knowledge<br> without boundaries</h1>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div id="navbar" style="height:30px">
-    <div class="container">
-        <a href="#" style="font-family: 'Roboto', sans-serif;font-size:20px;padding:3px;">
-            Sommaire
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 3 16 16">
-                <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-            </svg>
-        </a>
-    </div>
-</div>
+        <!-- End Slider -->
+        <!-- Book -->
+        <div class="content-tabs publication-tabs">
+            <div class="container">
+                <div class="extra-row">
+                    <nav>
+                        <div class="nav nav-tabs flex-column flex-sm-row" id="nav-tab" role="tablist">
+                            <a class="flex-sm-fill nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-ouvrages" role="tab" aria-controls="nav-ouvrages" aria-selected="true">ouvrages</a>
+                            <a class="flex-sm-fill nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-revues" role="tab" aria-controls="nav-revues" aria-selected="false">revues</a>
+                            <a class="flex-sm-fill nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-document" role="tab" aria-controls="nav-document" aria-selected="false">document rare</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-ouvrages" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="container">
+                                <!-- Advanced Search -->
+                                <div class="row extra-row">
+                                    <div class="col-12 col-md-12 text-center">
+                                        <div class="advanced-search clearfix">
+                                            <span>recherche avancé</span>
+                                            <form action="#" method="post">
+                                                <select class="custom-select" name="theme">
+                                                    <option>Thémes</option>
+                                                    <option>Thémes</option>
+                                                    <option>Thémes</option>
+                                                </select>
+                                                <input type="text" name="search-advanced">
+                                                <button type="submit">advanced search</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Advanced Search -->
+                                <div class="row extra-row">
+                                    <!-- BOOKS BLOC -->
+                                    <div class="col-12">
+                                        <!-- BOOKS LOOP -->
+                                        <div class="books-list">
+                                            <h2>conference poper</h2>
+                                            <!-- SINGLE BOOKS ITEM -->
+                                            <div class="book-item">
+                                                <div class="row">
+                                                    <!-- SINGLE BOOKS IMAGE -->
+                                                    <div class="col-12 col-md-3">
+                                                        <div class="book-picture">
+                                                            <div class="owl-carousel owl-theme">
+                                                                <div class="item">
+                                                                    <img src="../../uploads/CoverPage/@Model.CoverPageName">
+                                                                </div>
+                                                                <div class="item">
+                                                                    <img src="../../uploads/CoverPage/@Model.CoverPageName">
+                                                                </div>
+                                                                <div class="item">
+                                                                    <img src="../../uploads/CoverPage/@Model.CoverPageName">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END SINGLE BOOKS IMAGE -->
+                                                    <!-- SINGLE BOOKS DETAILS -->
+                                                    <div class="col-12 col-md-9">
+                                                        <div class="book-details">
+                                                            <div class="book-detail-title">
+                                                                <h3><a href="#">book-title</a></h3>
+                                                            </div>
+                                                            <div class="book-detail-author">
+                                                                <h4><a href="#">author</a></h4>
+                                                            </div>
+                                                            <div class="book-detail-isbn">
+                                                                <span><strong>ISBN : </strong>@Model.ISBN</span>
+                                                                <span><strong>DOI : </strong>@Model.ISBN</span>
+                                                            </div>
+                                                            <div class="book-detail-maison">
+                                                                <span><strong>Maison d’édition : </strong> @Model.EditionPlace</span>
+                                                            </div>
+                                                            <div class="book-detail-date">
+                                                                <span><strong>Date de publication : </strong> @Model.PublicationDate</span>
+                                                            </div>
+                                                            <div class="book-detail-key">
+                                                                <p><span>Key words</span> : @Model.Keywords</p>
+                                                            </div>
+                                                            <div class="book-detail-links">
+                                                                <a href="#">consulter</a>
+                                                                <a href="#">telecharger</a>
+                                                                <a href="#">voir resumé</a>
+                                                                <a href="#">partager / envoyer mail</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END SINGLE BOOKS DETAILS -->
+                                                </div>
+                                            </div>
+                                            <!-- SINGLE BOOKS SHARE -->
+                                            <div class="share-book">
+                                                <a href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                                                    </svg>
+                                                </a>
+                                                <a href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                                                        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z" />
+                                                    </svg>
+                                                </a>
+                                                <a href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                                                    </svg>                                                </a>
+                                                <a href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <!-- END SINGLE BOOKS SHARE -->
+                                            <!-- END SINGLE BOOKS ITEM -->
+                                            <!-- TABS DETAILS -->
+                                            <div class="tabs-details">
+                                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="resume-tab" data-toggle="tab" href="#resume" role="tab" aria-controls="resume" aria-selected="true">Resumé</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="preface-tab" data-toggle="tab" href="#preface" role="tab" aria-controls="preface" aria-selected="false">Préface</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="false">Table des matieres</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="consulter-tab" data-toggle="tab" href="#consulter" role="tab" aria-controls="consulter" aria-selected="false">Consulter</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="commentaire-tab" data-toggle="tab" href="#commentaire" role="tab" aria-controls="commentaire" aria-selected="false">Voir commentaire</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content" id="myTabContent">
+                                                    <div class="tab-pane fade show active" id="resume" role="tabpanel" aria-labelledby="resume-tab">
+                                                        <p>
+                                                            e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
 
-<div class="content container">
-    <h2 style="font-family: 'Open Sans', sans-serif;font-size:35px">Détaille sur le produit :</h2>
-    <br />
-    <div class="row">
-        <span><b>ISBN : </b>@Model.ISBN</span>
-    </div>
-    <div class="row">
-        <span><b>Langue : </b>@Model.OriginalLanguage</span>
-    </div>
-    <div class="row">
-        <span><b>Doi : </b>@Model.Doi</span>
-    </div>
-    <div class="row">
-        <span><b>Date de publication : </b>@Model.PublicationDate</span>
-    </div>
+                                                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="preface" role="tabpanel" aria-labelledby="preface-tab">
+                                                        <p>
+                                                            e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
 
-    <div class="row">
-        <span><b>Theme : </b>@Model.Theme</span>
-    </div>
-    <div class="row">
-        <span><b>Catalogue : </b>@Model.Catalogue</span>
-    </div>
-    <div class="row">
-        <span><b>LanguagesVarient : </b>@Model.LanguagesVarients</span>
-    </div>
-    <div class="row">
-        <span><b>Genre : </b>@Model.Genre</span>
-    </div>
-    <div class="row">
-        <span><b>Price : </b>@Model.Price DT</span>
-    </div>
-    <div class="row mt-2">
-        <div class="col-md-8">
-            <h2 style="font-family: 'Open Sans', sans-serif;font-size:20px">Auteur :</h2>
-            Jean-Jacques Rousseau, né le 28 juin 1712 à Genève et mort le 2 juillet 1778 à Ermenonville, est un écrivain, philosophe et musicien genevois francophone. Orphelin de mère très jeune, sa vie est marquée par l'errance. Si ses livres et lettres connaissent à partir de 1749 un fort succès, ils lui valent aussi des conflits avec l'Église catholique et Genève qui l'obligent à changer souvent de résidence et alimentent son sentiment de persécution. Après sa mort, son corps est transféré au Panthéon de Paris en 1794.
+                                                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="table" role="tabpanel" aria-labelledby="table-tab">
+                                                        <p>
+                                                            e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
+
+                                                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="consulter" role="tabpanel" aria-labelledby="consulter-tab">
+                                                        <p>
+                                                            e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
+
+                                                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="commentaire" role="tabpanel" aria-labelledby="commentaire-tab">
+                                                        <p>
+                                                            e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
+
+                                                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TABS DETAILS -->
+                                        </div>
+                                        <!-- END BOOKS LOOP -->
+
+                                    </div>
+                                    <!-- END BOOKS BLOC -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-revues" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                        <div class="tab-pane fade" id="nav-document" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <img src="~/uploads/CoverPage/Book_IMG_1754-1-e1481474081467.jpg" style="height:300px" alt="Alternate Text" />
-        </div>
+        <!-- End Tabs -->
     </div>
+    <!-- End Content -->
 </div>
-<script src="~/assets/js/customjs.js" asp-append-version="true"></script>
-<script>
 
-    window.onscroll = function () { myFunction() };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-    function goBcak() {
-        window.history.back();
-    }
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
-</script>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="~/assets/jquery/jquery.cloner.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.book-picture .owl-carousel').owlCarousel({
+                loop: false,
+                nav: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="~/assets/owl/owl.carousel.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 

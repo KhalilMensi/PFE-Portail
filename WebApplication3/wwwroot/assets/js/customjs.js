@@ -19,6 +19,8 @@ $(document).ready(function () {
         }
 
     });
+
+    
 });
 
 function addProduct(id) {
