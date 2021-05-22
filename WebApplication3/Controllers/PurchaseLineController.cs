@@ -77,6 +77,21 @@ namespace PortailEbook.Controllers
 		[Authorize]
 		public IActionResult Delete(int? id)
 		{
+			PurchaseLine purchaseline = BLLPurchaseLine.getPurchaseLineBy("Id", id.ToString());
+			double prixHT = purchaseline.UnitPrice * purchaseline.Quantity;
+			double prixTTC = 0;
+
+			for(int i = 0; i < purchaseline.Quantity; i++)
+			{
+				prixTTC += purchaseline.UnitPrice + purchaseline.UnitPrice * 0.19;
+			}
+
+			Purchase purchase = BLLPurchase.getPurchaseBy("Id", purchaseline.IdPurchase.ToString());
+			purchase.AmountHT = (Double.Parse(purchase.AmountHT) - prixHT).ToString();
+			purchase.AmountTTC = (Double.Parse(purchase.AmountTTC) - prixTTC).ToString();
+
+			BLLPurchase.UpdatePurchase(purchase);
+
 			return Json(BLLPurchaseLine.DeleteApi("Id", id.ToString()));
 		}
 		//Get All PurchaseLine

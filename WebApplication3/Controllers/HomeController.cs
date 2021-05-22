@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using PortailEbook.Models;
 using PortailEbook.Models.BLL;
 using PortailEbook.Models.Entity;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -25,22 +26,44 @@ namespace PortailEbook.Controllers
 
 		public IActionResult Recherche(string search,string mode)
 		{
+			List<string> theme = new List<string>();
 			ViewBag.search = search;
 			if (search == null)
 			{
+				List<Ebook> Ebooks = new List<Ebook>();
+				Ebooks = BLLEbook.getAllEbooks().ToList(); 
+			
+				foreach(var book in Ebooks)
+				{
+					if(!theme.Exists(f => f == book.Theme))
+					{
+						theme.Add(book.Theme);
+					}
+				}
 				var viewModel = new RechercheViewModel
 				{
-					Ebooks = BLLEbook.getAllEbooks().ToList(),
-					Mode = mode
+					Ebooks = Ebooks,
+					Mode = mode,
+					Themes = theme
 				};
 				return View(viewModel);
 			}
 			else
 			{
+				List<Ebook> Ebooks = BLLEbook.getAllEbooks().ToList().Where(
+					x => (x.OriginalTitle.ToLower().Contains(search.ToLower())) || (x.ISBN.ToLower().Contains(search.ToLower())) || (x.Doi.ToLower().Contains(search.ToLower())) || (x.Foreword.ToLower().Contains(search.ToLower())) || (x.Keywords.ToLower().Contains(search.ToLower())) || (x.Abstract.ToLower().Contains(search.ToLower()))).ToList();
+				foreach (var book in Ebooks)
+				{
+					if (!theme.Exists(f => f == book.Theme))
+					{
+						theme.Add(book.Theme);
+					}
+				}
 				var viewModel = new RechercheViewModel
 				{
-					Ebooks = BLLEbook.getAllEbooks().ToList().FindAll(x => x.OriginalTitle.Contains(search.ToLower()) || x.OriginalTitle.Contains(search.ToUpper()) || x.ISBN.Contains(search.ToUpper()) || x.ISBN.Contains(search.ToLower()) || x.Doi.Contains(search.ToUpper()) || x.Doi.Contains(search.ToLower()) || x.Foreword.Contains(search.ToUpper()) || x.Foreword.Contains(search.ToLower()) || x.Keywords.Contains(search.ToUpper()) || x.Keywords.Contains(search.ToLower()) || x.Abstract.Contains(search.ToLower()) || x.Abstract.Contains(search.ToUpper())),
-					Mode = mode
+					Ebooks = Ebooks,
+					Mode = mode,
+					Themes = theme
 				};
 				return View(viewModel);
 			}

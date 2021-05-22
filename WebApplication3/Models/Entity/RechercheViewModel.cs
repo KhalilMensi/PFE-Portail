@@ -9,5 +9,6 @@ namespace PortailEbook.Models.Entity
 	{
 		public List<Ebook> Ebooks { get; set; }
 		public string Mode { get; set; }
+		public List<string> Themes { get; set; }
 	}
 }
