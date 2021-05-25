@@ -89,7 +89,7 @@ namespace PortailEbook.Models.BLL
             if (purchase.Id == 0)
             {
                 //create
-                purchase.PurchaseDate = System.DateTime.Now;
+                purchase.PurchaseDate = System.DateTime.Now.ToShortDateString();
                 jsonResponse.message = AddPurchase(purchase);
                 if (jsonResponse.message == "Ajout avec succes")
                 {
@@ -127,7 +127,7 @@ namespace PortailEbook.Models.BLL
                 if (list.Count() != 0)
                 {
                     purchase.Type = "Commande";
-                    purchase.PurchaseDate = System.DateTime.Now;
+                    purchase.PurchaseDate = System.DateTime.Now.ToShortDateString();
                     etat = BLLPurchase.UpdatePurchase(purchase);
 				}
 				else

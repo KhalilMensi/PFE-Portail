@@ -15,7 +15,7 @@ function loadDataTable() {
         "columns": [
             { "data": "originalTitle" },
             { "data": "isbn" },
-            { "data": "collection" },
+            { "data": "doi" },
             { "data": "price", render: function (data, type, full, meta) { return data + " DT" }},
             { "data": "publicationDate" },
             {

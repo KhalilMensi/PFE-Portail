@@ -18,11 +18,11 @@ function loadDataTable() {
             "dataSrc": ""
         },
         "columns": [
-            { "data": "id",'visible':false },
+            { "data": "purchaseNumber" },
             { "data": "purchaseDate" },
-            { "data": "type" },
             { "data": "amountHT", render: function (data, type, full, meta) {return data+" DT" }},
-            { "data": "amountTTC", render: function (data, type, full, meta) { return data + " DT" } }
+            { "data": "amountTTC", render: function (data, type, full, meta) { return data + " DT" } },
+            { "data": "state" },
         ],
         "language": {
             "processing": "Traitement en cours...",

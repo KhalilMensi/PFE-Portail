@@ -31,7 +31,7 @@
                     <span id="validIdUser" class="text-danger"></span>
                 </div>
 
-                @if (ViewBag.Id == false)
+                @if (Model != null)
                 {
                     <div class="form-group col-md-6">
                         <label asp-for="PurchaseNumber"></label>
@@ -49,7 +49,7 @@
             </div>
             <div class="form-row">
 
-                @if (ViewBag.Id == false)
+                @if (Model != null)
                 {
                     <div class="form-group col-md-6">
                         <label asp-for="PurchaseDate"></label>
@@ -70,11 +70,21 @@
                     <span id="validType" class="text-danger"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
+            <div class="form-row">
+                <div class="form-group col-md-6">
                     <label asp-for="DiscountPercent"></label>
                     <input asp-for="DiscountPercent" class="form-control" id="DiscountPercent">
                     <span id="validDiscountPercent" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="State"></label>
+                    <select asp-for="State" class="custom-select text-center" id="State">
+                        <option value="">-- Sélectionnez une état --</option>
+                        <option value="En cours ...">En cours ...</option>
+                        <option value="Annulée">Annulée</option>
+                        <option value="Livrée">Livrée</option>
+                    </select>
+                    <span id="validState" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-row">

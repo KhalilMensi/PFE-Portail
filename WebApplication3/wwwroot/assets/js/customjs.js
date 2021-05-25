@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     });
 
-    
+
 });
 
 function addProduct(id) {
@@ -39,12 +39,12 @@ function addProduct(id) {
             cache: false,
             success: function (response) {
                 userId = response;
-                addPurchase(userId, id);
+                addPurchase(userId, id); 
             },
             error: function (xhr, error, status) {
                 console.log(error, status);
             }
-        });
+        });  
     } else {
         window.location.href = "/Account/Login"; //will redirect to your blog page (an ex: blog.html)
     }
@@ -62,7 +62,6 @@ function addPurchase(userId, id) {
         cache: false,
         success: function (response) {
             if (response.success) {
-
                 $.ajax({
                     url: '/Purchase/getMax',
                     type: 'get',
@@ -80,7 +79,6 @@ function addPurchase(userId, id) {
                             },
                             cache: false,
                             success: function (response) {
-
                                 if (AppGlobal.user.role == "User" || AppGlobal.user.role == "Admin") {
 
                                     $.ajax({
@@ -101,22 +99,22 @@ function addPurchase(userId, id) {
                                                         for (var j = 0; j < response.listDocumentPurchased.length; j++) {
                                                             for (var i = 0; i < response.listPurchaseLine.length; i++) {
                                                                 if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
-                                                                    $('#dropdown-content').append(
-                                                                        `<div class= "row justify-content-center align-content-center p-2">
-                                                                        <div class="col-md-4 text-center">
-                                                                            <div class="row justify-content-start align-content-center" style="width:100px;">
-                                                                                <img src="${"uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
+                                                                    $('#dropdown-content').append(`
+                                                                    <div class="row justify-content-center align-content-center p-2">
+                                                                        <div class="col-md-3 text-center">
+                                                                            <div class="row justify-content-start align-content-center" style="width:80px;">
+                                                                                <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-8">
+                                                                        <div class="col-md-9">
                                                                             <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle}</b></span>
+                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
                                                                             </div>
                                                                             <div class="row justify-content-start align-content-center" style="height:25px">
                                                                                 <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
                                                                             </div>
                                                                         </div>
-                                                                    </div >`
+                                                                    </div>`
                                                                     )
                                                                 }
                                                             }
@@ -126,28 +124,38 @@ function addPurchase(userId, id) {
                                                             <div class="col-md-12">
                                                                 <div class="row justify-content-start align-content-center" style="height:25px">
                                                                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                        <b style="color:#7868e6">Total TTC :</b>${response.purchase.amountTTC} DT
+                                                                        <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                        </div>`
-                                                        )
-                                                        $('#dropdown-content').append(`
-                                                        <div class="row justify-content-center align-content-center mb-2" style="cursor:pointer;">
-                                                             <a href="PurchaseLine/ListPurchaseLine">Valider la commande</a>
                                                         </div>`)
                                                     } else {
                                                         $('#dropdown-content').append(`
                                                         <div class="row justify-content-center align-content-center p-2">
-                                                             <div class="col-md-12">
-                                                                 <div class="row justify-content-center align-content-center" style="height:25px">
+                                                            <div class="col-md-12">
+                                                                <div class="row justify-content-center align-content-center" style="height:25px">
                                                                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
                                                                         <b>Panier Vide</b>
                                                                     </span>
-                                                                 </div>
-                                                             </div>
+                                                                </div>
+                                                            </div>
                                                         </div>`)
                                                     }
+                                                    const Toast = Swal.mixin({
+                                                        toast: true,
+                                                        position: 'top-end',
+                                                        showConfirmButton: false,
+                                                        timer: 1000,
+                                                        timerProgressBar: true,
+                                                        didOpen: (toast) => {
+                                                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                        }
+                                                    })
+                                                    Toast.fire({
+                                                        icon: 'success',
+                                                        title: 'Mise a jours du Panier'
+                                                    })
                                                 },
                                                 error: function (xhr, error, status) {
                                                     console.log(error, status);

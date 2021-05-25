@@ -21,9 +21,9 @@ function loadDataTable() {
                     "data": "filename",
                     "render": function (data) {
                         if (data != "") {
-                            return '<img class="rounded-circle" src="uploads/user/' + data + '" style="width:25px;height:25px;"/>';
+                            return '<img class="rounded-circle" src="uploads/user/' + data + '" style="width:40px;height:40px;"/>';
                         } else {
-                            return '<img class="rounded-circle" src="uploads/user/unknown.png" style="width:25px;height:25px;"/>';
+                            return '<img class="rounded-circle" src="uploads/user/unknown.png" style="width:40px;height:40px;"/>';
                         }
                     }
                 },

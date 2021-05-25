@@ -235,22 +235,24 @@
                                 <div class="compte text-right">
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin" || @User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User")
                                     {
-                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
-                            <i class="fas fa fa-shopping-cart fa-lg"></i>
-                            <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
+                                        <a asp-action="ListPurchaseLine" asp-controller="PurchaseLine" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+                                            <i class="fas fa fa-shopping-cart fa-lg"></i>
+                                            <span id="NbPurchaseLine" class="cart-basket d-flex align-items-center justify-content-center">
 
-                            </span>
-                        </a>}
+                                            </span>
+                                        </a>
+                                    }
                                     <i class="icon-compte"></i>
 
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value != null)
                                     {
 
-                        <a asp-action="Logout" asp-controller="Account">Se déconnecter</a> }
-                    else
-                    {
-        <a asp-action="Login" asp-controller="Account">Se connecter</a>
-                        <span> / </span>
+                                        <a asp-action="Logout" asp-controller="Account">Se déconnecter</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-action="Login" asp-controller="Account">Se connecter</a>
+                                        <span> / </span>
                                         <a asp-action="UpsertUser" asp-controller="User">S’inscrire</a>}
                                 </div>
                             </div>

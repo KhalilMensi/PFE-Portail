@@ -20,11 +20,15 @@ namespace PortailEbook.Models.Entity
 
 		[Required]
 		[Display(Name = "Date du commande")]
-		public DateTime PurchaseDate { get; set; }
+		public string PurchaseDate { get; set; }
 
 		[Required]
 		[StringLength(50)]
 		public string Type { get; set; }
+
+		[Required]
+		[StringLength(50)]
+		public string State { get; set; }
 
 		[Required]
 		[StringLength(50)]
@@ -60,9 +64,9 @@ namespace PortailEbook.Models.Entity
 		{
 		}
 
-		public Purchase(long id, string idUser, Int64 purchaseNumber, DateTime purchaseDate,
+		public Purchase(long id, string idUser, Int64 purchaseNumber, string purchaseDate,
 			string type, string discountPercent, string discount, 
-			string vatPercent, string vat, string amountHT, string amountTTC)
+			string vatPercent, string vat, string amountHT, string amountTTC,string state)
 		{
 			Id = id;
 			IdUser = idUser;
@@ -75,6 +79,7 @@ namespace PortailEbook.Models.Entity
 			Vat = vat;
 			AmountHT = amountHT;
 			AmountTTC = amountTTC;
+			State = state;
 		}
 	}
 }

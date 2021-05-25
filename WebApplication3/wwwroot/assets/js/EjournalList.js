@@ -13,11 +13,16 @@ function loadDataTable() {
             "dataSrc": ""
         },
         "columns": [
+            { "data": "originalTitle" },
             { "data": "issn" },
-            { "data": "editor" },
-            { "data": "collection" },
-            { "data": "theme" },
-            { "data": "catalogue" },
+            { "data": "doi" },
+            { "data": "price", render: function (data, type, full, meta) { return data + " DT" } },
+            { "data": "publicationDate" },
+            {
+                "data": "coverPageName", "render": function (data) {
+                    return '<img class="rounded-circle" src="uploads/CoverPage/' + data + '" style="width:40px;height:40px;"/>';
+                }
+            },
             {
                 "data": "id",
 

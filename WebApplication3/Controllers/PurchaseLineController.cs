@@ -88,7 +88,7 @@ namespace PortailEbook.Controllers
 
 			Purchase purchase = BLLPurchase.getPurchaseBy("Id", purchaseline.IdPurchase.ToString());
 			purchase.AmountHT = (Double.Parse(purchase.AmountHT) - prixHT).ToString();
-			purchase.AmountTTC = (Double.Parse(purchase.AmountTTC) - prixTTC).ToString();
+			purchase.AmountTTC = String.Format("{0:0.00}", float.Parse((Double.Parse(purchase.AmountTTC) - prixTTC).ToString()));
 
 			BLLPurchase.UpdatePurchase(purchase);
 

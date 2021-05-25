@@ -51,7 +51,7 @@ namespace PortailEbook.Controllers
 			{
 				ViewBag.UsersId = BLLUser.getAllUserId();
 				ViewBag.PurchaseNumber = BLLPurchase.getMaxNumber();
-				ViewBag.date = System.DateTime.Now;
+				ViewBag.date = System.DateTime.Now.ToShortDateString();
 				return View();
 			}
 			else
@@ -107,7 +107,7 @@ namespace PortailEbook.Controllers
 			{
 				purchase.IdUser = IdUser.ToString();
 				purchase.PurchaseNumber = BLLPurchase.getMaxNumber();
-				purchase.PurchaseDate = System.DateTime.Now;
+				purchase.PurchaseDate = System.DateTime.Now.ToShortDateString();
 				purchase.Type = "PurchaseLine";
 				purchase.DiscountPercent = "0";
 				purchase.Discount = "0";
@@ -115,6 +115,7 @@ namespace PortailEbook.Controllers
 				purchase.Vat = "0";
 				purchase.AmountHT = "0";
 				purchase.AmountTTC = "0";
+				purchase.State = "En cours ...";
 
 				jsonResponse = BLLPurchase.UpsertApi(purchase);
 				return jsonResponse;

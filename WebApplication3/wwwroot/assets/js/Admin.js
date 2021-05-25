@@ -11,17 +11,12 @@
         $('#BooksNumber').text(response)
     })
 
-    //$.post('/Ejournal/EjournalNb', function (response) {
-    //    $('#EjournalsNumber').text(response)
-    //})
+    $.post('/Ejournal/EjournalNb', function (response) {
+        $('#EjournalsNumber').text(response)
+    })
 
     $.post('/Purchase/PurchaseNb', function (response) {
         $('#PurchasesNumber').text(response)
     })
-
-    //$.post('/PurchaseLine/PurchaseLineNb', function (response) {
-    //    $('#PurchaseLineNumber').text(response)
-    //})
-
 });
 

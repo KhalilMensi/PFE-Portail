@@ -177,7 +177,7 @@
                 {
                     <div class="row col-md-12 justify-content-end mt-1 mb-5">
                         <div class="row col-md-12 justify-content-end mr-3">
-                            <input onclick="CompleteAchat()" type="button" class="btn btn-info col-md-3 mt-3 mb-3" name="name" value="Complèter vos achats" />
+                            <a asp-action="Recherche" asp-route-mode="List" asp-controller="Home" class="btn btn-info col-md-3 mt-3 mb-3" name="name">Compléter vos achats</a>
                             <span class="col-md-1"></span>
                             @if (Model.ListPurchaseLine.Count() != 0)
                             {

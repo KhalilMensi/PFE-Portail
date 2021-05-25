@@ -1,12 +1,6 @@
 ﻿var dataTable;
 $(document).ready(function () {
     loadDataTable();
-    //$('#myTable').on('click', 'tbody tr', function () {
-    //    var row = dataTable.api().row($(this)).data();
-    //    console.log(row["id"]);
-
-    //    location.href = "/PurchaseLine/ListPurchaseLine/" + row["id"];
-    //})
 });
 
 function loadDataTable() {
@@ -19,11 +13,11 @@ function loadDataTable() {
             "dataSrc": ""
         },
         "columns": [
-            { "data": "idUser" },
             { "data": "purchaseNumber" },
+            { "data": "idUser" },
             { "data": "purchaseDate" },
-            { "data": "type" },
             { "data": "amountTTC", render: function (data, type, full, meta) { return data + " DT" } },
+            { "data": "state" },
             {
                 "data": "id",
 
@@ -31,8 +25,9 @@ function loadDataTable() {
                     return `<div class="row justify-content-center">
                         <div class="col-md-3 text-center">
                              <a href="/PurchaseLine/ListPurchaseLine?id=${data}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0e49b5" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0e49b5" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                 </svg>
                               </a>
                         </div>
@@ -115,9 +110,10 @@ function deletePurchase(PurchaseId) {
 
 // save the Purchase SUBMIT the Form
 function savePurchase() {
-    if ($('#userId').val().length > 0 && $('#PurchaseNumber').val().length > 0 && $('#PurchaseDate').val().length > 0 && $('#Type').val().length > 0 && $('#DiscountPercent').val().length > 0 && $('#Discount').val().length > 0 && $('#VatPercent').val().length > 0 && $('#Vat').val().length > 0 && $('#AmountHT').val().length > 0 && $('#AmountTTC').val().length > 0) {
+    if ($('#userId').val().length > 0 && $('#State').val().length > 0 && $('#PurchaseNumber').val().length > 0 && $('#PurchaseDate').val().length > 0 && $('#Type').val().length > 0 && $('#DiscountPercent').val().length > 0 && $('#Discount').val().length > 0 && $('#VatPercent').val().length > 0 && $('#Vat').val().length > 0 && $('#AmountHT').val().length > 0 && $('#AmountTTC').val().length > 0) {
 
         $('#validIdUser').text('')
+        $('#validState').text('')
         $('#validPurchaseNumber').text('')
         $('#validPurchaseDate').text('')
         $('#validType').text('')
@@ -189,6 +185,11 @@ function savePurchase() {
         });
     }
     else {
+        if ($('#State').val().length < 1) {
+            $('#validState').text('Champ obligatoire')
+        } else {
+            $('#validState').text('')
+        }
         if ($('#userId').val().length < 1) {
            $('#validIdUser').text('Champ obligatoire')
         } else {

@@ -50,7 +50,7 @@
 			{
 				SqlConnection cnn = DBConnection.GetConnection();
 				cnn.Open();
-				string sql = "If not exists (select * from sysobjects where name = 'Purchase') CREATE TABLE [dbo].[Purchase] (Id bigint IDENTITY(1000,1) NOT NULL CONSTRAINT pkPurchaseId PRIMARY KEY , IdUser bigint NULL CONSTRAINT fkUserId FOREIGN KEY REFERENCES [User](Id) , PurchaseNumber bigint NOT NULL , PurchaseDate DateTime NOT NULL , Type VARCHAR(50) NOT NULL , DiscountPercent VARCHAR(50) NOT NULL , Discount VARCHAR(50) NOT NULL , VatPercent VARCHAR(50) NOT NULL, Vat VARCHAR(50) NOT NULL, AmountHT VARCHAR(50) NOT NULL, AmountTTC VARCHAR(50) NOT NULL) ";
+				string sql = "If not exists (select * from sysobjects where name = 'Purchase') CREATE TABLE [dbo].[Purchase] (Id bigint IDENTITY(1000,1) NOT NULL CONSTRAINT pkPurchaseId PRIMARY KEY , IdUser bigint NULL CONSTRAINT fkUserId FOREIGN KEY REFERENCES [User](Id) , PurchaseNumber bigint NOT NULL , PurchaseDate VARCHAR(50) NOT NULL , Type VARCHAR(50) NOT NULL , DiscountPercent VARCHAR(50) NOT NULL , Discount VARCHAR(50) NOT NULL , VatPercent VARCHAR(50) NOT NULL, Vat VARCHAR(50) NOT NULL, AmountHT VARCHAR(50) NOT NULL, AmountTTC VARCHAR(50) NOT NULL, State VARCHAR(50) NOT NULL) ";
 				using (SqlCommand command = new SqlCommand(sql, cnn))
 					command.ExecuteNonQuery();
 				cnn.Close();
@@ -88,7 +88,7 @@
 								}
 
 								purchase.PurchaseNumber = Int64.Parse(dataReader["PurchaseNumber"].ToString());
-								purchase.PurchaseDate = DateTime.Parse(dataReader["PurchaseDate"].ToString());
+								purchase.PurchaseDate = dataReader["PurchaseDate"].ToString();
 								purchase.Type = dataReader["Type"].ToString();
 								purchase.DiscountPercent = dataReader["DiscountPercent"].ToString();
 								purchase.Discount = dataReader["Discount"].ToString();
@@ -96,6 +96,7 @@
 								purchase.Vat = dataReader["Vat"].ToString();
 								purchase.AmountHT = dataReader["AmountHT"].ToString();
 								purchase.AmountTTC = dataReader["AmountTTC"].ToString();
+								purchase.State = dataReader["State"].ToString();
 							}
 						}
 					}
@@ -133,7 +134,7 @@
 								}
 
 								purchase.PurchaseNumber = Int64.Parse(dataReader["PurchaseNumber"].ToString());
-								purchase.PurchaseDate = DateTime.Parse(dataReader["PurchaseDate"].ToString());
+								purchase.PurchaseDate = dataReader["PurchaseDate"].ToString();
 								purchase.Type = dataReader["Type"].ToString();
 								purchase.DiscountPercent = dataReader["DiscountPercent"].ToString();
 								purchase.Discount = dataReader["Discount"].ToString();
@@ -141,6 +142,7 @@
 								purchase.Vat = dataReader["Vat"].ToString();
 								purchase.AmountHT = dataReader["AmountHT"].ToString();
 								purchase.AmountTTC = dataReader["AmountTTC"].ToString();
+								purchase.State = dataReader["State"].ToString();
 								lstPurchase.Add(purchase);
 							}
 						}
@@ -216,7 +218,7 @@
 									purchase.IdUser = dataReader["IdUser"].ToString();
 								}
 								purchase.PurchaseNumber = Int64.Parse(dataReader["PurchaseNumber"].ToString());
-								purchase.PurchaseDate = DateTime.Parse(dataReader["PurchaseDate"].ToString());
+								purchase.PurchaseDate = dataReader["PurchaseDate"].ToString();
 								purchase.Type = dataReader["Type"].ToString();
 								purchase.DiscountPercent = dataReader["DiscountPercent"].ToString();
 								purchase.Discount = dataReader["Discount"].ToString();
@@ -224,6 +226,7 @@
 								purchase.Vat = dataReader["Vat"].ToString();
 								purchase.AmountHT = dataReader["AmountHT"].ToString();
 								purchase.AmountTTC = dataReader["AmountTTC"].ToString();
+								purchase.State = dataReader["State"].ToString();
 								return purchase;
 							}
 						}
@@ -262,7 +265,7 @@
 									purchase.IdUser = dataReader["IdUser"].ToString();
 								}
 								purchase.PurchaseNumber = Int64.Parse(dataReader["PurchaseNumber"].ToString()); 
-								purchase.PurchaseDate = DateTime.Parse(dataReader["PurchaseDate"].ToString());
+								purchase.PurchaseDate = dataReader["PurchaseDate"].ToString();
 								purchase.Type = dataReader["Type"].ToString();
 								purchase.DiscountPercent = dataReader["DiscountPercent"].ToString();
 								purchase.Discount = dataReader["Discount"].ToString();
@@ -270,6 +273,7 @@
 								purchase.Vat = dataReader["Vat"].ToString();
 								purchase.AmountHT = dataReader["AmountHT"].ToString();
 								purchase.AmountTTC = dataReader["AmountTTC"].ToString();
+								purchase.State = dataReader["State"].ToString();
 
 								lstPurchase.Add(purchase);
 							}
@@ -299,7 +303,7 @@
 						using (SqlConnection connection = DBConnection.GetConnection())
 						{
 
-							string sql = "if exists(select * from sysobjects where name = 'Purchase') Insert into [Purchase](IdUser,PurchaseNumber,PurchaseDate,Type,DiscountPercent,Discount,VatPercent,Vat,AmountHT,AmountTTC) values (@IdUser,@PurchaseNumber,@PurchaseDate,@Type,@DiscountPercent,@Discount,@VatPercent,@Vat,@AmountHT,@AmountTTC)";
+							string sql = "if exists(select * from sysobjects where name = 'Purchase') Insert into [Purchase](IdUser,PurchaseNumber,PurchaseDate,Type,DiscountPercent,Discount,VatPercent,Vat,AmountHT,AmountTTC,State) values (@IdUser,@PurchaseNumber,@PurchaseDate,@Type,@DiscountPercent,@Discount,@VatPercent,@Vat,@AmountHT,@AmountTTC,@State)";
 							using (SqlCommand command = new SqlCommand(sql, connection))
 							{
 								connection.Open();
@@ -314,6 +318,8 @@
 								command.Parameters.AddWithValue("@Vat", purchase.Vat);
 								command.Parameters.AddWithValue("@AmountHT", purchase.AmountHT);
 								command.Parameters.AddWithValue("@AmountTTC", purchase.AmountTTC);
+								command.Parameters.AddWithValue("@State", purchase.State);
+
 								if (command.ExecuteNonQuery() == 1)
 								{
 									msg = "Ajout avec succes";
@@ -355,7 +361,7 @@
 					using (SqlConnection connection = DBConnection.GetConnection())
 					{
 						connection.Open();
-						string sql = "if exists(select * from sysobjects where name = 'Purchase') update [Purchase] set IdUser=@IdUser,PurchaseNumber=@PurchaseNumber,PurchaseDate=@PurchaseDate,Type=@Type,DiscountPercent=@DiscountPercent,Discount=@Discount,VatPercent=@VatPercent,Vat=@Vat,AmountHT=@AmountHT,AmountTTC=@AmountTTC where Id=@Id";
+						string sql = "if exists(select * from sysobjects where name = 'Purchase') update [Purchase] set IdUser=@IdUser,PurchaseNumber=@PurchaseNumber,PurchaseDate=@PurchaseDate,Type=@Type,DiscountPercent=@DiscountPercent,Discount=@Discount,VatPercent=@VatPercent,Vat=@Vat,AmountHT=@AmountHT,AmountTTC=@AmountTTC,State=@State where Id=@Id";
 						using (SqlCommand command = new SqlCommand(sql, connection))
 						{
 							command.CommandType = CommandType.Text;
@@ -375,6 +381,7 @@
 							command.Parameters.AddWithValue("@Vat", purchase.Vat);
 							command.Parameters.AddWithValue("@AmountHT", purchase.AmountHT);
 							command.Parameters.AddWithValue("@AmountTTC", purchase.AmountTTC);
+							command.Parameters.AddWithValue("@State", purchase.State);
 
 							if (command.ExecuteNonQuery() == 1)
 							{

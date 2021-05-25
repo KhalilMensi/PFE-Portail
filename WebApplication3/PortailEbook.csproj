@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Recherche\**" />
+    <Content Remove="Views\Recherche\**" />
+    <EmbeddedResource Remove="Views\Recherche\**" />
+    <None Remove="Views\Recherche\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Google.Apis.Admin.Directory.directory_v1" Version="1.49.0.1982" />
     <PackageReference Include="Microsoft.AspNet.WebPages.WebData" Version="3.2.7" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.0-preview.2.21154.6" />
@@ -15,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Recherche\" />
     <Folder Include="wwwroot\uploads\CoverPage\" />
   </ItemGroup>
 
