@@ -24,10 +24,26 @@ namespace PortailEbook.Controllers
 			return View(BLLDocument.getAllDocuments());
 		}
 
-		public IActionResult Recherche(string search,string mode)
+		public IActionResult Recherche(string search,string mode,string theme)
 		{
-			List<string> theme = new List<string>();
+			List<string> themee = new List<string>();
 			ViewBag.search = search;
+
+			if(theme != null)
+			{
+				List<Ebook> Ebooks = new List<Ebook>();
+				Ebooks = BLLEbook.getAllEbooks().ToList().FindAll(x => x.Theme == theme);
+				themee.Add(theme);
+				var viewModel = new RechercheViewModel
+				{
+					Ebooks = Ebooks,
+					Mode = mode,
+					Themes = themee
+				};
+				ViewBag.theme = theme;
+				return View(viewModel);
+			}
+
 			if (search == null)
 			{
 				List<Ebook> Ebooks = new List<Ebook>();
@@ -35,16 +51,16 @@ namespace PortailEbook.Controllers
 			
 				foreach(var book in Ebooks)
 				{
-					if(!theme.Exists(f => f == book.Theme))
+					if(!themee.Exists(f => f == book.Theme))
 					{
-						theme.Add(book.Theme);
+						themee.Add(book.Theme);
 					}
 				}
 				var viewModel = new RechercheViewModel
 				{
 					Ebooks = Ebooks,
 					Mode = mode,
-					Themes = theme
+					Themes = themee
 				};
 				return View(viewModel);
 			}
@@ -54,16 +70,16 @@ namespace PortailEbook.Controllers
 					x => (x.OriginalTitle.ToLower().Contains(search.ToLower())) || (x.ISBN.ToLower().Contains(search.ToLower())) || (x.Doi.ToLower().Contains(search.ToLower())) || (x.Foreword.ToLower().Contains(search.ToLower())) || (x.Keywords.ToLower().Contains(search.ToLower())) || (x.Abstract.ToLower().Contains(search.ToLower()))).ToList();
 				foreach (var book in Ebooks)
 				{
-					if (!theme.Exists(f => f == book.Theme))
+					if (!themee.Exists(f => f == book.Theme))
 					{
-						theme.Add(book.Theme);
+						themee.Add(book.Theme);
 					}
 				}
 				var viewModel = new RechercheViewModel
 				{
 					Ebooks = Ebooks,
 					Mode = mode,
-					Themes = theme
+					Themes = themee
 				};
 				return View(viewModel);
 			}

@@ -66,7 +66,11 @@
 
                 <div class="form-group col-md-6">
                     <label asp-for="Type"></label>
-                    <input asp-for="Type" class="form-control" id="Type">
+                    <select asp-for="Type" class="custom-select text-center" id="Type">
+                        <option value="">-- Sélectionnez un type --</option>
+                        <option value="Commande">Commande</option>
+                        <option value="PurchaseLine">PurchaseLine</option>
+                    </select>
                     <span id="validType" class="text-danger"></span>
                 </div>
             </div>

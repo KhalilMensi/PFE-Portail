@@ -12,6 +12,11 @@ namespace PortailEbook.Controllers
 	[Authorize]
 	public class PurchaseLineController : Controller
 	{
+		public ActionResult Index()
+		{
+			return View();
+		}
+
 		// POST: PurchaseLineController/Create
 		[HttpPost]
 		public ActionResult UpsertPurchaseLine(PurchaseLine purchaseLine)
