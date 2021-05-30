@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Apropos</value>
+  </data>
+  <data name="AboutAlFikr" xml:space="preserve">
+    <value>A propos al fikr</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Abstraite</value>
+  </data>
+  <data name="AccessType" xml:space="preserve">
+    <value>Type d'accés</value>
+  </data>
+  <data name="AccompanyingMaterials" xml:space="preserve">
+    <value>Matériel d'accompagnement</value>
+  </data>
+  <data name="AccompanyingMaterialsNb" xml:space="preserve">
+    <value>Nombre du matériel d'accompagnement</value>
+  </data>
+  <data name="AccountParameter" xml:space="preserve">
+    <value>Paramètres du compte</value>
+  </data>
+  <data name="AddEbook" xml:space="preserve">
+    <value>Ajouter nouveau Ouvrage</value>
+  </data>
+  <data name="AddEjournal" xml:space="preserve">
+    <value>Ajouter nouvel Revue</value>
+  </data>
+  <data name="AddPurchase" xml:space="preserve">
+    <value>Ajouter une commande</value>
+  </data>
+  <data name="AddPurchaseLine" xml:space="preserve">
+    <value>Ajouter une ligne de commande</value>
+  </data>
+  <data name="AddToPurchaseline" xml:space="preserve">
+    <value>Ajouter au Panier</value>
+  </data>
+  <data name="AddUser" xml:space="preserve">
+    <value>Ajouter un nouveau utilisateur</value>
+  </data>
+  <data name="Adress" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AdvancedSearch" xml:space="preserve">
+    <value>Recherche Avancé</value>
+  </data>
+  <data name="AlreadyHaveAnAccount" xml:space="preserve">
+    <value>Vous avez déjà un compte ?</value>
+  </data>
+  <data name="AmountHT" xml:space="preserve">
+    <value>Montant HT</value>
+  </data>
+  <data name="AmountTTC" xml:space="preserve">
+    <value>Montant TTC</value>
+  </data>
+  <data name="Annulée" xml:space="preserve">
+    <value>Annulée</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="BackToHome" xml:space="preserve">
+    <value>Retour vers accueil</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Retour vers liste</value>
+  </data>
+  <data name="BackToMyCommands" xml:space="preserve">
+    <value>Retour à mes commandes</value>
+  </data>
+  <data name="BackToUsersList" xml:space="preserve">
+    <value>Retour vers liste des utilisateurs</value>
+  </data>
+  <data name="beauxArt" xml:space="preserve">
+    <value>et beaux-art</value>
+  </data>
+  <data name="BooksRecentlyAdded" xml:space="preserve">
+    <value>Livres Récemment Ajoutés</value>
+  </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catalogue</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="ChoosePhoto" xml:space="preserve">
+    <value>Choisir une Photo...</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Collection" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="Commander" xml:space="preserve">
+    <value>Commander</value>
+  </data>
+  <data name="CompleterVosAchats" xml:space="preserve">
+    <value>Compléter vos achats</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Pays</value>
+  </data>
+  <data name="CoverPage" xml:space="preserve">
+    <value>Page de couverture</value>
+  </data>
+  <data name="CoverPageName" xml:space="preserve">
+    <value>Nom du page de couverture</value>
+  </data>
+  <data name="DateFirstIssue" xml:space="preserve">
+    <value>Date du première essai</value>
+  </data>
+  <data name="DetailsPurchaseLine" xml:space="preserve">
+    <value>Détailles Ligne de commande</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Remise</value>
+  </data>
+  <data name="DiscountPercent" xml:space="preserve">
+    <value>Pourcentage du remise</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Type du document</value>
+  </data>
+  <data name="Doi" xml:space="preserve">
+    <value>Doi</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="Ebook" xml:space="preserve">
+    <value>Ouvrage</value>
+  </data>
+  <data name="EbookDetails" xml:space="preserve">
+    <value>Détailles d'Ouvrage</value>
+  </data>
+  <data name="EbooksList" xml:space="preserve">
+    <value>Liste des ouvrages</value>
+  </data>
+  <data name="EditionNum" xml:space="preserve">
+    <value>Numéro d'édition</value>
+  </data>
+  <data name="EditionPlace" xml:space="preserve">
+    <value>Place d'édition</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editeur</value>
+  </data>
+  <data name="Ejournal" xml:space="preserve">
+    <value>Revue</value>
+  </data>
+  <data name="EjournalDetails" xml:space="preserve">
+    <value>Détailles du Revue</value>
+  </data>
+  <data name="EjournalsList" xml:space="preserve">
+    <value>Liste des revues</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EnCours" xml:space="preserve">
+    <value>En cours...</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="FileFormat" xml:space="preserve">
+    <value>Format du fichier</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Nom du fichier</value>
+  </data>
+  <data name="Foreword" xml:space="preserve">
+    <value>Avant-propos</value>
+  </data>
+  <data name="Français" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="Frequency" xml:space="preserve">
+    <value>Fréquence</value>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Acceuil</value>
+  </data>
+  <data name="IdDocument" xml:space="preserve">
+    <value>Id Document</value>
+  </data>
+  <data name="IdPurchase" xml:space="preserve">
+    <value>Id Commande</value>
+  </data>
+  <data name="IdUser" xml:space="preserve">
+    <value>Id Utilisateur</value>
+  </data>
+  <data name="ImpactFactor" xml:space="preserve">
+    <value>Facteur d'impact</value>
+  </data>
+  <data name="ISBN" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="ISSN" xml:space="preserve">
+    <value>ISSN</value>
+  </data>
+  <data name="JournalScope" xml:space="preserve">
+    <value>Portée du journal</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>Mots clés</value>
+  </data>
+  <data name="Knowledge" xml:space="preserve">
+    <value>Connaissance</value>
+  </data>
+  <data name="LanguageSelection" xml:space="preserve">
+    <value>-- Sélectionnez une langue --</value>
+  </data>
+  <data name="LanguagesVarients" xml:space="preserve">
+    <value>Variantes de langage</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="lettreEtcivilisation" xml:space="preserve">
+    <value>Lettres et civilisation</value>
+  </data>
+  <data name="Livrée" xml:space="preserve">
+    <value>Livrée</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="MarcRecordNumber" xml:space="preserve">
+    <value>Numéro d'enregistrement</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>Mon Compte</value>
+  </data>
+  <data name="MyPurchases" xml:space="preserve">
+    <value>Mes commandes</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="NbEbook" xml:space="preserve">
+    <value>Nombre des revues</value>
+  </data>
+  <data name="NbEjournal" xml:space="preserve">
+    <value>Nombre des ouvrages</value>
+  </data>
+  <data name="NbPages" xml:space="preserve">
+    <value>Nombre des pages</value>
+  </data>
+  <data name="NbPurchase" xml:space="preserve">
+    <value>Nombre des commandes</value>
+  </data>
+  <data name="NbUser" xml:space="preserve">
+    <value>Nombre des utilisateurs</value>
+  </data>
+  <data name="NoDocumentFound" xml:space="preserve">
+    <value>Aucun document disponible !!</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NotPublished" xml:space="preserve">
+    <value>Non publier</value>
+  </data>
+  <data name="NumberOfPurchases" xml:space="preserve">
+    <value>Nombre des commandes</value>
+  </data>
+  <data name="OriginalLanguage" xml:space="preserve">
+    <value>Langue original</value>
+  </data>
+  <data name="OriginalTitle" xml:space="preserve">
+    <value>Titre original</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="PhysicalDescription" xml:space="preserve">
+    <value>Description physique</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Code postal</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Produit</value>
+  </data>
+  <data name="ProductOverview" xml:space="preserve">
+    <value>Aperçu du produit</value>
+  </data>
+  <data name="Profil" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Préface" xml:space="preserve">
+    <value>Préface</value>
+  </data>
+  <data name="PublicationDate" xml:space="preserve">
+    <value>Date de publication</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Publier</value>
+  </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Commandes</value>
+  </data>
+  <data name="PurchaseDate" xml:space="preserve">
+    <value>Date du commande</value>
+  </data>
+  <data name="PurchaseDetails" xml:space="preserve">
+    <value>Détailles du commande</value>
+  </data>
+  <data name="PurchaseLine" xml:space="preserve">
+    <value>Lignes des commandes</value>
+  </data>
+  <data name="PurchaseLineList" xml:space="preserve">
+    <value>Liste des lignes des commandes</value>
+  </data>
+  <data name="PurchaseLineText" xml:space="preserve">
+    <value>Ligne de commande</value>
+  </data>
+  <data name="PurchaseList" xml:space="preserve">
+    <value>Liste des commandes</value>
+  </data>
+  <data name="PurchaseNumber" xml:space="preserve">
+    <value>N° du commande</value>
+  </data>
+  <data name="PurchaseState" xml:space="preserve">
+    <value>État du commande</value>
+  </data>
+  <data name="PurchaseText" xml:space="preserve">
+    <value>Commande</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantité</value>
+  </data>
+  <data name="QuickSearch" xml:space="preserve">
+    <value>Recherche Rapide</value>
+  </data>
+  <data name="ReachOut" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ReadAbout" xml:space="preserve">
+    <value>Consulter</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Mot de passe oubliée ?</value>
+  </data>
+  <data name="Résumé" xml:space="preserve">
+    <value>Résumé</value>
+  </data>
+  <data name="SaveEbook" xml:space="preserve">
+    <value>Enregistrer Ebook</value>
+  </data>
+  <data name="SaveEjournal" xml:space="preserve">
+    <value>Enregistrer Revue</value>
+  </data>
+  <data name="SavePurchase" xml:space="preserve">
+    <value>Enregistrer commande</value>
+  </data>
+  <data name="SavePurchaseLine" xml:space="preserve">
+    <value>Enregistrer ligne de commande</value>
+  </data>
+  <data name="SaveUser" xml:space="preserve">
+    <value>Enregistrer utilisateur</value>
+  </data>
+  <data name="scienceEconomique" xml:space="preserve">
+    <value>Science économique et gestion</value>
+  </data>
+  <data name="scienceFondamental" xml:space="preserve">
+    <value>Siences fondamentales</value>
+  </data>
+  <data name="scienceHumain" xml:space="preserve">
+    <value>Sciences humaines, sociales et religieuses</value>
+  </data>
+  <data name="scienceIngenieur" xml:space="preserve">
+    <value>Sciences de l’ingénieur</value>
+  </data>
+  <data name="scienceJuridique" xml:space="preserve">
+    <value>Sciences juridiques et politiques</value>
+  </data>
+  <data name="scienceMedical" xml:space="preserve">
+    <value>Sciences médicales</value>
+  </data>
+  <data name="SearchAllProducts" xml:space="preserve">
+    <value>Accueil &gt; Tous les produits &gt;</value>
+  </data>
+  <data name="SelectProfil" xml:space="preserve">
+    <value>-- Veuillez choisir un option --</value>
+  </data>
+  <data name="SelectPurchaseState" xml:space="preserve">
+    <value>-- Sélectionnez une état --</value>
+  </data>
+  <data name="SelectPurchaseType" xml:space="preserve">
+    <value>-- Sélectionnez un type --</value>
+  </data>
+  <data name="share" xml:space="preserve">
+    <value>Partager / Envoyer par Email</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>État</value>
+  </data>
+  <data name="StateSelection" xml:space="preserve">
+    <value>-- Sélectionnez une état --</value>
+  </data>
+  <data name="Subtitle" xml:space="preserve">
+    <value>Sous-titre</value>
+  </data>
+  <data name="Summarize" xml:space="preserve">
+    <value>voir résumé</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Conditions d’utilisation</value>
+  </data>
+  <data name="TextAddUser" xml:space="preserve">
+    <value>Veuillez remplir ce formulaire pour créer un nouvel utilisateur*</value>
+  </data>
+  <data name="TextCreateEbook" xml:space="preserve">
+    <value>Veuillez remplir ce formulaire pour créer un nouvel Ouvrage*</value>
+  </data>
+  <data name="TextCreateEjournal" xml:space="preserve">
+    <value>Veuillez remplir ce formulaire pour créer un nouvel Revue*</value>
+  </data>
+  <data name="TextCreatePurchase" xml:space="preserve">
+    <value>Veuillez remplir ce formulaire pour créer une nouvelle commande*</value>
+  </data>
+  <data name="TextCreatePurchaseLine" xml:space="preserve">
+    <value>Veuillez remplir ce formulaire pour créer un nouvel ligne de commande*</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="ThemeSelection" xml:space="preserve">
+    <value>-- Sélectionnez une théme --</value>
+  </data>
+  <data name="TitlesVariants" xml:space="preserve">
+    <value>Variantes de titres</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TotalIssuesNb" xml:space="preserve">
+    <value>Nombre total d'essai</value>
+  </data>
+  <data name="Translator" xml:space="preserve">
+    <value>Traducteur</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Prix unitaire</value>
+  </data>
+  <data name="UpdateAccount" xml:space="preserve">
+    <value>Modifier Compte</value>
+  </data>
+  <data name="UpdateEbook" xml:space="preserve">
+    <value>Modifier un Ouvrage</value>
+  </data>
+  <data name="UpdateEjournal" xml:space="preserve">
+    <value>Modifier une Revue</value>
+  </data>
+  <data name="UpdatePurchase" xml:space="preserve">
+    <value>Modifier la Commande</value>
+  </data>
+  <data name="UpdatePurchaseLine" xml:space="preserve">
+    <value>Modifier un ligne de commande</value>
+  </data>
+  <data name="Urbanisme" xml:space="preserve">
+    <value>urbanisme</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Lien</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="UserCommand" xml:space="preserve">
+    <value>Vos commandes</value>
+  </data>
+  <data name="UsersList" xml:space="preserve">
+    <value>Liste des utilisateurs</value>
+  </data>
+  <data name="ValidateCommande" xml:space="preserve">
+    <value>Merci, Votre commande a été reçu avec succés</value>
+  </data>
+  <data name="ValidateOn" xml:space="preserve">
+    <value>Effectué le</value>
+  </data>
+  <data name="Vat" xml:space="preserve">
+    <value>Vat</value>
+  </data>
+  <data name="VatPercent" xml:space="preserve">
+    <value>Pourcentage Vat</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Voir détailles</value>
+  </data>
+  <data name="VolumeNb" xml:space="preserve">
+    <value>Nombre de volume</value>
+  </data>
+  <data name="WithoutBoundaries" xml:space="preserve">
+    <value>Sans frontiére</value>
+  </data>
+  <data name="YearSelection" xml:space="preserve">
+    <value>-- Sélectionnez une année -- </value>
+  </data>
+</root>

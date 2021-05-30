@@ -4,16 +4,16 @@
 <div>
     <div class="container mt-4 mb-4">
         <div>
-            <span style="font-family: 'IBM Plex Mono', monospace;font-size:20px">Merci, Votre commande a été reçu avec succés</span>
+            <span style="font-family: 'IBM Plex Mono', monospace;font-size:20px">@(PortailEbook.Resource.Resource.ValidateCommande)</span>
         </div>
         <div class="row col-md-12 mt-3 mb-1">
-            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">Commande n°: @Model.Purchase.Id</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">@(PortailEbook.Resource.Resource.PurchaseNumber) : @Model.Purchase.Id</span>
         </div>
         <table class="table">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">Produit</th>
-                    <th scope="col">Total</th>
+                    <th scope="col">@(PortailEbook.Resource.Resource.Product)</th>
+                    <th scope="col">@(PortailEbook.Resource.Resource.Total)</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,13 +42,13 @@
             </tbody>
         </table>
         <div class="row col-md-12 mt-3 mb-1">
-            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">Total HT : @Model.Purchase.AmountHT DT</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">@(PortailEbook.Resource.Resource.AmountHT) : @Model.Purchase.AmountHT DT</span>
         </div>
         <div class="row col-md-12 mt-3 mb-1">
-            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">Total TTC : @Model.Purchase.AmountTTC DT</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">@(PortailEbook.Resource.Resource.AmountTTC) : @Model.Purchase.AmountTTC DT</span>
         </div>
         <div class="row col-md-4 mt-3 mb-1">
-            <a sp-action="UserPurchase" asp-controller="Purchase" class="btn btn-primary">Retour à mes commandes</a>
+            <a sp-action="UserPurchase" asp-controller="Purchase" class="btn btn-primary">@(PortailEbook.Resource.Resource.BackToMyCommands)</a>
         </div>
     </div>
 </div>

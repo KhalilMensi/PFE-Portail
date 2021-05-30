@@ -18,12 +18,12 @@
                     </svg>
                 </div>
                 <hr />
-                <h6 class="text-danger text-center p-3">Veuillez remplir ce formulaire pour créer un nouvel utilisateur*</h6>
+                <h6 class="text-danger text-center p-3">@(PortailEbook.Resource.Resource.TextAddUser)</h6>
             }
             else
             {
                 <div>
-                    <h3>Paramètre du compte</h3>
+                    <h3>@(PortailEbook.Resource.Resource.AccountParameter)</h3>
                 </div>
                 <hr />
                 @if (Model.filename == "")
@@ -117,7 +117,7 @@
                             <div class="form-group">
 
                                 <select asp-for="Profil" class="form-control" placeholder="Profil" id="profil" required>
-                                    <option value="">--Veuillez choisir une option--</option>
+                                    <option value="">@(PortailEbook.Resource.Resource.SelectProfil)</option>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
                                 </select>
@@ -128,7 +128,7 @@
                             <div class="form-group">
                                 <div class="custom-file">
                                     <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
-                                    <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une Photo...</label>
+                                    <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">@(PortailEbook.Resource.Resource.ChoosePhoto)</label>
                                     <span id="validFile" class="text-danger"></span>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                             <div class="form-group">
                                 <div class="custom-file">
                                     <input asp-for="Photo" class="custom-file-input" id="inputGroupFile01" name="Photo" accept="image/png, image/jpeg">
-                                    <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">Choisir une photo...</label>
+                                    <label asp-for="Photo" class="custom-file-label" for="inputGroupFile01">@(PortailEbook.Resource.Resource.ChoosePhoto)</label>
                                     <span id="validFile" class="text-danger"></span>
                                 </div>
                             </div>
@@ -150,19 +150,19 @@
                 </div>
                 <div class="form-row pb-4">
                     <div class="col-md-6 text-center mt-2">
-                        <button type="button" onclick="saveUser()" class="btn btn-primary col-md-12">Enregistrer utilisateur</button>
+                        <button type="button" onclick="saveUser()" class="btn btn-primary col-md-12">@(PortailEbook.Resource.Resource.SaveUser)</button>
                     </div>
                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
                     {
                         <div class="text-center col-md-6 mt-2">
-                            <button type="button" class="btn btn-primary col-md-12"> <a asp-action="Index" asp-controller="User">Retour vers liste des utilisateur</a> </button>
+                            <button type="button" class="btn btn-primary col-md-12"> <a asp-action="Index" asp-controller="User">@(PortailEbook.Resource.Resource.BackToUsersList)</a> </button>
                         </div>
                     }
                     else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == null)
                     {
                         <div class="col-md-6 text-center mt-2">
                             <a asp-action="Login" asp-controller="Account" class="btn btn-link col-md-12">
-                                Vous avez déjà un compte ?
+                                @(PortailEbook.Resource.Resource.AlreadyHaveAnAccount)
                             </a>
                         </div>
                     }
@@ -185,6 +185,105 @@
     $(document).ready(function () {
         $("#password").attr("type", "password");
     });
+    function saveUser() {
+    if ($('#password').val().length > 0 && $('#profil').val().length > 0 && $('#email').val().length > 0 && emailIsValid($('#email').val()) == true && $('#Name').val().length > 0 && $('#LastName').val().length > 0) {
+        $('#validPassword').text('')
+        $('#validProfil').text('')
+        $('#validEmail').text('')
+        $('#validName').text('')
+        $('#validLastName').text('')
+
+        var form = document.getElementById('form')
+
+        $.ajax({
+            url: '/User/UpsertUser',
+            type: 'post',
+            data: new FormData(form),
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if (response.success) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        },
+                    })
+                    if (response.message == "User Updated successfuly") {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'User Updated successfully',
+                        })
+                    } else {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Signed in successfully',
+                        })
+                        setTimeout(function () {
+                            window.location.href = "/Account/Login"; //will redirect to your blog page (an ex: blog.html)
+                        }, 1500);
+                    }
+                } else {
+                    if (response.message == "User already Exists !") {
+                        $('#validEmail').text('User already Exists !')
+                    } else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            },
+                        })
+                        Toast.fire({
+                            icon: 'error',
+                            title: response.message
+                        })
+                    }
+                }
+            },
+            error: function (xhr, error, status) {
+                console.log(error, status);
+            }
+        });
+    }
+    else {
+        if ($('#password').val().length < 1) {
+            $('#validPassword').text('Champ obligatoire')
+        } else {
+            $('#validPassword').text('')
+        }
+        if ($('#profil').val().length < 1) {
+            $('#validProfil').text('Champ obligatoire')
+        } else {
+            $('#validProfil').text('')
+        }
+        if (emailIsValid($('#email').val()) == false || $('#email').val().length < 7) {
+            $('#validEmail').text('Invalid Email')
+        } else {
+            $('#validEmail').text('')
+        }
+        if ($('#Name').val().length < 1) {
+            $('#validName').text('Champ obligatoire')
+        } else {
+            $('#validName').text('')
+        }
+        if ($('#LastName').val().length < 1) {
+            $('#validLastName').text('Champ obligatoire')
+        } else {
+            $('#validLastName').text('')
+        }
+    }
+}
 </script>
 @section Scripts {
     <script src="~/assets/js/User.js" asp-append-version="true"></script>

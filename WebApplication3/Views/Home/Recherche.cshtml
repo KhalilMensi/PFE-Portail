@@ -72,19 +72,33 @@
     <div class="container mt-4 mb-4">
         <div class="row ">
             <div class="row col-md-12 pt-3 pl-3 pr-3">
-                <p style="font-size:15px">Accueil > Tous les produits > @ViewBag.search</p>
+                <p style="font-size:15px">@(PortailEbook.Resource.Resource.SearchAllProducts) @ViewBag.search</p>
             </div>
+            
             <div class="row col-md-12 pl-3 pr-3 pb-3">
-                <a href="#" onclick="goBack()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
-                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                    </svg>
-                Retour</a>
+                @if (ViewBag.theme != null)
+                {
+                    <a asp-action="Recherche" asp-controller="Home" asp-route-search="@ViewBag.search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
+                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                        </svg>
+                        @(PortailEbook.Resource.Resource.Back)
+                    </a>
+                }
+                else
+                {
+                    <a href="/" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
+                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                        </svg>
+                        @(PortailEbook.Resource.Resource.Back)
+                    </a>
+                }
             </div>
             @if (Model == null)
             {
                 <div class="row mt-1 mb-1">
-                    <h4>Aucun document disponible !!</h4>
+                    <h4>@(PortailEbook.Resource.Resource.NoDocumentFound)</h4>
                 </div>
             }
             else
@@ -238,10 +252,10 @@
                                             </div>
                                             <div class="col-md-3 p-2">
                                                 <div class="input-submit p-2">
-                                                    <a href="#" onclick="addProduct(@document.Id)" class="addProduct">Ajouter au Panier</a>
+                                                    <a href="#" onclick="addProduct(@document.Id)" class="addProduct">@(PortailEbook.Resource.Resource.AddToPurchaseline)</a>
                                                 </div>
                                                 <div class="input-submit p-2">
-                                                    <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" target="_blank" class="viewDetails">Voir détailles</a>
+                                                    <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" target="_blank" class="viewDetails">@(PortailEbook.Resource.Resource.ViewDetails)</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -386,10 +400,10 @@
                                             </div>
                                             <div class="p-2">
                                                 <div class="input-submit p-1">
-                                                    <a href="#" onclick="addProduct(@document.Id)" class="addProduct">Ajouter au Panier</a>
+                                                    <a href="#" onclick="addProduct(@document.Id)" class="addProduct">@(PortailEbook.Resource.Resource.AddToPurchaseline)</a>
                                                 </div>
                                                 <div class="input-submit p-1">
-                                                    <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" target="_blank" class="viewDetails">Voir détailles</a>
+                                                    <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" target="_blank" class="viewDetails">@(PortailEbook.Resource.Resource.ViewDetails)</a>
                                                 </div>
                                             </div>
                                         </div>

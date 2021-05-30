@@ -9,24 +9,27 @@ namespace PortailEbook.Models.Entity
 		public Int64 Id { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "IdPurchase",ResourceType =typeof(Resource.Resource))]
 		public Int64 IdPurchase { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "IdDocument", ResourceType = typeof(Resource.Resource))]
 		public Int64 IdDocument { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name ="Prix unitaire")]
+		[Display(Name ="UnitPrice", ResourceType = typeof(Resource.Resource))]
 		public float UnitPrice { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Quantité")]
+		[Display(Name = "Quantity", ResourceType = typeof(Resource.Resource))]
 		public Int64 Quantity { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Pourcentage de remise")]
+		[Display(Name = "DiscountPercent", ResourceType = typeof(Resource.Resource))]
 		public Int64 DiscountPercent { get; set; }
 
-		[Required(ErrorMessage = "Remise")]
+		[Required]
+		[Display(Name = "Discount", ResourceType = typeof(Resource.Resource))]
 		public Int64 Discount { get; set; }
 
 		public PurchaseLine()

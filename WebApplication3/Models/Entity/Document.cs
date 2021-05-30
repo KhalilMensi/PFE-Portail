@@ -13,97 +13,104 @@ namespace PortailEbook.Models.Entity
 		public Int64 Id { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Editeur")]
+		[Display(Name = "Editor", ResourceType = typeof(Resource.Resource))]
 		public string Editor { get; set; }
+
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "Collection", ResourceType = typeof(Resource.Resource))]
 		public string Collection { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "Theme", ResourceType = typeof(Resource.Resource))]
 		public string Theme { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "Catalogue", ResourceType = typeof(Resource.Resource))]
 		public string Catalogue { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
+		[Display(Name = "Doi", ResourceType = typeof(Resource.Resource))]
 		public string Doi { get; set; }
-		[Display(Name = "Nombre des enregistrements")]
+		[Display(Name = "MarcRecordNumber", ResourceType = typeof(Resource.Resource))]
 		public string MarcRecordNumber { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Titre originale")]
+		[Display(Name = "OriginalTitle", ResourceType = typeof(Resource.Resource))]
 		public string OriginalTitle { get; set; }
-		[Display(Name = "Variantes de titres")]
+		[Display(Name = "TitlesVariants", ResourceType = typeof(Resource.Resource))]
 		public string TitlesVariants { get; set; }
 
-		[Display(Name = "Sous-titre")]
+		[Display(Name = "Subtitle", ResourceType = typeof(Resource.Resource))]
 		public string Subtitle { get; set; }
 
-		[Display(Name = "Avant-propos")]
+		[Display(Name = "Foreword", ResourceType = typeof(Resource.Resource))]
 		public string Foreword { get; set; }
-		[Display(Name = "Mots clés")]
+		[Display(Name = "Keywords", ResourceType = typeof(Resource.Resource))]
 		public string Keywords { get; set; }
 
-		[Display(Name = "Fichier")]
+		[Display(Name = "File", ResourceType = typeof(Resource.Resource))]
 		public IFormFile File { get; set; }
 
-		[Display(Name = "Nom du fichier")]
+		[Display(Name = "FileName", ResourceType = typeof(Resource.Resource))]
 		public string FileName { get; set; }
 
-		[Display(Name = "Format du fichier")]
+		[Display(Name = "FileFormat", ResourceType = typeof(Resource.Resource))]
 		public string FileFormat { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Page de couverture")]
+		[Display(Name = "CoverPage", ResourceType = typeof(Resource.Resource))]
 		public IFormFile CoverPage { get; set; }
 
-		[Display(Name = "Nom du page de couverture")]
+		[Display(Name = "CoverPageName", ResourceType = typeof(Resource.Resource))]
 		public string CoverPageName { get; set; }
 
+		[Display(Name = "Url", ResourceType = typeof(Resource.Resource))]
 		public string Url { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Type du document")]
+		[Display(Name = "DocumentType", ResourceType = typeof(Resource.Resource))]
 		public string DocumentType { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Langue original")]
+		[Display(Name = "OriginalLanguage", ResourceType = typeof(Resource.Resource))]
 		public string OriginalLanguage { get; set; }
 
-		[Display(Name = "Variantes des langues")]
+		[Display(Name = "LanguagesVarients", ResourceType = typeof(Resource.Resource))]
 		public string LanguagesVarients { get; set; }
 
-		[Display(Name = "Traducteur")]
+		[Display(Name = "Translator", ResourceType = typeof(Resource.Resource))]
 		public string Translator { get; set; }
 
-		[Display(Name = "Type d'accés")]
+		[Display(Name = "AccessType", ResourceType = typeof(Resource.Resource))]
 		public string AccessType { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Etat")]
+		[Display(Name = "State", ResourceType = typeof(Resource.Resource))]
 		public string State { get; set; }
 
-		[Display(Name = "Prix")]
+		[Display(Name = "Price", ResourceType = typeof(Resource.Resource))]
 		public float Price { get; set; } 
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "Date de publication")]
+		[Display(Name = "PublicationDate", ResourceType = typeof(Resource.Resource))]
 		public string PublicationDate { get; set; }
 
-		[Display(Name = "Pays")]
+		[Display(Name = "Country", ResourceType = typeof(Resource.Resource))]
 		public string Country { get; set; }
 
-		[Display(Name = "Description physique")]
+		[Display(Name = "PhysicalDescription", ResourceType = typeof(Resource.Resource))]
 		public string PhysicalDescription { get; set; }
-		[Display(Name = "Matériels d'accompagnement")]
+		[Display(Name = "AccompanyingMaterials", ResourceType = typeof(Resource.Resource))]
 		public string AccompanyingMaterials { get; set; }
-		[Display(Name = "Nombre du matériel d'accompagnement")]
+		[Display(Name = "AccompanyingMaterialsNb", ResourceType = typeof(Resource.Resource))]
 		public int AccompanyingMaterialsNb { get; set; }
-		[Display(Name = "Volume")]
-		public int VolumeNb { get; set; } 
+		[Display(Name = "VolumeNb", ResourceType = typeof(Resource.Resource))]
+		public int VolumeNb { get; set; }
 
+		[Display(Name = "Abstract", ResourceType = typeof(Resource.Resource))]
 		public string Abstract { get; set; }
 
-		[Display(Name = "Note")]
+		[Display(Name = "Notes", ResourceType = typeof(Resource.Resource))]
 		public string Notes { get; set; }
 
 		public Document()

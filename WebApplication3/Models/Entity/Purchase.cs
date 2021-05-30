@@ -12,52 +12,55 @@ namespace PortailEbook.Models.Entity
 		public Int64 Id { get; set; }
 
 		[Required]
+		[Display(Name = "IdUser", ResourceType = typeof(Resource.Resource))]
 		public string IdUser { get; set; }
 
 		[Required]
-		[Display(Name = "Numéro du commande")]
+		[Display(Name = "PurchaseNumber", ResourceType = typeof(Resource.Resource))]
 		public Int64 PurchaseNumber { get; set; }
 
 		[Required]
-		[Display(Name = "Date du commande")]
+		[Display(Name = "PurchaseDate", ResourceType = typeof(Resource.Resource))]
 		public string PurchaseDate { get; set; }
 
 		[Required]
 		[StringLength(50)]
+		[Display(Name = "Type", ResourceType = typeof(Resource.Resource))]
 		public string Type { get; set; }
 
 		[Required]
 		[StringLength(50)]
+		[Display(Name = "State", ResourceType = typeof(Resource.Resource))]
 		public string State { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Pourcentage de remise")]
+		[Display(Name = "DiscountPercent", ResourceType = typeof(Resource.Resource))]
 		public string DiscountPercent { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Remise")]
+		[Display(Name = "Discount", ResourceType = typeof(Resource.Resource))]
 		public string Discount { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Pourcentage TVA")]
+		[Display(Name = "VatPercent", ResourceType = typeof(Resource.Resource))]
 		public string VatPercent { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "TVA")]
+		[Display(Name = "Vat", ResourceType = typeof(Resource.Resource))]
 		public string Vat { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Montant HT")]
+		[Display(Name = "AmountHT", ResourceType = typeof(Resource.Resource))]
 		public string AmountHT { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Montant TTC")]
+		[Display(Name = "AmountTTC", ResourceType = typeof(Resource.Resource))]
 		public string AmountTTC { get; set; }
 
 		public Purchase()

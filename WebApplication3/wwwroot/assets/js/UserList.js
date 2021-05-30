@@ -1,4 +1,5 @@
 ﻿var dataTable;
+
 $(document).ready(function () {
     loadDataTable();
 });
@@ -11,27 +12,27 @@ function loadDataTable() {
         "ajax": {
             "url": "/User/getAll",
             "dataSrc": ""
-           },
-            "columns": [
-                { "data": "code" },
-                { "data": "email" },
-                { "data": "password" },
-                { "data": "profil" },
-                {
-                    "data": "filename",
-                    "render": function (data) {
-                        if (data != "") {
-                            return '<img class="rounded-circle" src="uploads/user/' + data + '" style="width:40px;height:40px;"/>';
-                        } else {
-                            return '<img class="rounded-circle" src="uploads/user/unknown.png" style="width:40px;height:40px;"/>';
-                        }
+        },
+        "columns": [
+            { "data": "code" },
+            { "data": "email" },
+            { "data": "password" },
+            { "data": "profil" },
+            {
+                "data": "filename",
+                "render": function (data) {
+                    if (data != "") {
+                        return '<img class="rounded-circle" src="uploads/user/' + data + '" style="width:40px;height:40px;"/>';
+                    } else {
+                        return '<img class="rounded-circle" src="uploads/user/unknown.png" style="width:40px;height:40px;"/>';
                     }
-                },
-                {
-                    "data": "id",
+                }
+            },
+            {
+                "data": "id",
 
-                    "render": function (data) {
-                        return `<div class="row justify-content-center">
+                "render": function (data) {
+                    return `<div class="row justify-content-center">
                         <div class="col-md-3 text-center">
                              <a href="/User/Details?id=${data}">
                                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0e49b5" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
@@ -54,10 +55,10 @@ function loadDataTable() {
                              </a>
                         </div>
                         </div>`;
-                       
-                    },
-                }
+                },
+            }
         ],
+       
         "language": {
             "processing": "Traitement en cours...",
             "search": "Recherche&nbsp;:",
@@ -79,12 +80,12 @@ function loadDataTable() {
                 "sortAscending": ": activer pour trier la colonne par ordre croissant",
                 "sortDescending": ": activer pour trier la colonne par ordre décroissant"
             }
-            },
-        });
-    }
+        },
+    });
+}
 
 function deleteUser(UserId) {
-   // alert(UserId)
+    // alert(UserId)
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -95,23 +96,23 @@ function deleteUser(UserId) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-                $.post('/User/delete', { id: UserId }, function (response) {
-                    if (response.success) {
-                        Swal.fire(
-                            'Deleted!',
-                            'User has been deleted.',
-                            'success'
-                        );
-                        loadDataTable();
-                    }
-                    else {
-                        Swal.fire(
-                            'Error!',
-                            response.message,
-                            'error'
-                        )
-                    }
-                }) 
+            $.post('/User/delete', { id: UserId }, function (response) {
+                if (response.success) {
+                    Swal.fire(
+                        'Deleted!',
+                        'User has been deleted.',
+                        'success'
+                    );
+                    loadDataTable();
+                }
+                else {
+                    Swal.fire(
+                        'Error!',
+                        response.message,
+                        'error'
+                    )
+                }
+            })
         }
     })
 }

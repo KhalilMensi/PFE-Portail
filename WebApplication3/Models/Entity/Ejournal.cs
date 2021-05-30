@@ -11,16 +11,17 @@ namespace PortailEbook.Models.Entity
 	public class Ejournal : Document
 	{
 		[Required]
+		[Display(Name = "ISSN", ResourceType = typeof(Resource.Resource))]
 		public string ISSN { get; set; }
-		[Display(Name = "Fréquence")]
+		[Display(Name = "Frequency", ResourceType = typeof(Resource.Resource))]
 		public string Frequency { get; set; }
-		[Display(Name = "Nombre total d'essai")]
+		[Display(Name = "TotalIssuesNb", ResourceType = typeof(Resource.Resource))]
 		public int TotalIssuesNb { get; set; }
-		[Display(Name = "Date du premiére essai")]
+		[Display(Name = "DateFirstIssue", ResourceType = typeof(Resource.Resource))]
 		public Date DateFirstIssue { get; set; }
-		[Display(Name = "Porté du journal")]
+		[Display(Name = "JournalScope", ResourceType = typeof(Resource.Resource))]
 		public string JournalScope { get; set; }
-		[Display(Name = "Facteur d'impact")]
+		[Display(Name = "ImpactFactor", ResourceType = typeof(Resource.Resource))]
 		public string ImpactFactor { get; set; }
 
 		public Ejournal()

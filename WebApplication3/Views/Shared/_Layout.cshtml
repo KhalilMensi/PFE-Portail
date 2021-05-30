@@ -50,8 +50,9 @@
                 padding: 12px 16px;
                 text-decoration: none;
                 display: block;
-                text-align:center
+                text-align: center
             }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -60,6 +61,7 @@
         .dropdown:hover .dropbtn {
             background-color: #3e8e41;
         }
+
         .dropdown {
             position: relative;
             display: inline-block;
@@ -81,7 +83,7 @@
                                 <div class="language">
                                     <a href="#">
                                         <img src="~/images/flag-en.png" alt="EN" />
-                                        <span>Français</span>
+                                        <span>@(PortailEbook.Resource.Resource.Français)</span>
                                     </a>
                                 </div>
                             </div>
@@ -103,20 +105,18 @@
                                             </div>
                                         </div>
                                     }
-                                    @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "Admin")
+                                    @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value != null)
                                     {
                                         <i class="icon-compte"></i>
-                                        <a asp-action="Index" asp-controller="Role">Mon compte</a>
-                                    }
-                                    else if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value == "User")
-                                    {
-                                        <a asp-action="Index" asp-controller="Role">Mon compte</a>
+                                        <a asp-action="Index" asp-controller="Role">@(PortailEbook.Resource.Resource.MyAccount)</a>
                                     }
                                     else
                                     {
-                                        <a asp-action="Login" asp-controller="Account">Se connecter</a>
+                                        <a asp-action="Login" asp-controller="Account">@(PortailEbook.Resource.Resource.Login) </a>
+
                                         <span> / </span>
-                                        <a asp-action="UpsertUser" asp-controller="User">S’inscrire</a>
+
+                                        <a asp-action="UpsertUser" asp-controller="User">@(PortailEbook.Resource.Resource.SignUp) </a>
                                     }
                                 </div>
                             </div>
@@ -145,8 +145,8 @@
                                             <input type="text" name="search" id="search">
                                         </div>
                                         <div class="input-submit">
-                                            <button type="submit" class="send-form">recherche rapide</button>
-                                            <a href="" class="search-filter">recherche avancé</a>
+                                            <button type="submit" class="send-form">@(PortailEbook.Resource.Resource.QuickSearch)</button>
+                                            <a href="" class="search-filter">@(PortailEbook.Resource.Resource.AdvancedSearch)</a>
                                         </div>
                                     </form>
                                 </div>
@@ -166,7 +166,7 @@
                 @RenderBody()
             </main>
         </div>
-      
+
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -175,13 +175,13 @@
                         <div class="menu-footer">
                             <ul>
                                 <li>
-                                    <a href="#">A propos al fikr</a>
+                                    <a href="#">@(PortailEbook.Resource.Resource.AboutAlFikr)</a>
                                 </li>
                                 <li>
-                                    <a href="#">Politique de confidentialité</a>
+                                    <a href="#">@(PortailEbook.Resource.Resource.PrivacyPolicy)</a>
                                 </li>
                                 <li>
-                                    <a href="#">Conditions d’utilisation</a>
+                                    <a href="#">@(PortailEbook.Resource.Resource.TermsOfUse)</a>
                                 </li>
                             </ul>
                         </div>

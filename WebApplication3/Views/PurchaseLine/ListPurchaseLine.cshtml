@@ -16,7 +16,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg>
-                    Retour
+                    @(PortailEbook.Resource.Resource.Back)
                 </a>
             </div>
             @{ long a = 0, nbr = 0;
@@ -35,19 +35,19 @@
                     else
                     {
                         <div class="row col-md-12 mt-3 mb-1">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">Commande n°: @Model.Purchase.Id (@a Articles)</span>
+                            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">@(PortailEbook.Resource.Resource.PurchaseNumber) : @Model.Purchase.Id (@a Articles)</span>
                         </div>
                         <div class="row col-md-12 mt-3">
                             <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@a Articles </span>
                         </div>
                         <div class="row col-md-12">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">Effectué le @Model.Purchase.PurchaseDate</span>
+                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@(PortailEbook.Resource.Resource.ValidateOn) @Model.Purchase.PurchaseDate</span>
                         </div>
                         <div class="row col-md-12">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">Montant Total: @Model.Purchase.AmountTTC DT</span>
+                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@(PortailEbook.Resource.Resource.AmountTTC) : @Model.Purchase.AmountTTC DT</span>
                         </div>
                         <div class="row col-md-12">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">Montant Hors Taxe: @Model.Purchase.AmountHT DT</span>
+                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@(PortailEbook.Resource.Resource.AmountHT) : @Model.Purchase.AmountHT DT</span>
                         </div>
                         <hr class="mb-5" />
                     }
@@ -147,14 +147,14 @@
                 else
                 {
                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
-                        Total HT :
+                        @(PortailEbook.Resource.Resource.AmountHT) :
                         <span style="color:coral;">
                             @Model.Purchase.AmountHT DT
                         </span>
                     </span>
                     <span class="col-md-1"></span>
                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
-                        Total TTC :
+                        @(PortailEbook.Resource.Resource.AmountTTC) :
                         <span style="color:coral;">
                             @Model.Purchase.AmountTTC DT
                         </span>
@@ -167,11 +167,11 @@
                 {
                     <div class="row col-md-12 justify-content-end mt-1 mb-5">
                         <div class="row col-md-12 justify-content-end mr-3">
-                            <a asp-action="Recherche" asp-route-mode="List" asp-controller="Home" class="btn btn-info col-md-3 mt-3 mb-3" name="name">Compléter vos achats</a>
+                            <a asp-action="Recherche" asp-route-mode="List" asp-controller="Home" class="btn btn-info col-md-3 mt-3 mb-3" name="name">@(PortailEbook.Resource.Resource.CompleterVosAchats)</a>
                             <span class="col-md-1"></span>
                             @if (Model.ListPurchaseLine.Count() != 0)
                             {
-                                <a asp-action="Commander" asp-controller="Purchase" class="btn btn-info col-md-3 mt-3 mb-3" name="name">Commander</a>
+                                <a asp-action="Commander" asp-controller="Purchase" class="btn btn-info col-md-3 mt-3 mb-3" name="name">@(PortailEbook.Resource.Resource.Commander)</a>
                             }
                         </div>
                     </div>

@@ -1,37 +1,37 @@
 ﻿@model PortailEbook.Models.Entity.Login
-    <div  style="background-color:#f0f2f5;height:500px">
-        <div class="row col-md-12 text-center justify-content-center align-items-center p-4">
-            <div class="shadow col-md-5 p-4">
-                <form id="form" asp-action="LoginUser">
-                    <div class="p-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#7868e6" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg>
-                    </div>
-                    <div class="form-row m-3 mt-4">
-                        <input asp-for="Email" type="email" class="border form-control" id="email" placeholder="exemple@gmail.com" />
-                        <span id="validEmail" class="text-danger"></span>
-                    </div>
-                    <div class="form-row m-3">
-                        <input asp-for="Password" type="password" class="border form-control" id="password" placeholder="Mot de passe" />
-                        <span id="validPassword" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-row m-3">
-                        <button type="button" onclick="SignIn()" class="btn btn-primary col-md-12">Connexion</button>
-                    </div>
-                </form>
+<div style="background-color:#f0f2f5;height:500px">
+    <div class="row col-md-12 text-center justify-content-center align-items-center p-4">
+        <div class="shadow col-md-5 p-4">
+            <form id="form" asp-action="LoginUser">
+                <div class="p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#7868e6" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                </div>
+                <div class="form-row m-3 mt-4">
+                    <input asp-for="Email" type="email" class="border form-control" id="email" placeholder="exemple@gmail.com" />
+                    <span id="validEmail" class="text-danger"></span>
+                </div>
                 <div class="form-row m-3">
-                    <a class="btn btn-info col-md-12" asp-action="UpsertUser" asp-controller="User">Créer un compte ?</a>
+                    <input asp-for="Password" type="password" class="border form-control" id="password" placeholder="Mot de passe" />
+                    <span id="validPassword" class="text-danger"></span>
                 </div>
-                <div class="text-center">
-                    <a asp-action="ResetPassword" asp-controller="Account">Mot de passe oubliée ?</a>
+
+                <div class="form-row m-3">
+                    <button type="button" onclick="SignIn()" class="btn btn-primary col-md-12">@(PortailEbook.Resource.Resource.Login)</button>
                 </div>
+            </form>
+            <div class="form-row m-3">
+                <a class="btn btn-info col-md-12" asp-action="UpsertUser" asp-controller="User">@(PortailEbook.Resource.Resource.SignUp)</a>
+            </div>
+            <div class="text-center">
+                <a asp-action="ResetPassword" asp-controller="Account">@(PortailEbook.Resource.Resource.ResetPassword)</a>
             </div>
         </div>
     </div>
-    @section Scripts {
-        <script src="~/assets/js/Login.js" asp-append-version="true"></script>
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+</div>
+@section Scripts {
+    <script src="~/assets/js/Login.js" asp-append-version="true"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -14,12 +14,12 @@
                 </svg>
             </div>
             <hr />
-            <p class="text-danger text-center">Veuillez remplir ce formulaire pour créer un nouvel ligne de commande*</p>
+            <p class="text-danger text-center">@(PortailEbook.Resource.Resource.TextCreatePurchaseLine)</p>
         }
         else
         {
             <div>
-                <h3>Mettre a jours une ligne de commande</h3>
+                <h3>@(PortailEbook.Resource.Resource.UpdatePurchaseLine)</h3>
             </div>
             <hr />
         }
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-2">
-                    <button type="button" onclick="savePurchaseLine()" class="btn btn-primary col-md-12">Enregistrer ligne de commande</button>
+                    <button type="button" onclick="savePurchaseLine()" class="btn btn-primary col-md-12">@(PortailEbook.Resource.Resource.SavePurchaseLine)</button>
                 </div>
             </form>
         </div>

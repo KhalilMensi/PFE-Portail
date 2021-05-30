@@ -5,22 +5,22 @@
 <div class="container-fluid" style="margin-bottom:80px;">
     <div class="row" style="padding-bottom:1%">
         <div class="col-md-9">
-            <h3 style="color:#6777ef">Ejournal List</h3>
+            <h3 style="color:#6777ef">@(PortailEbook.Resource.Resource.EjournalsList)</h3>
         </div>
         <div class="col-md-3">
             <a asp-action="UpsertEjournal" asp-controller="Ejournal" class="btn btn-primary form-control text-white">
-                Ajouter Ejournal
+                @(PortailEbook.Resource.Resource.AddEjournal)
             </a>
         </div>
     </div>
     <table id="myTable" class="table table-striped" style="background-color:#ffffff">
         <thead>
             <tr>
-                <th>Titre</th>
-                <th>ISSN</th>
-                <th>Doi</th>
-                <th>Prix</th>
-                <th>Date de publication</th>
+                <th>@(PortailEbook.Resource.Resource.OriginalTitle)</th>
+                <th>@(PortailEbook.Resource.Resource.ISSN)</th>
+                <th>@(PortailEbook.Resource.Resource.Doi)</th>
+                <th>@(PortailEbook.Resource.Resource.Price)</th>
+                <th>@(PortailEbook.Resource.Resource.PublicationDate)</th>
                 <th>Image</th>
                 <th class="text-center">Actions</th>
             </tr>

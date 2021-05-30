@@ -6,6 +6,7 @@ using PortailEbook.Models.BLL;
 using PortailEbook.Models.Entity;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 
 namespace PortailEbook.Controllers
@@ -27,9 +28,10 @@ namespace PortailEbook.Controllers
 		public IActionResult Recherche(string search,string mode,string theme)
 		{
 			List<string> themee = new List<string>();
-			ViewBag.search = search;
 
-			if(theme != null)
+			ViewBag.search = search;
+			ViewBag.theme = theme;
+			if (theme != null)
 			{
 				List<Ebook> Ebooks = new List<Ebook>();
 				Ebooks = BLLEbook.getAllEbooks().ToList().FindAll(x => x.Theme == theme);
