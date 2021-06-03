@@ -1,13 +1,18 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Logging;
 using PortailEbook.Models;
 using PortailEbook.Models.BLL;
 using PortailEbook.Models.Entity;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 
 namespace PortailEbook.Controllers
 {
@@ -25,7 +30,17 @@ namespace PortailEbook.Controllers
 			return View(BLLDocument.getAllDocuments());
 		}
 
-		public IActionResult Recherche(string search,string mode,string theme)
+		[HttpPost]
+		public IActionResult CultureManagement(string culture, string returnUrl)
+		{
+			this.HttpContext.Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
+				CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+				new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+				);
+
+			return LocalRedirect(returnUrl);
+		}
+		public IActionResult Recherche(string search, string mode, string theme)
 		{
 			List<string> themee = new List<string>();
 
@@ -49,11 +64,11 @@ namespace PortailEbook.Controllers
 			if (search == null)
 			{
 				List<Ebook> Ebooks = new List<Ebook>();
-				Ebooks = BLLEbook.getAllEbooks().ToList(); 
-			
-				foreach(var book in Ebooks)
+				Ebooks = BLLEbook.getAllEbooks().ToList();
+
+				foreach (var book in Ebooks)
 				{
-					if(!themee.Exists(f => f == book.Theme))
+					if (!themee.Exists(f => f == book.Theme))
 					{
 						themee.Add(book.Theme);
 					}

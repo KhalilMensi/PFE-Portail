@@ -1,4 +1,5 @@
 ﻿@model PortailEbook.Models.Entity.Login
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 <div style="background-color:#f0f2f5;height:500px">
     <div class="row col-md-12 text-center justify-content-center align-items-center p-4">
         <div class="shadow col-md-5 p-4">
@@ -19,14 +20,14 @@
                 </div>
 
                 <div class="form-row m-3">
-                    <button type="button" onclick="SignIn()" class="btn btn-primary col-md-12">@(PortailEbook.Resource.Resource.Login)</button>
+                    <button type="button" onclick="SignIn()" class="btn btn-primary col-md-12">@localizer["Login"]</button>
                 </div>
             </form>
             <div class="form-row m-3">
-                <a class="btn btn-info col-md-12" asp-action="UpsertUser" asp-controller="User">@(PortailEbook.Resource.Resource.SignUp)</a>
+                <a class="btn btn-info col-md-12" asp-action="UpsertUser" asp-controller="User">@localizer["SignUp"]</a>
             </div>
             <div class="text-center">
-                <a asp-action="ResetPassword" asp-controller="Account">@(PortailEbook.Resource.Resource.ResetPassword)</a>
+                <a asp-action="ResetPassword" asp-controller="Account">@localizer["ResetPassword"]</a>
             </div>
         </div>
     </div>

@@ -12,55 +12,55 @@ namespace PortailEbook.Models.Entity
 		public Int64 Id { get; set; }
 
 		[Required]
-		[Display(Name = "IdUser", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "IdUser", ResourceType = typeof(Resources.Resource))]
 		public string IdUser { get; set; }
 
 		[Required]
-		[Display(Name = "PurchaseNumber", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "PurchaseNumber", ResourceType = typeof(Resources.Resource))]
 		public Int64 PurchaseNumber { get; set; }
 
 		[Required]
-		[Display(Name = "PurchaseDate", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "PurchaseDate", ResourceType = typeof(Resources.Resource))]
 		public string PurchaseDate { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Type", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "Type", ResourceType = typeof(Resources.Resource))]
 		public string Type { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "State", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "State", ResourceType = typeof(Resources.Resource))]
 		public string State { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "DiscountPercent", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "DiscountPercent", ResourceType = typeof(Resources.Resource))]
 		public string DiscountPercent { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Discount", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "Discount", ResourceType = typeof(Resources.Resource))]
 		public string Discount { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "VatPercent", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "VatPercent", ResourceType = typeof(Resources.Resource))]
 		public string VatPercent { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "Vat", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "Vat", ResourceType = typeof(Resources.Resource))]
 		public string Vat { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "AmountHT", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "AmountHT", ResourceType = typeof(Resources.Resource))]
 		public string AmountHT { get; set; }
 
 		[Required]
 		[StringLength(50)]
-		[Display(Name = "AmountTTC", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "AmountTTC", ResourceType = typeof(Resources.Resource))]
 		public string AmountTTC { get; set; }
 
 		public Purchase()

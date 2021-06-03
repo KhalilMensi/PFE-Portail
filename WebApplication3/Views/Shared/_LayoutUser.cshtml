@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -223,10 +225,12 @@
                             <!-- Langauge -->
                             <div class="col-4 col-md-4">
                                 <div class="language">
+
                                     <a href="#">
-                                        <img src="~/images/flag-en.png" alt="EN" />
-                                        <span>@(PortailEbook.Resource.Resource.Français)</span>
+                                        <img src="~/images/france.png" style="width:23px;height:17px" alt="EN" />
+                                        <span>@localizer["Français"]</span>
                                     </a>
+
                                 </div>
                             </div>
                             <!-- End Langauge -->
@@ -247,13 +251,13 @@
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value != null)
                                     {
 
-                                <a asp-action="Logout" asp-controller="Account">@(PortailEbook.Resource.Resource.LogOut)</a>
+                                        <a asp-action="Logout" asp-controller="Account">@localizer["LogOut"]</a>
                                     }
                                     else
                                     {
-                                <a asp-action="Login" asp-controller="Account">@(PortailEbook.Resource.Resource.Login)</a>
+                                        <a asp-action="Login" asp-controller="Account">@localizer["Login"]</a>
                                         <span> / </span>
-                                        <a asp-action="UpsertUser" asp-controller="User">@(PortailEbook.Resource.Resource.SignUp)</a>}
+                                        <a asp-action="UpsertUser" asp-controller="User">@localizer["SignUp"]</a>}
                                 </div>
                             </div>
                             <!-- End Compte -->
@@ -281,8 +285,8 @@
                                             <input type="text" name="search" id="search">
                                         </div>
                                         <div class="input-submit">
-                                            <button type="submit" class="send-form">@(PortailEbook.Resource.Resource.QuickSearch)</button>
-                                            <a href="" class="search-filter">@(PortailEbook.Resource.Resource.AdvancedSearch)</a>
+                                            <button type="submit" class="send-form">@localizer["QuickSearch"]</button>
+                                            <a href="" class="search-filter">@localizer["AdvancedSearch"]</a>
                                         </div>
                                     </form>
                                 </div>
@@ -308,7 +312,7 @@
                                         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
                                     </svg>
                                 </span>
-                                @(PortailEbook.Resource.Resource.MyAccount)
+                                @localizer["MyAccount"]
                             </a>
                             <ul class="collapse list-unstyled" id="homeSubmenuUser">
                                 <li class="@Html.IsActive(actions:"Details", controllers:"User")">
@@ -319,7 +323,7 @@
                                                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                             </svg>
                                         </span>
-                                        @(PortailEbook.Resource.Resource.MyAccount)
+                                        @localizer["MyAccount"]
                                     </a>
                                 </li>
                                 <li class="@Html.IsActive(actions:"UpsertUser", controllers:"User")">
@@ -329,13 +333,13 @@
                                                 <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
                                             </svg>
                                         </span>
-                                        @(PortailEbook.Resource.Resource.UpdateAccount)
+                                        @localizer["UpdateAccount"]
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="@Html.IsActive(actions:"UserPurchase", controllers:"Purchase")">
-                            <a href="@Url.Action("UserPurchase","Purchase")">@(PortailEbook.Resource.Resource.MyPurchases)</a>
+                            <a href="@Url.Action("UserPurchase","Purchase")">@localizer["MyPurchases"]</a>
                         </li>
 
                         <li>
@@ -345,7 +349,7 @@
                                         <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
                                     </svg>
                                 </span>
-                                @(PortailEbook.Resource.Resource.About)
+                                @localizer["About"]
                             </a>
                             <a href="#">
                                 <span class="mr-2">
@@ -354,7 +358,7 @@
                                         <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                                     </svg>
                                 </span>
-                                @(PortailEbook.Resource.Resource.ReachOut)
+                                @localizer["ReachOut"]
                             </a>
                         </li>
                     </ul>
@@ -378,13 +382,13 @@
                         <div class="menu-footer">
                             <ul>
                                 <li>
-                                    <a href="#">@(PortailEbook.Resource.Resource.AboutAlFikr)</a>
+                                    <a href="#">@localizer["AboutAlFikr"]</a>
                                 </li>
                                 <li>
-                                    <a href="#">@(PortailEbook.Resource.Resource.PrivacyPolicy)</a>
+                                    <a href="#">@localizer["PrivacyPolicy"]</a>
                                 </li>
                                 <li>
-                                    <a href="#">@(PortailEbook.Resource.Resource.TermsOfUse)</a>
+                                    <a href="#">@localizer["TermsOfUse"]</a>
                                 </li>
                             </ul>
                         </div>

@@ -117,416 +117,251 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value />
-  </data>
   <data name="AboutAlFikr" xml:space="preserve">
-    <value />
+    <value>About Al-Fikr</value>
   </data>
   <data name="Abstract" xml:space="preserve">
-    <value />
+    <value>Abstract</value>
   </data>
   <data name="AccessType" xml:space="preserve">
-    <value />
+    <value>Access type</value>
   </data>
   <data name="AccompanyingMaterials" xml:space="preserve">
-    <value />
+    <value>Accompanying materials</value>
   </data>
   <data name="AccompanyingMaterialsNb" xml:space="preserve">
-    <value />
+    <value>Accompanying materials number</value>
   </data>
   <data name="AccountParameter" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AddEbook" xml:space="preserve">
-    <value />
+    <value>Account settings</value>
   </data>
   <data name="AddEjournal" xml:space="preserve">
-    <value />
+    <value>Add new Ejournal</value>
   </data>
   <data name="AddPurchase" xml:space="preserve">
-    <value />
+    <value>Add new purchase</value>
   </data>
   <data name="AddPurchaseLine" xml:space="preserve">
-    <value />
+    <value>Add new Purchase Line </value>
   </data>
   <data name="AddToPurchaseline" xml:space="preserve">
-    <value />
+    <value>Add to cart</value>
   </data>
   <data name="AddUser" xml:space="preserve">
-    <value />
+    <value>Add new user</value>
   </data>
   <data name="Adress" xml:space="preserve">
-    <value />
+    <value>Adress</value>
   </data>
   <data name="AdvancedSearch" xml:space="preserve">
-    <value />
+    <value>Advanced search</value>
   </data>
   <data name="AlreadyHaveAnAccount" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AmountHT" xml:space="preserve">
-    <value />
-  </data>
-  <data name="AmountTTC" xml:space="preserve">
-    <value />
+    <value>You already have an account ?</value>
   </data>
   <data name="Annulée" xml:space="preserve">
     <value />
   </data>
-  <data name="Architecture" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Back" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BackToHome" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BackToList" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BackToMyCommands" xml:space="preserve">
-    <value />
-  </data>
   <data name="BackToUsersList" xml:space="preserve">
-    <value />
+    <value>Back to users list</value>
   </data>
-  <data name="beauxArt" xml:space="preserve">
-    <value />
-  </data>
-  <data name="BooksRecentlyAdded" xml:space="preserve">
-    <value />
+  <data name="By" xml:space="preserve">
+    <value>By</value>
   </data>
   <data name="Catalogue" xml:space="preserve">
-    <value />
+    <value>Catalogue</value>
   </data>
   <data name="Category" xml:space="preserve">
-    <value />
+    <value>Category</value>
   </data>
   <data name="ChoosePhoto" xml:space="preserve">
-    <value />
+    <value>Select a photo...</value>
   </data>
   <data name="Code" xml:space="preserve">
-    <value />
+    <value>Code</value>
   </data>
   <data name="Collection" xml:space="preserve">
-    <value />
+    <value>Collection</value>
   </data>
   <data name="Commander" xml:space="preserve">
-    <value />
+    <value>Order</value>
   </data>
   <data name="CompleterVosAchats" xml:space="preserve">
-    <value />
+    <value>Complete your purchases</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value />
+    <value>Country</value>
   </data>
   <data name="CoverPage" xml:space="preserve">
-    <value />
+    <value>Cover page</value>
   </data>
   <data name="CoverPageName" xml:space="preserve">
-    <value />
+    <value>Cover page name</value>
   </data>
   <data name="DateFirstIssue" xml:space="preserve">
-    <value />
+    <value>Date first issue</value>
   </data>
   <data name="DetailsPurchaseLine" xml:space="preserve">
-    <value />
+    <value>Purchase line details</value>
   </data>
   <data name="Discount" xml:space="preserve">
-    <value />
+    <value>Discount</value>
   </data>
   <data name="DiscountPercent" xml:space="preserve">
-    <value />
+    <value>Discount Percent</value>
   </data>
   <data name="DocumentType" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Doi" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Download" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Ebook" xml:space="preserve">
-    <value />
-  </data>
-  <data name="EbookDetails" xml:space="preserve">
-    <value />
-  </data>
-  <data name="EbooksList" xml:space="preserve">
-    <value />
-  </data>
-  <data name="EditionNum" xml:space="preserve">
-    <value />
-  </data>
-  <data name="EditionPlace" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Editor" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Ejournal" xml:space="preserve">
-    <value />
-  </data>
-  <data name="EjournalDetails" xml:space="preserve">
-    <value />
+    <value>Document type</value>
   </data>
   <data name="EjournalsList" xml:space="preserve">
-    <value />
+    <value>Ejournals list</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value />
+    <value>Email</value>
   </data>
   <data name="EnCours" xml:space="preserve">
     <value />
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="File" xml:space="preserve">
-    <value />
+    <value>File</value>
   </data>
   <data name="FileFormat" xml:space="preserve">
-    <value />
+    <value>File format</value>
   </data>
   <data name="FileName" xml:space="preserve">
-    <value />
+    <value>File Name</value>
   </data>
   <data name="Foreword" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Français" xml:space="preserve">
-    <value />
+    <value>Foreword</value>
   </data>
   <data name="Frequency" xml:space="preserve">
-    <value />
+    <value>Frequency</value>
   </data>
   <data name="Genre" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value />
+    <value>Genre</value>
   </data>
   <data name="IdDocument" xml:space="preserve">
-    <value />
+    <value>Id Document</value>
   </data>
   <data name="IdPurchase" xml:space="preserve">
-    <value />
+    <value>Id Purchase</value>
   </data>
   <data name="IdUser" xml:space="preserve">
-    <value />
+    <value>Id User</value>
   </data>
   <data name="ImpactFactor" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ISBN" xml:space="preserve">
-    <value />
+    <value>Impact factor</value>
   </data>
   <data name="ISSN" xml:space="preserve">
-    <value />
+    <value>ISSN</value>
   </data>
   <data name="JournalScope" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Keywords" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Knowledge" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LanguageSelection" xml:space="preserve">
-    <value />
+    <value>Journal scope</value>
   </data>
   <data name="LanguagesVarients" xml:space="preserve">
-    <value />
+    <value>Languages varients</value>
   </data>
   <data name="LastName" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lettreEtcivilisation" xml:space="preserve">
-    <value />
+    <value>Last Name</value>
   </data>
   <data name="Livrée" xml:space="preserve">
     <value />
   </data>
   <data name="Login" xml:space="preserve">
-    <value />
-  </data>
-  <data name="LogOut" xml:space="preserve">
-    <value />
+    <value>Login</value>
   </data>
   <data name="MarcRecordNumber" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MontantHT" xml:space="preserve">
-    <value />
+    <value>Marc record number</value>
   </data>
   <data name="MyAccount" xml:space="preserve">
-    <value />
-  </data>
-  <data name="MyPurchases" xml:space="preserve">
-    <value />
+    <value>My Account</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NbEbook" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NbEjournal" xml:space="preserve">
-    <value />
+    <value>Name</value>
   </data>
   <data name="NbPages" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NbPurchase" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NbUser" xml:space="preserve">
-    <value />
+    <value>Number of pages</value>
   </data>
   <data name="NoDocumentFound" xml:space="preserve">
-    <value />
+    <value>No document available !!</value>
   </data>
   <data name="Notes" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NotPublished" xml:space="preserve">
-    <value />
+    <value>Notes</value>
   </data>
   <data name="NumberOfPurchases" xml:space="preserve">
-    <value />
+    <value>Number of Purchases</value>
   </data>
-  <data name="OriginalLanguage" xml:space="preserve">
-    <value />
-  </data>
-  <data name="OriginalTitle" xml:space="preserve">
-    <value />
+  <data name="Pages" xml:space="preserve">
+    <value>Pages :</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value />
+    <value>Password</value>
   </data>
   <data name="Phone" xml:space="preserve">
-    <value />
+    <value>Phone</value>
   </data>
   <data name="Photo" xml:space="preserve">
-    <value />
+    <value>Photo</value>
   </data>
   <data name="PhysicalDescription" xml:space="preserve">
-    <value />
+    <value>Physical description</value>
   </data>
   <data name="PostalCode" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Price" xml:space="preserve">
-    <value />
+    <value>Postal Code</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
-    <value />
+    <value>Privacy Policy</value>
   </data>
-  <data name="Product" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ProductOverview" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Profil" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Préface" xml:space="preserve">
-    <value />
-  </data>
-  <data name="PublicationDate" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Published" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Purchase" xml:space="preserve">
-    <value />
-  </data>
-  <data name="PurchaseDate" xml:space="preserve">
-    <value />
+  <data name="Prix" xml:space="preserve">
+    <value>Price :</value>
   </data>
   <data name="PurchaseDetails" xml:space="preserve">
-    <value />
-  </data>
-  <data name="PurchaseLine" xml:space="preserve">
-    <value />
+    <value>Purchase details</value>
   </data>
   <data name="PurchaseLineList" xml:space="preserve">
-    <value />
+    <value>Purchase line list</value>
   </data>
   <data name="PurchaseLineText" xml:space="preserve">
     <value />
   </data>
   <data name="PurchaseList" xml:space="preserve">
-    <value />
-  </data>
-  <data name="PurchaseNumber" xml:space="preserve">
-    <value />
+    <value>Purchases list</value>
   </data>
   <data name="PurchaseState" xml:space="preserve">
-    <value />
+    <value>Purchase state</value>
   </data>
   <data name="PurchaseText" xml:space="preserve">
     <value />
   </data>
   <data name="Quantity" xml:space="preserve">
-    <value />
+    <value>Quantity</value>
   </data>
   <data name="QuickSearch" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ReachOut" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ReadAbout" xml:space="preserve">
-    <value />
+    <value>Quick search</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Résumé" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SaveEbook" xml:space="preserve">
-    <value />
+    <value>Forgot your password ?</value>
   </data>
   <data name="SaveEjournal" xml:space="preserve">
-    <value />
+    <value>Save Ejournal</value>
   </data>
   <data name="SavePurchase" xml:space="preserve">
     <value />
   </data>
   <data name="SavePurchaseLine" xml:space="preserve">
-    <value />
+    <value>Save Purchase Line</value>
   </data>
   <data name="SaveUser" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scienceEconomique" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scienceFondamental" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scienceHumain" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scienceIngenieur" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scienceJuridique" xml:space="preserve">
-    <value />
-  </data>
-  <data name="scienceMedical" xml:space="preserve">
-    <value />
+    <value>Add User</value>
   </data>
   <data name="SearchAllProducts" xml:space="preserve">
-    <value />
+    <value>Home &gt; All products &gt;</value>
   </data>
   <data name="SelectProfil" xml:space="preserve">
-    <value />
+    <value>-- Please select an option --</value>
   </data>
   <data name="SelectPurchaseState" xml:space="preserve">
     <value />
@@ -534,118 +369,76 @@
   <data name="SelectPurchaseType" xml:space="preserve">
     <value />
   </data>
-  <data name="share" xml:space="preserve">
-    <value />
-  </data>
   <data name="SignUp" xml:space="preserve">
-    <value />
+    <value>Sign Up</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StateSelection" xml:space="preserve">
-    <value />
+    <value>State</value>
   </data>
   <data name="Subtitle" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Summarize" xml:space="preserve">
-    <value />
+    <value>Subtitle</value>
   </data>
   <data name="TermsOfUse" xml:space="preserve">
-    <value />
+    <value>Terms of use</value>
   </data>
   <data name="TextAddUser" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TextCreateEbook" xml:space="preserve">
-    <value />
+    <value>Please fill out this form to create a new User *</value>
   </data>
   <data name="TextCreateEjournal" xml:space="preserve">
-    <value />
+    <value>Please fill out this form to create a new Ejournal *</value>
   </data>
   <data name="TextCreatePurchase" xml:space="preserve">
     <value />
   </data>
-  <data name="TextCreatePurchaseLine" xml:space="preserve">
-    <value />
-  </data>
   <data name="Theme" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ThemeSelection" xml:space="preserve">
-    <value />
+    <value>Theme</value>
   </data>
   <data name="TitlesVariants" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Total" xml:space="preserve">
-    <value />
+    <value>Titles variants</value>
   </data>
   <data name="TotalIssuesNb" xml:space="preserve">
-    <value />
+    <value>Total issues number</value>
   </data>
   <data name="Translator" xml:space="preserve">
-    <value />
+    <value>Translator</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value />
+    <value>Type</value>
   </data>
   <data name="UnitPrice" xml:space="preserve">
-    <value />
-  </data>
-  <data name="UpdateAccount" xml:space="preserve">
-    <value />
+    <value>Unit price</value>
   </data>
   <data name="UpdateEbook" xml:space="preserve">
-    <value />
+    <value>Modify Ebook</value>
   </data>
   <data name="UpdateEjournal" xml:space="preserve">
-    <value />
+    <value>Modify Ejournal</value>
   </data>
   <data name="UpdatePurchase" xml:space="preserve">
     <value />
   </data>
-  <data name="UpdatePurchaseLine" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Urbanisme" xml:space="preserve">
-    <value />
-  </data>
   <data name="Url" xml:space="preserve">
-    <value />
-  </data>
-  <data name="User" xml:space="preserve">
-    <value />
-  </data>
-  <data name="UserCommand" xml:space="preserve">
-    <value />
+    <value>Url</value>
   </data>
   <data name="UsersList" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ValidateCommande" xml:space="preserve">
-    <value />
+    <value>Users list</value>
   </data>
   <data name="ValidateOn" xml:space="preserve">
-    <value />
+    <value>Validate on </value>
   </data>
   <data name="Vat" xml:space="preserve">
-    <value />
+    <value>Vat</value>
   </data>
   <data name="VatPercent" xml:space="preserve">
-    <value />
+    <value>Vat Percent</value>
   </data>
   <data name="ViewDetails" xml:space="preserve">
-    <value />
+    <value>View details</value>
   </data>
   <data name="VolumeNb" xml:space="preserve">
-    <value />
+    <value>Volume number</value>
   </data>
-  <data name="WithoutBoundaries" xml:space="preserve">
-    <value />
-  </data>
-  <data name="YearSelection" xml:space="preserve">
-    <value />
+  <data name="Year" xml:space="preserve">
+    <value>Year :</value>
   </data>
 </root>

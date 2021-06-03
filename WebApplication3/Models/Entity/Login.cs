@@ -10,11 +10,11 @@ namespace PortailEbook.Models.Entity
 	{
 		[Required(ErrorMessage ="Champ obligatoire")]
 		[EmailAddress]
-		[Display(Name = "Email", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "Email", ResourceType = typeof(Resources.Resource))]
 		public string Email { get; set; }
 
 		[Required(ErrorMessage = "Champ obligatoire")]
-		[Display(Name = "Password", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "Password", ResourceType = typeof(Resources.Resource))]
 		public string Password { get; set; } 
 	}
 }

@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>Apropos</value>
-  </data>
-  <data name="AboutAlFikr" xml:space="preserve">
-    <value>A propos al fikr</value>
-  </data>
   <data name="Abstract" xml:space="preserve">
     <value>Abstraite</value>
   </data>
@@ -135,35 +129,8 @@
   <data name="AccompanyingMaterialsNb" xml:space="preserve">
     <value>Nombre du matériel d'accompagnement</value>
   </data>
-  <data name="AccountParameter" xml:space="preserve">
-    <value>Paramètres du compte</value>
-  </data>
-  <data name="AddEbook" xml:space="preserve">
-    <value>Ajouter nouveau Ouvrage</value>
-  </data>
-  <data name="AddEjournal" xml:space="preserve">
-    <value>Ajouter nouvel Revue</value>
-  </data>
-  <data name="AddPurchase" xml:space="preserve">
-    <value>Ajouter une commande</value>
-  </data>
-  <data name="AddPurchaseLine" xml:space="preserve">
-    <value>Ajouter une ligne de commande</value>
-  </data>
-  <data name="AddToPurchaseline" xml:space="preserve">
-    <value>Ajouter au Panier</value>
-  </data>
-  <data name="AddUser" xml:space="preserve">
-    <value>Ajouter un nouveau utilisateur</value>
-  </data>
   <data name="Adress" xml:space="preserve">
     <value>Adresse</value>
-  </data>
-  <data name="AdvancedSearch" xml:space="preserve">
-    <value>Recherche Avancé</value>
-  </data>
-  <data name="AlreadyHaveAnAccount" xml:space="preserve">
-    <value>Vous avez déjà un compte ?</value>
   </data>
   <data name="AmountHT" xml:space="preserve">
     <value>Montant HT</value>
@@ -177,47 +144,17 @@
   <data name="Architecture" xml:space="preserve">
     <value>Architecture</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Retour</value>
-  </data>
-  <data name="BackToHome" xml:space="preserve">
-    <value>Retour vers accueil</value>
-  </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Retour vers liste</value>
-  </data>
-  <data name="BackToMyCommands" xml:space="preserve">
-    <value>Retour à mes commandes</value>
-  </data>
-  <data name="BackToUsersList" xml:space="preserve">
-    <value>Retour vers liste des utilisateurs</value>
-  </data>
-  <data name="beauxArt" xml:space="preserve">
-    <value>et beaux-art</value>
-  </data>
-  <data name="BooksRecentlyAdded" xml:space="preserve">
-    <value>Livres Récemment Ajoutés</value>
-  </data>
   <data name="Catalogue" xml:space="preserve">
     <value>Catalogue</value>
   </data>
   <data name="Category" xml:space="preserve">
     <value>Categorie</value>
   </data>
-  <data name="ChoosePhoto" xml:space="preserve">
-    <value>Choisir une Photo...</value>
-  </data>
   <data name="Code" xml:space="preserve">
     <value>Code</value>
   </data>
   <data name="Collection" xml:space="preserve">
     <value>Collection</value>
-  </data>
-  <data name="Commander" xml:space="preserve">
-    <value>Commander</value>
-  </data>
-  <data name="CompleterVosAchats" xml:space="preserve">
-    <value>Compléter vos achats</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Pays</value>
@@ -231,9 +168,6 @@
   <data name="DateFirstIssue" xml:space="preserve">
     <value>Date du première essai</value>
   </data>
-  <data name="DetailsPurchaseLine" xml:space="preserve">
-    <value>Détailles Ligne de commande</value>
-  </data>
   <data name="Discount" xml:space="preserve">
     <value>Remise</value>
   </data>
@@ -245,18 +179,6 @@
   </data>
   <data name="Doi" xml:space="preserve">
     <value>Doi</value>
-  </data>
-  <data name="Download" xml:space="preserve">
-    <value>Télécharger</value>
-  </data>
-  <data name="Ebook" xml:space="preserve">
-    <value>Ouvrage</value>
-  </data>
-  <data name="EbookDetails" xml:space="preserve">
-    <value>Détailles d'Ouvrage</value>
-  </data>
-  <data name="EbooksList" xml:space="preserve">
-    <value>Liste des ouvrages</value>
   </data>
   <data name="EditionNum" xml:space="preserve">
     <value>Numéro d'édition</value>
@@ -270,17 +192,11 @@
   <data name="Ejournal" xml:space="preserve">
     <value>Revue</value>
   </data>
-  <data name="EjournalDetails" xml:space="preserve">
-    <value>Détailles du Revue</value>
-  </data>
-  <data name="EjournalsList" xml:space="preserve">
-    <value>Liste des revues</value>
-  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
-  <data name="EnCours" xml:space="preserve">
-    <value>En cours...</value>
+  <data name="English" xml:space="preserve">
+    <value>Anglais</value>
   </data>
   <data name="File" xml:space="preserve">
     <value>Fichier</value>
@@ -302,9 +218,6 @@
   </data>
   <data name="Genre" xml:space="preserve">
     <value>Genre</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Acceuil</value>
   </data>
   <data name="IdDocument" xml:space="preserve">
     <value>Id Document</value>
@@ -330,9 +243,6 @@
   <data name="Keywords" xml:space="preserve">
     <value>Mots clés</value>
   </data>
-  <data name="Knowledge" xml:space="preserve">
-    <value>Connaissance</value>
-  </data>
   <data name="LanguageSelection" xml:space="preserve">
     <value>-- Sélectionnez une langue --</value>
   </data>
@@ -345,53 +255,20 @@
   <data name="lettreEtcivilisation" xml:space="preserve">
     <value>Lettres et civilisation</value>
   </data>
-  <data name="Livrée" xml:space="preserve">
-    <value>Livrée</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Se connecter</value>
-  </data>
-  <data name="LogOut" xml:space="preserve">
-    <value>Se déconnecter</value>
-  </data>
   <data name="MarcRecordNumber" xml:space="preserve">
     <value>Numéro d'enregistrement</value>
-  </data>
-  <data name="MyAccount" xml:space="preserve">
-    <value>Mon Compte</value>
-  </data>
-  <data name="MyPurchases" xml:space="preserve">
-    <value>Mes commandes</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
   </data>
-  <data name="NbEbook" xml:space="preserve">
-    <value>Nombre des revues</value>
-  </data>
-  <data name="NbEjournal" xml:space="preserve">
-    <value>Nombre des ouvrages</value>
-  </data>
   <data name="NbPages" xml:space="preserve">
     <value>Nombre des pages</value>
-  </data>
-  <data name="NbPurchase" xml:space="preserve">
-    <value>Nombre des commandes</value>
-  </data>
-  <data name="NbUser" xml:space="preserve">
-    <value>Nombre des utilisateurs</value>
-  </data>
-  <data name="NoDocumentFound" xml:space="preserve">
-    <value>Aucun document disponible !!</value>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
   </data>
   <data name="NotPublished" xml:space="preserve">
     <value>Non publier</value>
-  </data>
-  <data name="NumberOfPurchases" xml:space="preserve">
-    <value>Nombre des commandes</value>
   </data>
   <data name="OriginalLanguage" xml:space="preserve">
     <value>Langue original</value>
@@ -417,20 +294,14 @@
   <data name="Price" xml:space="preserve">
     <value>Prix</value>
   </data>
-  <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Politique de confidentialité</value>
+  <data name="Prix" xml:space="preserve">
+    <value>Prix :</value>
   </data>
   <data name="Product" xml:space="preserve">
     <value>Produit</value>
   </data>
-  <data name="ProductOverview" xml:space="preserve">
-    <value>Aperçu du produit</value>
-  </data>
   <data name="Profil" xml:space="preserve">
     <value>Profil</value>
-  </data>
-  <data name="Préface" xml:space="preserve">
-    <value>Préface</value>
   </data>
   <data name="PublicationDate" xml:space="preserve">
     <value>Date de publication</value>
@@ -450,12 +321,6 @@
   <data name="PurchaseLine" xml:space="preserve">
     <value>Lignes des commandes</value>
   </data>
-  <data name="PurchaseLineList" xml:space="preserve">
-    <value>Liste des lignes des commandes</value>
-  </data>
-  <data name="PurchaseLineText" xml:space="preserve">
-    <value>Ligne de commande</value>
-  </data>
   <data name="PurchaseList" xml:space="preserve">
     <value>Liste des commandes</value>
   </data>
@@ -465,62 +330,11 @@
   <data name="PurchaseState" xml:space="preserve">
     <value>État du commande</value>
   </data>
-  <data name="PurchaseText" xml:space="preserve">
-    <value>Commande</value>
-  </data>
   <data name="Quantity" xml:space="preserve">
     <value>Quantité</value>
   </data>
-  <data name="QuickSearch" xml:space="preserve">
-    <value>Recherche Rapide</value>
-  </data>
-  <data name="ReachOut" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="ReadAbout" xml:space="preserve">
-    <value>Consulter</value>
-  </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>Mot de passe oubliée ?</value>
-  </data>
-  <data name="Résumé" xml:space="preserve">
-    <value>Résumé</value>
-  </data>
-  <data name="SaveEbook" xml:space="preserve">
-    <value>Enregistrer Ebook</value>
-  </data>
-  <data name="SaveEjournal" xml:space="preserve">
-    <value>Enregistrer Revue</value>
-  </data>
-  <data name="SavePurchase" xml:space="preserve">
-    <value>Enregistrer commande</value>
-  </data>
-  <data name="SavePurchaseLine" xml:space="preserve">
-    <value>Enregistrer ligne de commande</value>
-  </data>
-  <data name="SaveUser" xml:space="preserve">
-    <value>Enregistrer utilisateur</value>
-  </data>
-  <data name="scienceEconomique" xml:space="preserve">
-    <value>Science économique et gestion</value>
-  </data>
-  <data name="scienceFondamental" xml:space="preserve">
-    <value>Siences fondamentales</value>
-  </data>
-  <data name="scienceHumain" xml:space="preserve">
-    <value>Sciences humaines, sociales et religieuses</value>
-  </data>
-  <data name="scienceIngenieur" xml:space="preserve">
-    <value>Sciences de l’ingénieur</value>
-  </data>
-  <data name="scienceJuridique" xml:space="preserve">
-    <value>Sciences juridiques et politiques</value>
-  </data>
-  <data name="scienceMedical" xml:space="preserve">
-    <value>Sciences médicales</value>
-  </data>
-  <data name="SearchAllProducts" xml:space="preserve">
-    <value>Accueil &gt; Tous les produits &gt;</value>
   </data>
   <data name="SelectProfil" xml:space="preserve">
     <value>-- Veuillez choisir un option --</value>
@@ -530,12 +344,6 @@
   </data>
   <data name="SelectPurchaseType" xml:space="preserve">
     <value>-- Sélectionnez un type --</value>
-  </data>
-  <data name="share" xml:space="preserve">
-    <value>Partager / Envoyer par Email</value>
-  </data>
-  <data name="SignUp" xml:space="preserve">
-    <value>S'inscrire</value>
   </data>
   <data name="State" xml:space="preserve">
     <value>État</value>
@@ -548,24 +356,6 @@
   </data>
   <data name="Summarize" xml:space="preserve">
     <value>voir résumé</value>
-  </data>
-  <data name="TermsOfUse" xml:space="preserve">
-    <value>Conditions d’utilisation</value>
-  </data>
-  <data name="TextAddUser" xml:space="preserve">
-    <value>Veuillez remplir ce formulaire pour créer un nouvel utilisateur*</value>
-  </data>
-  <data name="TextCreateEbook" xml:space="preserve">
-    <value>Veuillez remplir ce formulaire pour créer un nouvel Ouvrage*</value>
-  </data>
-  <data name="TextCreateEjournal" xml:space="preserve">
-    <value>Veuillez remplir ce formulaire pour créer un nouvel Revue*</value>
-  </data>
-  <data name="TextCreatePurchase" xml:space="preserve">
-    <value>Veuillez remplir ce formulaire pour créer une nouvelle commande*</value>
-  </data>
-  <data name="TextCreatePurchaseLine" xml:space="preserve">
-    <value>Veuillez remplir ce formulaire pour créer un nouvel ligne de commande*</value>
   </data>
   <data name="Theme" xml:space="preserve">
     <value>Theme</value>
@@ -603,9 +393,6 @@
   <data name="UpdatePurchase" xml:space="preserve">
     <value>Modifier la Commande</value>
   </data>
-  <data name="UpdatePurchaseLine" xml:space="preserve">
-    <value>Modifier un ligne de commande</value>
-  </data>
   <data name="Urbanisme" xml:space="preserve">
     <value>urbanisme</value>
   </data>
@@ -614,18 +401,6 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>Utilisateur</value>
-  </data>
-  <data name="UserCommand" xml:space="preserve">
-    <value>Vos commandes</value>
-  </data>
-  <data name="UsersList" xml:space="preserve">
-    <value>Liste des utilisateurs</value>
-  </data>
-  <data name="ValidateCommande" xml:space="preserve">
-    <value>Merci, Votre commande a été reçu avec succés</value>
-  </data>
-  <data name="ValidateOn" xml:space="preserve">
-    <value>Effectué le</value>
   </data>
   <data name="Vat" xml:space="preserve">
     <value>Vat</value>
@@ -639,8 +414,8 @@
   <data name="VolumeNb" xml:space="preserve">
     <value>Nombre de volume</value>
   </data>
-  <data name="WithoutBoundaries" xml:space="preserve">
-    <value>Sans frontiére</value>
+  <data name="Year" xml:space="preserve">
+    <value>Année :</value>
   </data>
   <data name="YearSelection" xml:space="preserve">
     <value>-- Sélectionnez une année -- </value>

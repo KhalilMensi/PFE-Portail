@@ -1,4 +1,5 @@
 ﻿@model PortailEbook.Models.Entity.Purchase
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 @{
     ViewData["Title"] = "Upsert Purchase";
@@ -13,12 +14,12 @@
                 </svg>
             </div>
             <hr />
-            <p class="text-danger text-center">@(PortailEbook.Resource.Resource.TextCreatePurchase)</p>
+            <p class="text-danger text-center">@localizer["TextCreatePurchase"]</p>
         }
         else
         {
             <div>
-                <h3>@(PortailEbook.Resource.Resource.UpdatePurchase)</h3>
+                <h3>@localizer["UpdatePurchase"]</h3>
             </div>
             <hr />
         }
@@ -67,9 +68,9 @@
                 <div class="form-group col-md-6">
                     <label asp-for="Type"></label>
                     <select asp-for="Type" class="custom-select text-center" id="Type">
-                        <option value="">@(PortailEbook.Resource.Resource.SelectPurchaseType)</option>
-                        <option value="Commande">@(PortailEbook.Resource.Resource.PurchaseText)</option>
-                        <option value="PurchaseLine">@(PortailEbook.Resource.Resource.PurchaseLineText)</option>
+                        <option value="">@localizer["SelectPurchaseType"]</option>
+                        <option value="Commande">@localizer["PurchaseText"]</option>
+                        <option value="PurchaseLine">@localizer["PurchaseLineText"]</option>
                     </select>
                     <span id="validType" class="text-danger"></span>
                 </div>
@@ -83,10 +84,10 @@
                 <div class="form-group col-md-6">
                     <label asp-for="State"></label>
                     <select asp-for="State" class="custom-select text-center" id="State">
-                        <option value="">@(PortailEbook.Resource.Resource.SelectPurchaseState)</option>
-                        <option value="En cours ...">@(PortailEbook.Resource.Resource.EnCours)</option>
-                        <option value="Annulée">@(PortailEbook.Resource.Resource.Annulée)</option>
-                        <option value="Livrée">@(PortailEbook.Resource.Resource.Livrée)</option>
+                        <option value="">@localizer["SelectPurchaseState"]</option>
+                        <option value="En cours ...">@localizer["EnCours"]</option>
+                        <option value="Annulée">@localizer["Annulée"]</option>
+                        <option value="Livrée">@localizer["Livrée"]</option>
                     </select>
                     <span id="validState" class="text-danger"></span>
                 </div>
@@ -127,14 +128,14 @@
                 </div>
             </div>
             <div class="mt-2 col-md-12 text-center">
-                <button type="button" onclick="savePurchase()" class="btn btn-primary col-md-12">@(PortailEbook.Resource.Resource.SavePurchase)</button>
+                <button type="button" onclick="savePurchase()" class="btn btn-primary col-md-12">@localizer["SavePurchase"]</button>
             </div>
             <div class="mt-2 text-center">
                 <a asp-action="Index" asp-controller="Purchase">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                     </svg>
-                    @(PortailEbook.Resource.Resource.BackToList)
+                    @localizer["BackToList"]
                 </a>
             </div>
         </form>

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{ var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) }).ToList();
+    }
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <title>Al-Fikr</title>
@@ -80,11 +84,8 @@
                         <div class="row justify-content-between has-border">
                             <!-- Langauge -->
                             <div class="col-4 col-md-4">
-                                <div class="language">
-                                    <a href="#">
-                                        <img src="~/images/flag-en.png" alt="EN" />
-                                        <span>@(PortailEbook.Resource.Resource.Français)</span>
-                                    </a>
+                                <div class="language" style="height:7px;">
+                                    <partial name="_Culture" />
                                 </div>
                             </div>
                             <!-- End Langauge -->
@@ -108,15 +109,15 @@
                                     @if (@User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value != null)
                                     {
                                         <i class="icon-compte"></i>
-                                        <a asp-action="Index" asp-controller="Role">@(PortailEbook.Resource.Resource.MyAccount)</a>
+                                        <a asp-action="Index" asp-controller="Role">@localizer["MyAccount"]</a>
                                     }
                                     else
                                     {
-                                        <a asp-action="Login" asp-controller="Account">@(PortailEbook.Resource.Resource.Login) </a>
+                                        <a asp-action="Login" asp-controller="Account">@localizer["Login"]</a>
 
                                         <span> / </span>
 
-                                        <a asp-action="UpsertUser" asp-controller="User">@(PortailEbook.Resource.Resource.SignUp) </a>
+                                        <a asp-action="UpsertUser" asp-controller="User">@localizer["SignUp"]</a>
                                     }
                                 </div>
                             </div>
@@ -145,8 +146,8 @@
                                             <input type="text" name="search" id="search">
                                         </div>
                                         <div class="input-submit">
-                                            <button type="submit" class="send-form">@(PortailEbook.Resource.Resource.QuickSearch)</button>
-                                            <a href="" class="search-filter">@(PortailEbook.Resource.Resource.AdvancedSearch)</a>
+                                            <button type="submit" class="send-form">@localizer["QuickSearch"]</button>
+                                            <a href="" class="search-filter">@localizer["AdvancedSearch"]</a>
                                         </div>
                                     </form>
                                 </div>
@@ -161,6 +162,7 @@
             <!-- End Header -->
         </div>
         <!-- Other pages to be rendered -->
+
         <div class="">
             <main role="main">
                 @RenderBody()
@@ -175,13 +177,13 @@
                         <div class="menu-footer">
                             <ul>
                                 <li>
-                                    <a href="#">@(PortailEbook.Resource.Resource.AboutAlFikr)</a>
+                                    <a href="#">@localizer["AboutAlFikr"]</a>
                                 </li>
                                 <li>
-                                    <a href="#">@(PortailEbook.Resource.Resource.PrivacyPolicy)</a>
+                                    <a href="#">@localizer["PrivacyPolicy"]</a>
                                 </li>
                                 <li>
-                                    <a href="#">@(PortailEbook.Resource.Resource.TermsOfUse)</a>
+                                    <a href="#">@localizer["TermsOfUse"]</a>
                                 </li>
                             </ul>
                         </div>

@@ -1,4 +1,6 @@
 ﻿@model PortailEbook.Models.Entity.Ebook;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -408,7 +410,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="slider-bloc" style="background-image: url(../../images/slider.jpg)">
-                        <h1 class="align-self-center">@(PortailEbook.Resource.Resource.Knowledge)<br> @(PortailEbook.Resource.Resource.WithoutBoundaries)</h1>
+                        <h1 class="align-self-center">@localizer["Knowledge"]<br> @localizer["WithoutBoundaries"]</h1>
                     </div>
                 </div>
             </div>
@@ -420,8 +422,8 @@
                 <div class="extra-row">
                     <nav>
                         <div class="nav nav-tabs flex-column flex-sm-row" id="nav-tab" role="tablist">
-                            <a class="flex-sm-fill nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-ouvrages" role="tab" aria-controls="nav-ouvrages" aria-selected="true">@(PortailEbook.Resource.Resource.Ebook)</a>
-                            <a class="flex-sm-fill nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-revues" role="tab" aria-controls="nav-revues" aria-selected="false">@(PortailEbook.Resource.Resource.Ejournal)</a>
+                            <a class="flex-sm-fill nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-ouvrages" role="tab" aria-controls="nav-ouvrages" aria-selected="true">@localizer["Ebook"]</a>
+                            <a class="flex-sm-fill nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-revues" role="tab" aria-controls="nav-revues" aria-selected="false">@localizer["Ejournal"]</a>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -432,7 +434,7 @@
                                     <div class="col-12">
                                         <!-- BOOKS LOOP -->
                                         <div class="books-list">
-                                            <h2>@(PortailEbook.Resource.Resource.ProductOverview)</h2>
+                                            <h2>@localizer["ProductOverview"]</h2>
                                             <!-- SINGLE BOOKS ITEM -->
                                             <div class="book-item">
                                                 <div class="row">
@@ -467,19 +469,19 @@
                                                                 <span><strong>DOI : </strong>@Model.ISBN</span>
                                                             </div>
                                                             <div class="book-detail-maison">
-                                                                <span><strong>@(PortailEbook.Resource.Resource.EditionPlace) : </strong> @Model.EditionPlace</span>
+                                                                <span><strong>@localizer["EditionPlace"] : </strong> @Model.EditionPlace</span>
                                                             </div>
                                                             <div class="book-detail-date">
-                                                                <span><strong>@(PortailEbook.Resource.Resource.PublicationDate) : </strong> @Model.PublicationDate</span>
+                                                                <span><strong>@localizer["PublicationDate"] : </strong> @Model.PublicationDate</span>
                                                             </div>
                                                             <div class="book-detail-key">
-                                                                <p><span>@(PortailEbook.Resource.Resource.Keywords)</span> : @Model.Keywords</p>
+                                                                <p><span>@localizer["Keywords"]</span> : @Model.Keywords</p>
                                                             </div>
                                                             <div class="book-detail-links">
-                                                                <a href="#">@(PortailEbook.Resource.Resource.ReadAbout)</a>
-                                                                <a href="#">@(PortailEbook.Resource.Resource.Download)</a>
-                                                                <a href="#">@(PortailEbook.Resource.Resource.Summarize)</a>
-                                                                <a href="#">@(PortailEbook.Resource.Resource.share)</a>
+                                                                <a href="#">@localizer["ReadAbout"]</a>
+                                                                <a href="#">@localizer["Download"]</a>
+                                                                <a href="#">@localizer["Summarize"]</a>
+                                                                <a href="#">@localizer["share"]</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -521,10 +523,10 @@
                                             <div class="tabs-details">
                                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                     <li class="nav-item">
-                                                        <a class="nav-link active" id="resume-tab" data-toggle="tab" href="#resume" role="tab" aria-controls="resume" aria-selected="true">@(PortailEbook.Resource.Resource.Résumé)</a>
+                                                        <a class="nav-link active" id="resume-tab" data-toggle="tab" href="#resume" role="tab" aria-controls="resume" aria-selected="true">@localizer["Résumé"]</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" id="preface-tab" data-toggle="tab" href="#preface" role="tab" aria-controls="preface" aria-selected="false">@(PortailEbook.Resource.Resource.Préface)</a>
+                                                        <a class="nav-link" id="preface-tab" data-toggle="tab" href="#preface" role="tab" aria-controls="preface" aria-selected="false">@localizer["Préface"]</a>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content" id="myTabContent">
@@ -661,46 +663,46 @@
                                                                     for (var i = 0; i < response.listPurchaseLine.length; i++) {
                                                                         if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
                                                                             $('#dropdown-content').append(`
-                                                                    <div class="row justify-content-center align-content-center p-2">
-                                                                        <div class="col-md-3 text-center">
-                                                                            <div class="row justify-content-start align-content-center" style="width:80px;">
-                                                                                <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
+                                                                        <div class="row justify-content-center align-content-center p-2">
+                                                                            <div class="col-md-3 text-center">
+                                                                                <div class="row justify-content-start align-content-center" style="width:80px;">
+                                                                                    <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="col-md-9">
-                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
+                                                                            <div class="col-md-9">
+                                                                                <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                                    <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
+                                                                                </div>
+                                                                                <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                                    <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>`
+                                                                        </div>`
                                                                             )
                                                                         }
                                                                     }
                                                                 }
                                                                 $('#dropdown-content').append(`
-                                                        <div class="row justify-content-center align-content-center p-2">
-                                                            <div class="col-md-12">
-                                                                <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                        <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
-                                                                    </span>
+                                                            <div class="row justify-content-center align-content-center p-2">
+                                                                <div class="col-md-12">
+                                                                    <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                        <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                                            <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>`)
+                                                            </div>`)
                                                             } else {
                                                                 $('#dropdown-content').append(`
-                                                        <div class="row justify-content-center align-content-center p-2">
-                                                            <div class="col-md-12">
-                                                                <div class="row justify-content-center align-content-center" style="height:25px">
-                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                        <b>Panier Vide</b>
-                                                                    </span>
+                                                            <div class="row justify-content-center align-content-center p-2">
+                                                                <div class="col-md-12">
+                                                                    <div class="row justify-content-center align-content-center" style="height:25px">
+                                                                        <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                                            <b>Panier Vide</b>
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>`)
+                                                            </div>`)
                                                             }
                                                             const Toast = Swal.mixin({
                                                                 toast: true,

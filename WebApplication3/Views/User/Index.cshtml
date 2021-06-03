@@ -1,25 +1,27 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
     ViewData["Title"] = "Index";
 }
 
 <div class="container-fluid" style="margin-bottom:80px;">
     <div class="row justify-content-center" style="padding-bottom:1%">
         <div class="text-left col-md-9">
-            <h3 style="color:#6777ef">@(PortailEbook.Resource.Resource.UsersList)</h3>
+            <h3 style="color:#6777ef">@localizer["UsersList"]</h3>
         </div>
         <div class="text-right col-md-3">
             <a asp-action="UpsertUser" asp-controller="User" class="btn btn-primary form-control text-white">
-                @(PortailEbook.Resource.Resource.AddUser)
+                @localizer["AddUser"]
             </a>
         </div>
     </div>
     <table id="myTable" class="table table-striped" style="background-color:#ffffff">
         <thead>
             <tr>
-                <th>@(PortailEbook.Resource.Resource.Code)</th>
-                <th>@(PortailEbook.Resource.Resource.Email)</th>
-                <th>@(PortailEbook.Resource.Resource.Password)</th>
-                <th>@(PortailEbook.Resource.Resource.Profil)</th>
+                <th>@localizer["Code"]</th>
+                <th>@localizer["Email"]</th>
+                <th>@localizer["Password"]</th>
+                <th>@localizer["Profil"]</th>
                 <th>Avatar</th>
                 <th class="text-center">Actions</th>
             </tr>

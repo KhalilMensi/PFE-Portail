@@ -9,28 +9,28 @@ namespace PortailEbook.Models.Entity
 	public class Ebook : Document
 	{
 		[StringLength(50)]
-		[Display(Name = "EditionNum", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "EditionNum", ResourceType = typeof(Resources.Resource))]
 		public string EditionNum { get; set; }
 
 		[StringLength(50)]
-		[Display(Name = "EditionPlace", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "EditionPlace", ResourceType = typeof(Resources.Resource))]
 		public string EditionPlace { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "ISBN", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "ISBN", ResourceType = typeof(Resources.Resource))]
 		[StringLength(50)]
 		public string ISBN { get; set; }
 
 		[StringLength(50)]
-		[Display(Name = "Genre", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "Genre", ResourceType = typeof(Resources.Resource))]
 		public string Genre { get; set; }
 
 		[StringLength(50)]
-		[Display(Name = "Category", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "Category", ResourceType = typeof(Resources.Resource))]
 		public string Category { get; set; }
 
 		[Required(ErrorMessage = "Champ Obligatoire")]
-		[Display(Name = "NbPages", ResourceType = typeof(Resource.Resource))]
+		[Display(Name = "NbPages", ResourceType = typeof(Resources.Resource))]
 		public int NbPages { get; set; }
 
 		public Ebook()

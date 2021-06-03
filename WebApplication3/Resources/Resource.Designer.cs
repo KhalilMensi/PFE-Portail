@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PortailEbook.Resource {
+namespace PortailEbook.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PortailEbook.Resource {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PortailEbook.Resource.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PortailEbook.Resources.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,24 +57,6 @@ namespace PortailEbook.Resource {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string About {
-            get {
-                return ResourceManager.GetString("About", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AboutAlFikr {
-            get {
-                return ResourceManager.GetString("AboutAlFikr", resourceCulture);
             }
         }
         
@@ -117,90 +99,9 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string AccountParameter {
-            get {
-                return ResourceManager.GetString("AccountParameter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AddEbook {
-            get {
-                return ResourceManager.GetString("AddEbook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AddEjournal {
-            get {
-                return ResourceManager.GetString("AddEjournal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AddPurchase {
-            get {
-                return ResourceManager.GetString("AddPurchase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AddPurchaseLine {
-            get {
-                return ResourceManager.GetString("AddPurchaseLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AddToPurchaseline {
-            get {
-                return ResourceManager.GetString("AddToPurchaseline", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AddUser {
-            get {
-                return ResourceManager.GetString("AddUser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Adress {
             get {
                 return ResourceManager.GetString("Adress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AdvancedSearch {
-            get {
-                return ResourceManager.GetString("AdvancedSearch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string AlreadyHaveAnAccount {
-            get {
-                return ResourceManager.GetString("AlreadyHaveAnAccount", resourceCulture);
             }
         }
         
@@ -243,63 +144,9 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string Back {
+        public static string By {
             get {
-                return ResourceManager.GetString("Back", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string BackToHome {
-            get {
-                return ResourceManager.GetString("BackToHome", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string BackToList {
-            get {
-                return ResourceManager.GetString("BackToList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string BackToMyCommands {
-            get {
-                return ResourceManager.GetString("BackToMyCommands", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string BackToUsersList {
-            get {
-                return ResourceManager.GetString("BackToUsersList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string beauxArt {
-            get {
-                return ResourceManager.GetString("beauxArt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string BooksRecentlyAdded {
-            get {
-                return ResourceManager.GetString("BooksRecentlyAdded", resourceCulture);
+                return ResourceManager.GetString("By", resourceCulture);
             }
         }
         
@@ -351,24 +198,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string Commander {
-            get {
-                return ResourceManager.GetString("Commander", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string CompleterVosAchats {
-            get {
-                return ResourceManager.GetString("CompleterVosAchats", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Country {
             get {
                 return ResourceManager.GetString("Country", resourceCulture);
@@ -405,15 +234,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string DetailsPurchaseLine {
-            get {
-                return ResourceManager.GetString("DetailsPurchaseLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Discount {
             get {
                 return ResourceManager.GetString("Discount", resourceCulture);
@@ -444,15 +264,6 @@ namespace PortailEbook.Resource {
         public static string Doi {
             get {
                 return ResourceManager.GetString("Doi", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string Download {
-            get {
-                return ResourceManager.GetString("Download", resourceCulture);
             }
         }
         
@@ -522,24 +333,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string EjournalDetails {
-            get {
-                return ResourceManager.GetString("EjournalDetails", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string EjournalsList {
-            get {
-                return ResourceManager.GetString("EjournalsList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
@@ -552,6 +345,15 @@ namespace PortailEbook.Resource {
         public static string EnCours {
             get {
                 return ResourceManager.GetString("EnCours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à .
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
             }
         }
         
@@ -615,15 +417,6 @@ namespace PortailEbook.Resource {
         public static string Genre {
             get {
                 return ResourceManager.GetString("Genre", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string Home {
-            get {
-                return ResourceManager.GetString("Home", resourceCulture);
             }
         }
         
@@ -702,15 +495,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string Knowledge {
-            get {
-                return ResourceManager.GetString("Knowledge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string LanguageSelection {
             get {
                 return ResourceManager.GetString("LanguageSelection", resourceCulture);
@@ -756,24 +540,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string Login {
-            get {
-                return ResourceManager.GetString("Login", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string LogOut {
-            get {
-                return ResourceManager.GetString("LogOut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string MarcRecordNumber {
             get {
                 return ResourceManager.GetString("MarcRecordNumber", resourceCulture);
@@ -792,24 +558,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string MyAccount {
-            get {
-                return ResourceManager.GetString("MyAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string MyPurchases {
-            get {
-                return ResourceManager.GetString("MyPurchases", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
@@ -819,54 +567,9 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string NbEbook {
-            get {
-                return ResourceManager.GetString("NbEbook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string NbEjournal {
-            get {
-                return ResourceManager.GetString("NbEjournal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string NbPages {
             get {
                 return ResourceManager.GetString("NbPages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string NbPurchase {
-            get {
-                return ResourceManager.GetString("NbPurchase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string NbUser {
-            get {
-                return ResourceManager.GetString("NbUser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string NoDocumentFound {
-            get {
-                return ResourceManager.GetString("NoDocumentFound", resourceCulture);
             }
         }
         
@@ -891,15 +594,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string NumberOfPurchases {
-            get {
-                return ResourceManager.GetString("NumberOfPurchases", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string OriginalLanguage {
             get {
                 return ResourceManager.GetString("OriginalLanguage", resourceCulture);
@@ -912,6 +606,15 @@ namespace PortailEbook.Resource {
         public static string OriginalTitle {
             get {
                 return ResourceManager.GetString("OriginalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à .
+        /// </summary>
+        public static string Pages {
+            get {
+                return ResourceManager.GetString("Pages", resourceCulture);
             }
         }
         
@@ -981,9 +684,9 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string PrivacyPolicy {
+        public static string Prix {
             get {
-                return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
+                return ResourceManager.GetString("Prix", resourceCulture);
             }
         }
         
@@ -1071,33 +774,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string PurchaseLineList {
-            get {
-                return ResourceManager.GetString("PurchaseLineList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string PurchaseLineText {
-            get {
-                return ResourceManager.GetString("PurchaseLineText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string PurchaseList {
-            get {
-                return ResourceManager.GetString("PurchaseList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string PurchaseNumber {
             get {
                 return ResourceManager.GetString("PurchaseNumber", resourceCulture);
@@ -1116,36 +792,9 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string PurchaseText {
-            get {
-                return ResourceManager.GetString("PurchaseText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Quantity {
             get {
                 return ResourceManager.GetString("Quantity", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string QuickSearch {
-            get {
-                return ResourceManager.GetString("QuickSearch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string ReachOut {
-            get {
-                return ResourceManager.GetString("ReachOut", resourceCulture);
             }
         }
         
@@ -1161,63 +810,9 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string ResetPassword {
-            get {
-                return ResourceManager.GetString("ResetPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Résumé {
             get {
                 return ResourceManager.GetString("Résumé", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string SaveEbook {
-            get {
-                return ResourceManager.GetString("SaveEbook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string SaveEjournal {
-            get {
-                return ResourceManager.GetString("SaveEjournal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string SavePurchase {
-            get {
-                return ResourceManager.GetString("SavePurchase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string SavePurchaseLine {
-            get {
-                return ResourceManager.GetString("SavePurchaseLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string SaveUser {
-            get {
-                return ResourceManager.GetString("SaveUser", resourceCulture);
             }
         }
         
@@ -1272,15 +867,6 @@ namespace PortailEbook.Resource {
         public static string scienceMedical {
             get {
                 return ResourceManager.GetString("scienceMedical", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string SearchAllProducts {
-            get {
-                return ResourceManager.GetString("SearchAllProducts", resourceCulture);
             }
         }
         
@@ -1368,60 +954,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string TermsOfUse {
-            get {
-                return ResourceManager.GetString("TermsOfUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string TextAddUser {
-            get {
-                return ResourceManager.GetString("TextAddUser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string TextCreateEbook {
-            get {
-                return ResourceManager.GetString("TextCreateEbook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string TextCreateEjournal {
-            get {
-                return ResourceManager.GetString("TextCreateEjournal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string TextCreatePurchase {
-            get {
-                return ResourceManager.GetString("TextCreatePurchase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string TextCreatePurchaseLine {
-            get {
-                return ResourceManager.GetString("TextCreatePurchaseLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Theme {
             get {
                 return ResourceManager.GetString("Theme", resourceCulture);
@@ -1494,60 +1026,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string UpdateAccount {
-            get {
-                return ResourceManager.GetString("UpdateAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string UpdateEbook {
-            get {
-                return ResourceManager.GetString("UpdateEbook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string UpdateEjournal {
-            get {
-                return ResourceManager.GetString("UpdateEjournal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string UpdatePurchase {
-            get {
-                return ResourceManager.GetString("UpdatePurchase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string UpdatePurchaseLine {
-            get {
-                return ResourceManager.GetString("UpdatePurchaseLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string Urbanisme {
-            get {
-                return ResourceManager.GetString("Urbanisme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string Url {
             get {
                 return ResourceManager.GetString("Url", resourceCulture);
@@ -1560,33 +1038,6 @@ namespace PortailEbook.Resource {
         public static string User {
             get {
                 return ResourceManager.GetString("User", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string UserCommand {
-            get {
-                return ResourceManager.GetString("UserCommand", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string UsersList {
-            get {
-                return ResourceManager.GetString("UsersList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
-        public static string ValidateCommande {
-            get {
-                return ResourceManager.GetString("ValidateCommande", resourceCulture);
             }
         }
         
@@ -1620,15 +1071,6 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string ViewDetails {
-            get {
-                return ResourceManager.GetString("ViewDetails", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
-        /// </summary>
         public static string VolumeNb {
             get {
                 return ResourceManager.GetString("VolumeNb", resourceCulture);
@@ -1638,9 +1080,9 @@ namespace PortailEbook.Resource {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à .
         /// </summary>
-        public static string WithoutBoundaries {
+        public static string Year {
             get {
-                return ResourceManager.GetString("WithoutBoundaries", resourceCulture);
+                return ResourceManager.GetString("Year", resourceCulture);
             }
         }
         

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PortailEbook.Controllers
@@ -10,6 +12,7 @@ namespace PortailEbook.Controllers
 	{
 		public IActionResult Index()
 		{
+			ViewBag.Language = Thread.CurrentThread.CurrentCulture.ToString();
 			return View();
 		}
 	}

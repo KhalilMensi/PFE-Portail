@@ -1,4 +1,6 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -16,11 +18,11 @@
     <table id="myTable" class="table table-striped" style="background-color:#ffffff">
         <thead>
             <tr>
-                <th>@(PortailEbook.Resource.Resource.Editor)</th>
-                <th>@(PortailEbook.Resource.Resource.Collection)</th>
-                <th>@(PortailEbook.Resource.Resource.Theme)</th>
-                <th>@(PortailEbook.Resource.Resource.Catalogue)</th>
-                <th>@(PortailEbook.Resource.Resource.Doi)</th>
+                <th>@localizer["Editor"]</th>
+                <th>@localizer["Collection"]</th>
+                <th>@localizer["Theme"]</th>
+                <th>@localizer["Catalogue"]</th>
+                <th>@localizer["Doi"]</th>
                 <th class="text-center">Actions</th>
             </tr>
         </thead>

@@ -1,26 +1,28 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
     ViewData["Title"] = "Index";
 }
 
 <div class="container-fluid" style="margin-bottom:80px;">
     <div class="row" style="padding-bottom:1%">
         <div class="col-md-8">
-            <h3 style="color:#6777ef">@(PortailEbook.Resource.Resource.PurchaseLineList)</h3>
+            <h3 style="color:#6777ef">@localizer["PurchaseLineList"]</h3>
         </div>
         <div class="col-md-4">
             <a asp-action="UpsertPurchaseLine" asp-controller="PurchaseLine" class="btn btn-primary form-control text-white">
-                @(PortailEbook.Resource.Resource.AddPurchaseLine)
+                @localizer["AddPurchaseLine"]
             </a>
         </div>
     </div>
     <table id="myTable" class="table table-striped" style="background-color:#ffffff">
         <thead>
             <tr>
-                <th>@(PortailEbook.Resource.Resource.IdPurchase)</th>
-                <th>@(PortailEbook.Resource.Resource.IdDocument)</th>
-                <th>@(PortailEbook.Resource.Resource.UnitPrice)</th>
-                <th>@(PortailEbook.Resource.Resource.Quantity)</th>
-                <th>@(PortailEbook.Resource.Resource.Discount)</th>
+                <th>@localizer["IdPurchase"]</th>
+                <th>@localizer["IdDocument"]</th>
+                <th>@localizer["UnitPrice"]</th>
+                <th>@localizer["Quantity"]</th>
+                <th>@localizer["Discount"]</th>
                 <th class="text-center">Actions</th>
             </tr>
         </thead>

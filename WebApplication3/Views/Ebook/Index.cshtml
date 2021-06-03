@@ -1,26 +1,28 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
     ViewData["Title"] = "Index";
 }
 
 <div class="container-fluid" style="margin-bottom:80px;">
     <div class="row" style="padding-bottom:1%">
         <div class="col-md-9">
-            <h3 style="color:#6777ef">@(PortailEbook.Resource.Resource.EbooksList)</h3>
+            <h3 style="color:#6777ef">@localizer["EbooksList"]</h3>
         </div>
         <div class="col-md-3">
             <a asp-action="UpsertEbook" asp-controller="Ebook" class="btn btn-primary form-control text-white">
-                @(PortailEbook.Resource.Resource.AddEbook)
+                @localizer["AddEbook"]
             </a>
         </div>
     </div>
     <table id="myTable" class="table table-striped" style="background-color:#ffffff">
         <thead>
             <tr>
-                <th>@(PortailEbook.Resource.Resource.OriginalTitle)</th>
-                <th>@(PortailEbook.Resource.Resource.ISBN)</th>
-                <th>@(PortailEbook.Resource.Resource.Doi)</th>
-                <th>@(PortailEbook.Resource.Resource.Price)</th>
-                <th>@(PortailEbook.Resource.Resource.PublicationDate)</th>
+                <th>@localizer["OriginalTitle"]</th>
+                <th>@localizer["ISBN"]</th>
+                <th>@localizer["Doi"]</th>
+                <th>@localizer["Price"]</th>
+                <th>@localizer["PublicationDate"]</th>
                 <th>Image</th>
                 <th class="text-center">Actions</th>
             </tr>
@@ -31,6 +33,6 @@
 @section Scripts{
     <script src="~/assets/js/EbookList.js" asp-append-version="true"></script>
     <partial name="_ValidationScriptsPartial" />
- }
+}
 
 

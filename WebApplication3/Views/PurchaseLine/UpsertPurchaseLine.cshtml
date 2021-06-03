@@ -1,4 +1,4 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @model PortailEbook.Models.Entity.PurchaseLine
 
 @{
@@ -14,12 +14,12 @@
                 </svg>
             </div>
             <hr />
-            <p class="text-danger text-center">@(PortailEbook.Resource.Resource.TextCreatePurchaseLine)</p>
+            <p class="text-danger text-center">@localizer["TextCreatePurchaseLine"]</p>
         }
         else
         {
             <div>
-                <h3>@(PortailEbook.Resource.Resource.UpdatePurchaseLine)</h3>
+                <h3>@localizer["UpdatePurchaseLine"]</h3>
             </div>
             <hr />
         }
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-2">
-                    <button type="button" onclick="savePurchaseLine()" class="btn btn-primary col-md-12">@(PortailEbook.Resource.Resource.SavePurchaseLine)</button>
+                    <button type="button" onclick="savePurchaseLine()" class="btn btn-primary col-md-12">@localizer["SavePurchaseLine"]</button>
                 </div>
             </form>
         </div>

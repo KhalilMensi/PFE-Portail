@@ -1,4 +1,5 @@
-﻿ @model PortailEbook.Models.Entity.Ejournal
+﻿@model PortailEbook.Models.Entity.Ejournal
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 @{
     ViewData["Title"] = "Upsert Ejournal";
@@ -16,7 +17,7 @@
                 </svg>
             </div>
             <hr />
-            <p class="text-danger text-center p-3">@(PortailEbook.Resource.Resource.TextCreateEjournal)</p>
+            <p class="text-danger text-center p-3">@localizer["TextCreateEjournal"]</p>
         }
         else
         {
@@ -24,7 +25,7 @@
                 <svg id="Capa_1" enable-background="new 0 0 512 512" height="90" viewBox="0 0 512 512" width="90" xmlns="http://www.w3.org/2000/svg"><g><g><path d="m286 444 223-48v-300l-233 40-3 133z" fill="#9c6750" /><path d="m3 411 224 33 19-181-10-125-233-33z" fill="#9c6750" /><path d="m227 444h59l-10-308-40 2z" fill="#844f3e" /></g><g fill="#f3d544"><path d="m484 406 28-7v-33l-8 1-3 20-17 7z" /><path d="m489 96 23-4v29l-7-1-1-16-13-2z" /><path d="m0 129v-28l26 4-2 8-15 1-3 14z" /></g><g><path d="m256 159-226-103-7 337 239 43z" fill="#e7e2d5" /><path d="m256 159 221-107 12 328-227 56z" fill="#e7e2d5" /><path d="m50 356 33-328 173 131 6 277z" fill="#f4efe3" /><path d="m147 0 109 159 6 277-176-121z" fill="#fdf9f2" /><path d="m256 159 167-130 35 315-196 92z" fill="#f4efe3" /><path d="m256 159 104-159 60 311-158 125z" fill="#fdf9f2" /><path d="m252 151h8l6 361h-20z" fill="#d68034" /><g fill="#e7e2d5"><g><path d="m156 56 82 100-3 87-98-92z" /><path d="m131 172 102 85-2 13-103-88z" /><path d="m125 203 92 69-2 10-93-70z" /><path d="m120 228 106 73-2 12-106-75z" /><path d="m115 254 115 76v16l-118-82z" /><path d="m107 282 105 66-4 14-103-69z" /></g><g><path d="m271 162 81-116 3 12-82 118z" /><path d="m274 189 86-113 3 14-87.653 108.426z" /><path d="m279 218 84-92 3 14-87 92z" /><path d="m279 246 82-81 2 14-84 79z" /><path d="m386 320 17-14-7-18-13 10z" /></g></g></g><path d="m34 420-34-6v-42l11 3 2 21 20 13z" fill="#f3d544" /></g></svg>
             </div>
             <hr />
-            <p class="text-danger text-center p-3">@(PortailEbook.Resource.Resource.UpdateEjournal)</p>
+            <p class="text-danger text-center p-3">@localizer["UpdateEjournal"]</p>
 
         }
         <div class="mt-3">
@@ -65,15 +66,15 @@
                         <div class="form-group">
                             <label asp-for="Theme"></label>
                             <select asp-for="Theme" class="custom-select text-center" id="Theme">
-                                <option value="">@(PortailEbook.Resource.Resource.ThemeSelection)</option>
-                                <option value="@(PortailEbook.Resource.Resource.Architecture)">@(PortailEbook.Resource.Resource.Architecture)</option>
-                                <option value="@(PortailEbook.Resource.Resource.scienceFondamental)">@(PortailEbook.Resource.Resource.scienceFondamental)</option>
-                                <option value="@(PortailEbook.Resource.Resource.scienceMedical)">@(PortailEbook.Resource.Resource.scienceMedical)</option>
-                                <option value="@(PortailEbook.Resource.Resource.lettreEtcivilisation)">@(PortailEbook.Resource.Resource.lettreEtcivilisation)</option>
-                                <option value="@(PortailEbook.Resource.Resource.scienceHumain)">@(PortailEbook.Resource.Resource.scienceHumain)</option>
-                                <option value="@(PortailEbook.Resource.Resource.scienceJuridique)">@(PortailEbook.Resource.Resource.scienceJuridique)</option>
-                                <option value="@(PortailEbook.Resource.Resource.scienceIngenieur)">@(PortailEbook.Resource.Resource.scienceIngenieur)</option>
-                                <option value="@(PortailEbook.Resource.Resource.scienceEconomique)">@(PortailEbook.Resource.Resource.scienceEconomique)</option>
+                                <option value="">@localizer["ThemeSelection"]</option>
+                                <option value="@localizer["Architecture"]">@localizer["Architecture"]</option>
+                                <option value="@localizer["scienceFondamental"]">@localizer["scienceFondamental"]</option>
+                                <option value="@localizer["scienceMedical"]">@localizer["scienceMedical"]</option>
+                                <option value="@localizer["lettreEtcivilisation"]">@localizer["lettreEtcivilisation"]</option>
+                                <option value="@localizer["scienceHumain"]">@localizer["scienceHumain"]</option>
+                                <option value="@localizer["scienceJuridique"]">@localizer["scienceJuridique"]</option>
+                                <option value="@localizer["scienceIngenieur"]">@localizer["scienceIngenieur"]</option>
+                                <option value="@localizer["scienceEconomique"]">@localizer["scienceEconomique"]</option>
                             </select>
                             <span id="validTheme" class="text-danger"></span>
                         </div>
@@ -90,7 +91,7 @@
                     <div class="form-group col-md-4">
                         <label asp-for="PublicationDate"></label>
                         <select asp-for="PublicationDate" class="custom-select text-center" id="PublicationDate">
-                            <option value="">@(PortailEbook.Resource.Resource.YearSelection)</option>
+                            <option value="">@localizer["YearSelection"]</option>
                             @for (int i = @DateTime.Now.Year; i > @DateTime.Now.Year - 10; i--)
                             {
                                 <option value="@i">@i</option>
@@ -123,9 +124,9 @@
                         <div class="form-group">
                             <label asp-for="State"></label>
                             <select asp-for="State" class="custom-select text-center" id="State">
-                                <option value="">@(PortailEbook.Resource.Resource.StateSelection)</option>
-                                <option value="Publier">@(PortailEbook.Resource.Resource.Published)</option>
-                                <option value="Non publier">@(PortailEbook.Resource.Resource.NotPublished)</option>
+                                <option value="">@localizer["StateSelection"]</option>
+                                <option value="Publier">@localizer["Published"]</option>
+                                <option value="Non publier">@localizer["NotPublished"]</option>
                             </select>
                             <span id="validState" class="text-danger"></span>
                         </div>
@@ -141,7 +142,7 @@
                         <div class="form-group">
                             <label asp-for="OriginalLanguage"></label>
                             <select asp-for="OriginalLanguage" class="custom-select text-center" id="OriginalLanguage">
-                                <option value="">@(PortailEbook.Resource.Resource.LanguageSelection)</option>
+                                <option value="">@localizer["LanguageSelection"]</option>
                                 <option value="English">English</option>
                                 <option value="French">French</option>
                                 <option value="Arabic">Arabic</option>
@@ -292,14 +293,14 @@
                     </div>
                 </div>
                 <div class="text-center mt-2">
-                    <button type="button" onclick="saveEjournal('@ViewBag.insert')" class="btn btn-primary col-md-5">@(PortailEbook.Resource.Resource.SaveEjournal)</button>
+                    <button type="button" onclick="saveEjournal('@ViewBag.insert')" class="btn btn-primary col-md-5">@localizer["SaveEjournal"]</button>
                 </div>
                 <div class="mt-2 text-center">
                     <a asp-action="Index" asp-controller="Ejournal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                         </svg>
-                        @(PortailEbook.Resource.Resource.BackToList)
+                        @localizer["BackToList"]
                     </a>
                 </div>
             </form>

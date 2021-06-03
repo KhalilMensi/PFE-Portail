@@ -1,19 +1,20 @@
 ﻿@model PortailEbook.Models.Entity.PurchaseLineViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
 <div>
     <div class="container mt-4 mb-4">
         <div>
-            <span style="font-family: 'IBM Plex Mono', monospace;font-size:20px">@(PortailEbook.Resource.Resource.ValidateCommande)</span>
+            <span style="font-family: 'IBM Plex Mono', monospace;font-size:20px">@localizer["ValidateCommande"]</span>
         </div>
         <div class="row col-md-12 mt-3 mb-1">
-            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">@(PortailEbook.Resource.Resource.PurchaseNumber) : @Model.Purchase.Id</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">@localizer["PurchaseNumber"] : @Model.Purchase.Id</span>
         </div>
         <table class="table">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">@(PortailEbook.Resource.Resource.Product)</th>
-                    <th scope="col">@(PortailEbook.Resource.Resource.Total)</th>
+                    <th scope="col">@localizer["Product"]</th>
+                    <th scope="col">@localizer["Total"]</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,13 +43,13 @@
             </tbody>
         </table>
         <div class="row col-md-12 mt-3 mb-1">
-            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">@(PortailEbook.Resource.Resource.AmountHT) : @Model.Purchase.AmountHT DT</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">@localizer["AmountHT"] : @Model.Purchase.AmountHT DT</span>
         </div>
         <div class="row col-md-12 mt-3 mb-1">
-            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">@(PortailEbook.Resource.Resource.AmountTTC) : @Model.Purchase.AmountTTC DT</span>
+            <span style="font-family: 'Inter', sans-serif; font-size: 20px;" id="NbArt">@localizer["AmountTTC"] : @Model.Purchase.AmountTTC DT</span>
         </div>
         <div class="row col-md-4 mt-3 mb-1">
-            <a sp-action="UserPurchase" asp-controller="Purchase" class="btn btn-primary">@(PortailEbook.Resource.Resource.BackToMyCommands)</a>
+            <a sp-action="UserPurchase" asp-controller="Purchase" class="btn btn-primary">@localizer["BackToMyCommands"]</a>
         </div>
     </div>
 </div>
