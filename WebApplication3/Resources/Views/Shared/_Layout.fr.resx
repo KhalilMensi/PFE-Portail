@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutAlFik" xml:space="preserve">
+  <data name="AboutAlFikr" xml:space="preserve">
     <value>A propos Al-Fikr</value>
   </data>
   <data name="AdvancedSearch" xml:space="preserve">
     <value>Recherche avancée</value>
   </data>
+  <data name="EmptyCart" xml:space="preserve">
+    <value>Panier vide</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>Anglais</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Adresse email non valide !</value>
+  </data>
+  <data name="InvalidInput" xml:space="preserve">
+    <value>Champ obligatoire</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Mot de passe non valide !</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Se connecter</value>

@@ -50,9 +50,7 @@ namespace PortailEbook.Controllers
 		{
 			if (id == null)
 			{
-				ViewBag.PurchaseId = BLLPurchase.getAllPurchaseId();
-				ViewBag.DocumentId = BLLDocument.getAllDocumentId();
-				return View();
+				return RedirectToAction("Index");
 			}
 			else
 			{

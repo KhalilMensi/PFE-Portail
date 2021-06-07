@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Logging;
 using PortailEbook.Models;
 using PortailEbook.Models.BLL;
@@ -10,9 +8,7 @@ using PortailEbook.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
-using System.Threading;
 
 namespace PortailEbook.Controllers
 {
@@ -30,7 +26,7 @@ namespace PortailEbook.Controllers
 			return View(BLLDocument.getAllDocuments());
 		}
 
-		[HttpPost]
+		[HttpGet]
 		public IActionResult CultureManagement(string culture, string returnUrl)
 		{
 			this.HttpContext.Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,

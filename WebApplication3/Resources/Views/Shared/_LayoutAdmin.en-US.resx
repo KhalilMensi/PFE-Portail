@@ -120,17 +120,17 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
-  <data name="AboutAlFik" xml:space="preserve">
+  <data name="AboutAlFikr" xml:space="preserve">
     <value>About Al-Fikr</value>
   </data>
   <data name="AdvancedSearch" xml:space="preserve">
     <value>Advanced Search</value>
   </data>
   <data name="Ebook" xml:space="preserve">
-    <value>Ebook</value>
+    <value>Ebooks</value>
   </data>
   <data name="Ejournal" xml:space="preserve">
-    <value>Ejournal</value>
+    <value>Ejournals</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>English</value>
@@ -140,6 +140,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="InvalidInput" xml:space="preserve">
+    <value>Required field</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -175,7 +178,7 @@
     <value>Purchases</value>
   </data>
   <data name="PurchaseLine" xml:space="preserve">
-    <value>Purchase Lines</value>
+    <value>Purchases Lines</value>
   </data>
   <data name="QuickSearch" xml:space="preserve">
     <value>Quick Search</value>

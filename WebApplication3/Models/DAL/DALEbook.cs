@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Linq;
 
 namespace PortailEbook.Models.DAL
 {
@@ -468,15 +468,14 @@ namespace PortailEbook.Models.DAL
                     Document d = BLLDocument.getDocumentBy(Field, Value);
                     if(d != null)
                     {
-                        PurchaseLine purchase = BLLPurchaseLine.getPurchaseLineBy("IdDocument", d.Id.ToString());
-                        if (purchase != null)
-                        {
-                            purchase.IdDocument = 0;
-                            string sql = BLLPurchaseLine.UpdatePurchaseLine(purchase);
-                        }
+						List<PurchaseLine> purchase = BLLPurchaseLine.getAllPurchaseLineBy("IdDocument", d.Id.ToString()).ToList();
+						if (purchase.Count() > 0)
+						{
+                            return "You can't delete the document because it's associated to an active order";
+						}
 
-                        using (SqlConnection connection = DBConnection.GetConnection())
-                    {
+						using (SqlConnection connection = DBConnection.GetConnection())
+                        {
                         connection.Open();
                         string sql = "if exists(select * from sysobjects where name = 'Ebook') delete from [Ebook] where [" + Field + "]=@Field";
                         using (SqlCommand command = new SqlCommand(sql, connection))

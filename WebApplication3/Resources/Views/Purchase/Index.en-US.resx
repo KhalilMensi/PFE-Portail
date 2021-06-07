@@ -133,7 +133,7 @@
     <value>N° Purchase</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>State</value>
+    <value>Order state</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>User</value>

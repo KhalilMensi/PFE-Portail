@@ -483,14 +483,13 @@ namespace PortailEbook.Models.DAL
                     Document d = BLLDocument.getDocumentBy(Field, Value);
                     if (d != null)
                     {
-                        PurchaseLine purchase = BLLPurchaseLine.getPurchaseLineBy("IdDocument", d.Id.ToString());
-                        if (purchase != null)
+                        List<PurchaseLine> purchase = BLLPurchaseLine.getAllPurchaseLineBy("IdDocument", d.Id.ToString()).ToList();
+                        if (purchase.Count() > 0)
                         {
-                            purchase.IdDocument = 0;
-                            string sql = BLLPurchaseLine.UpdatePurchaseLine(purchase);
+                            return "You can't delete the document because it's associated to an active order";
                         }
                         using (SqlConnection connection = DBConnection.GetConnection())
-                    {
+                        {
                         connection.Open();
                         string sql = "if exists(select * from sysobjects where name = 'Ejournal') delete from [Ejournal] where [" + Field + "]=@Field";
                         using (SqlCommand command = new SqlCommand(sql, connection))

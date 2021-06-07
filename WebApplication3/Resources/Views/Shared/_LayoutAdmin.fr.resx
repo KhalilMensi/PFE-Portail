@@ -120,23 +120,26 @@
   <data name="About" xml:space="preserve">
     <value>A propos</value>
   </data>
-  <data name="AboutAlFik" xml:space="preserve">
+  <data name="AboutAlFikr" xml:space="preserve">
     <value>A propos Al-Fikr</value>
   </data>
   <data name="AdvancedSearch" xml:space="preserve">
     <value>Recherche avancée</value>
   </data>
   <data name="Ebook" xml:space="preserve">
-    <value>Ouvrage</value>
+    <value>Ouvrages</value>
   </data>
   <data name="Ejournal" xml:space="preserve">
-    <value>Revue</value>
+    <value>Revues</value>
   </data>
   <data name="Français" xml:space="preserve">
     <value>Français</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Acceuil</value>
+  </data>
+  <data name="InvalidInput" xml:space="preserve">
+    <value>Champ obligatoire</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Se connecter</value>
@@ -169,10 +172,10 @@
     <value>Profil</value>
   </data>
   <data name="Purchase" xml:space="preserve">
-    <value>Commande</value>
+    <value>Commandes</value>
   </data>
   <data name="PurchaseLine" xml:space="preserve">
-    <value>Ligne de commande</value>
+    <value>Lignes des commandes</value>
   </data>
   <data name="QuickSearch" xml:space="preserve">
     <value>Recherche rapide</value>

@@ -133,7 +133,7 @@
     <value>N° du commande</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>Etat</value>
+    <value>Etat du commande</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Utilisateur</value>

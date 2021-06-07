@@ -12,7 +12,6 @@ namespace PortailEbook.Controllers
 {
 	public class EbookController : Controller
 	{
-
 		private readonly IWebHostEnvironment hostEnvironment;
 
 		// Constructeur

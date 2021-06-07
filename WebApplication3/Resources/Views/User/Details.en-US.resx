@@ -138,4 +138,7 @@
   <data name="PurchaseSate" xml:space="preserve">
     <value>Purchase state</value>
   </data>
+  <data name="State" xml:space="preserve">
+    <value>Purchase state</value>
+  </data>
 </root>

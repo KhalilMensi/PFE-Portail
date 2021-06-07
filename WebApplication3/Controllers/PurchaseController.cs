@@ -49,10 +49,7 @@ namespace PortailEbook.Controllers
 		{
 			if (id == null)
 			{
-				ViewBag.UsersId = BLLUser.getAllUserId();
-				ViewBag.PurchaseNumber = BLLPurchase.getMaxNumber();
-				ViewBag.date = System.DateTime.Now.ToShortDateString();
-				return View();
+				return RedirectToAction("Index");
 			}
 			else
 			{

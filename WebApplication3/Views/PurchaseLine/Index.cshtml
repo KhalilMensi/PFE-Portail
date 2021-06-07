@@ -9,11 +9,6 @@
         <div class="col-md-8">
             <h3 style="color:#6777ef">@localizer["PurchaseLineList"]</h3>
         </div>
-        <div class="col-md-4">
-            <a asp-action="UpsertPurchaseLine" asp-controller="PurchaseLine" class="btn btn-primary form-control text-white">
-                @localizer["AddPurchaseLine"]
-            </a>
-        </div>
     </div>
     <table id="myTable" class="table table-striped" style="background-color:#ffffff">
         <thead>
@@ -23,7 +18,6 @@
                 <th>@localizer["UnitPrice"]</th>
                 <th>@localizer["Quantity"]</th>
                 <th>@localizer["Discount"]</th>
-                <th class="text-center">Actions</th>
             </tr>
         </thead>
     </table>

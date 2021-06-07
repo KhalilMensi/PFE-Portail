@@ -120,7 +120,7 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
-  <data name="AboutAlFik" xml:space="preserve">
+  <data name="AboutAlFikr" xml:space="preserve">
     <value>About Al-Fikr</value>
   </data>
   <data name="AdvancedSearch" xml:space="preserve">
@@ -131,6 +131,9 @@
   </data>
   <data name="Français" xml:space="preserve">
     <value>French</value>
+  </data>
+  <data name="InvalidInput" xml:space="preserve">
+    <value>Required field</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>

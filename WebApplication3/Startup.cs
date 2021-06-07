@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using PortailEbook.Models;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -34,13 +33,6 @@ namespace PortailEbook
 			});
 
 			services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
-			
-			services.AddSession(options =>
-			{
-				options.IdleTimeout = TimeSpan.FromHours(5);
-				options.Cookie.HttpOnly = true;
-				options.Cookie.IsEssential = true;
-			});
 
 			services.Configure<RequestLocalizationOptions>(opt =>
 			{
@@ -50,10 +42,11 @@ namespace PortailEbook
 					new CultureInfo("fr")
 				};
 
-				opt.DefaultRequestCulture = new RequestCulture(supportedCultures[1]);
+				opt.DefaultRequestCulture = new RequestCulture(supportedCultures[0]);
 				opt.SupportedCultures = supportedCultures;
 				opt.SupportedUICultures = supportedCultures;
 			});
+
 			services.Configure<CookiePolicyOptions>(options =>
 			{
 				// This lambda determines whether user consent for non-essential cookies is needed for a given request.  
@@ -63,7 +56,7 @@ namespace PortailEbook
 
 			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 			services.AddControllersWithViews();
-		
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,13 +72,14 @@ namespace PortailEbook
 				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 				app.UseHsts();
 			}
-			// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+
+			//// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 			app.UseHsts();
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 
 			app.UseRouting();
-			app.UseCookiePolicy();
+			//app.UseCookiePolicy();
 
 			app.UseAuthentication();
 			app.UseAuthorization();

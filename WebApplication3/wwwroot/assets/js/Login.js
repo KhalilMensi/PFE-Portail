@@ -16,12 +16,12 @@
                 if (!response.success) {
                     if (response.message == "User Not Found !") {
                         $('#email').val("")
-                        $('#validEmail').text('Wrong User Email')
+                        $('#validEmail').text(InvalidEmail)
                         $('#password').val("")
-                        $('#validPassword').text('Wrong Password')
+                        $('#validPassword').text(InvalidPassword)
                     } else if (response.message == "Password Incorrect") {
                         $('#password').val("")
-                        $('#validPassword').text('Wrong Password')
+                        $('#validPassword').text(InvalidPassword)
                     }
                 } else {
                     $.ajax({
@@ -69,17 +69,17 @@
 
     } else {
         if ($('#email').val().length < 7) {
-            $('#validEmail').text('Champ obligatoire')
+            $('#validEmail').text(InvalidInput)
         } else {
             $('#validEmail').text('')
         }
         if (emailIsValid($('#email').val()) == false) {
-            $('#validEmail').text('Wrong Email Form')
+            $('#validEmail').text(InvalidInput)
         } else {
             $('#validEmail').text('')
         }
         if ($('#password').val().length < 1) {
-            $('#validPassword').text('Champ obligatoire')
+            $('#validPassword').text(InvalidInput)
         } else {
             $('#validPassword').text('')
         }

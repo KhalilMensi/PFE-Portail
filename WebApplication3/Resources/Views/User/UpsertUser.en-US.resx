@@ -130,7 +130,7 @@
     <value>Select a photo...</value>
   </data>
   <data name="SaveUser" xml:space="preserve">
-    <value>Add User</value>
+    <value>Save User</value>
   </data>
   <data name="SelectProfil" xml:space="preserve">
     <value>-- Please select an option --</value>

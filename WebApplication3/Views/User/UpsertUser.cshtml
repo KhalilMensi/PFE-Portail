@@ -259,27 +259,27 @@
         }
         else {
             if ($('#password').val().length < 1) {
-                $('#validPassword').text('Champ obligatoire')
+                $('#validPassword').text(InvalidInput)
             } else {
                 $('#validPassword').text('')
             }
             if ($('#profil').val().length < 1) {
-                $('#validProfil').text('Champ obligatoire')
+                $('#validProfil').text(InvalidInput)
             } else {
                 $('#validProfil').text('')
             }
             if (emailIsValid($('#email').val()) == false || $('#email').val().length < 7) {
-                $('#validEmail').text('Invalid Email')
+                $('#validEmail').text(InvalidInput)
             } else {
                 $('#validEmail').text('')
             }
             if ($('#Name').val().length < 1) {
-                $('#validName').text('Champ obligatoire')
+                $('#validName').text(InvalidInput)
             } else {
                 $('#validName').text('')
             }
             if ($('#LastName').val().length < 1) {
-                $('#validLastName').text('Champ obligatoire')
+                $('#validLastName').text(InvalidInput)
             } else {
                 $('#validLastName').text('')
             }

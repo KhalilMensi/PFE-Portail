@@ -124,13 +124,13 @@
     <value>Montant TTC</value>
   </data>
   <data name="PurchaseDate" xml:space="preserve">
-    <value>Date cu commande</value>
+    <value>Date du commande</value>
   </data>
   <data name="PurchaseNumber" xml:space="preserve">
     <value>N° du commande</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>Etat</value>
+    <value>Etat du commande</value>
   </data>
   <data name="UserCommand" xml:space="preserve">
     <value>Vos commandes</value>

@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddEbook" xml:space="preserve">
-    <value>Ajouter un nouveau revue</value>
+  <data name="AddEjournal" xml:space="preserve">
+    <value>Ajouter un revue</value>
   </data>
   <data name="Doi" xml:space="preserve">
     <value>Doi</value>
@@ -130,7 +130,7 @@
     <value>ISSN</value>
   </data>
   <data name="OriginalTitle" xml:space="preserve">
-    <value>Titre originall</value>
+    <value>Titre original</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Prix</value>

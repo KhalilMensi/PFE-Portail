@@ -257,10 +257,7 @@
                             <!-- Langauge -->
                             <div class="col-4 col-md-4">
                                 <div class="language">
-                                    <a href="#">
-                                        <img src="~/images/france.png" style="width:23px;height:17px" alt="EN" />
-                                        <span>@localizer["Français"]</span>
-                                    </a>
+                                    <partial name="_Culture" />
                                 </div>
                             </div>
                             <!-- End Langauge -->
@@ -517,11 +514,14 @@
     <script src="~/assets/bootstrap/bootstrap.min.js"></script>
 
     <script>
-          var AppGlobal = {
+
+        var cultureInfo = '@System.Globalization.CultureInfo.CurrentCulture.Name';
+        var InvalidInput = '@localizer["InvalidInput"]';
+        var AppGlobal = {
            "user" : {
                   "role": "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Role)?.Value",
                   "Name" : "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Name)?.Value"
-              },
+           },
         };
         $(document).ready(function () {
 

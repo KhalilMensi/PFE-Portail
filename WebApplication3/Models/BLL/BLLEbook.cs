@@ -61,11 +61,10 @@ namespace PortailEbook.Models.BLL
 				{
                     uniqueCoverPageName = Path.GetFileNameWithoutExtension(Path.GetFileName(uniqueCoverPageName)) + Path.GetExtension(uniqueCoverPageName);
                     
-                    var Cover = Path.Combine(hostingEnvironment.WebRootPath, "uploads/CoverPage"); ;
+                    var Cover = Path.Combine(hostingEnvironment.WebRootPath, "uploads/CoverPage");
                     var CoverPath = Path.Combine(Cover, uniqueCoverPageName);
                     
                     document.CoverPage.CopyTo(new FileStream(CoverPath, FileMode.Create));
-
                 }
             }
             catch (Exception e) { }

@@ -132,6 +132,12 @@
   <data name="CompleterVosAchats" xml:space="preserve">
     <value>Completer vos achats</value>
   </data>
+  <data name="item" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="Panier" xml:space="preserve">
+    <value>Panier</value>
+  </data>
   <data name="PurchaseNumber" xml:space="preserve">
     <value>N° Commande</value>
   </data>

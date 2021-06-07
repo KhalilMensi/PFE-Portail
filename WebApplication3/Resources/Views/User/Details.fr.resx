@@ -135,7 +135,7 @@
   <data name="PurchaseNumber" xml:space="preserve">
     <value>N° Commande</value>
   </data>
-  <data name="PurchaseState" xml:space="preserve">
+  <data name="State" xml:space="preserve">
     <value>Etat du commande</value>
   </data>
 </root>

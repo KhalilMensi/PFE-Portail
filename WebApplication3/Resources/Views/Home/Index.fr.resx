@@ -127,10 +127,10 @@
     <value>Livres Récemment Ajoutés</value>
   </data>
   <data name="Ebook" xml:space="preserve">
-    <value>Ouvrage</value>
+    <value>Ouvrages</value>
   </data>
   <data name="Ejournal" xml:space="preserve">
-    <value>Revue</value>
+    <value>Revues</value>
   </data>
   <data name="Knowledge" xml:space="preserve">
     <value>Connaissance</value>
