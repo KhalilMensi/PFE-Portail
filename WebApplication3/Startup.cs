@@ -79,6 +79,7 @@ namespace PortailEbook
 			app.UseStaticFiles();
 
 			app.UseRouting();
+
 			//app.UseCookiePolicy();
 
 			app.UseAuthentication();

@@ -20,6 +20,11 @@ namespace PortailEbook.Controllers
             return View();
         }
 
+        public IActionResult Reset()
+		{
+            return View();
+		}
+
         // check if the user Exists and validate Email and Password
         [HttpPost]
         public JsonResponse Login(Login loginUser)
@@ -117,7 +122,7 @@ namespace PortailEbook.Controllers
                 User user = BLLUser.getUserBy("Email", email);
                 EmailManager.SendEmail(user);
             }
-            return View();
+            return RedirectToAction("Login");
         }
     }
 }
