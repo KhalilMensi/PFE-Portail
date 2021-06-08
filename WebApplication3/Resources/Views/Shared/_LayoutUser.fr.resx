@@ -123,6 +123,9 @@
   <data name="AdvancedSearch" xml:space="preserve">
     <value>Recherche avancée</value>
   </data>
+  <data name="EmptyCart" xml:space="preserve">
+    <value>Panier vide</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>Anglais</value>
   </data>

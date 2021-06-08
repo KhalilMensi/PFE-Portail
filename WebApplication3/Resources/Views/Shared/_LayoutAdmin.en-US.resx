@@ -132,6 +132,9 @@
   <data name="Ejournal" xml:space="preserve">
     <value>Ejournals</value>
   </data>
+  <data name="EmptyCart" xml:space="preserve">
+    <value>Empty shopping cart</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>English</value>
   </data>

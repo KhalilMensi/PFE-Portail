@@ -118,11 +118,12 @@ namespace PortailEbook.Controllers
 				return jsonResponse;
 			}
 		}
-		[HttpGet]
-		public Int64 getMax()
-		{
-			return BLLPurchase.getMaxNumber() - 1;
-		}
+
+		//[HttpGet]
+		//public Int64 getMax()
+		//{
+		//	return BLLPurchase.getMaxNumber() - 1;
+		//}
 
 		[HttpGet]
 		public IActionResult UserPurchase(string Email)

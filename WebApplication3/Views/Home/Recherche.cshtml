@@ -197,7 +197,7 @@
                                                     <a href="#"><img src="~/uploads/CoverPage/@document.CoverPageName" style="width:177px;height:274px"></a>
                                                     <div class="figcaption">
                                                         <div class="search-book">
-                                                            <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })"><i class="icon-loop"></i></a>
+                                                            <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" target="_blank"><i class="icon-loop"></i></a>
                                                         </div>
                                                         <div class="direction-book">
                                                             <a href="#" onclick="addProduct(@document.Id)">
@@ -342,7 +342,7 @@
                                                     <a href="#"><img src="~/uploads/CoverPage/@document.CoverPageName" style="width:177px;height:274px"></a>
                                                     <div class="figcaption">
                                                         <div class="search-book">
-                                                            <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })"><i class="icon-loop"></i></a>
+                                                            <a href="@Url.Action("DetailsEbook", "Ebook", new { id = document.Id })" target="_blank"><i class="icon-loop"></i></a>
                                                         </div>
                                                         <div class="direction-book">
                                                             <a href="#" onclick="addProduct(@document.Id)">
@@ -444,7 +444,6 @@
     }
 
     function addPurchase(userId, id) {
-        var insert = false;
         $.ajax({
             url: '/Purchase/addPurchase',
             type: 'post',
@@ -455,118 +454,103 @@
             cache: false,
             success: function (response) {
                 if (response.success) {
-
                     $.ajax({
-                        url: '/Purchase/getMax',
-                        type: 'get',
+                        url: '/PurchaseLine/UpsertPurchaseLine',
+                        type: 'post',
                         dataType: 'json',
+                        data: {
+                            IdPurchase: response.message, IdDocument: id,
+                        },
                         cache: false,
                         success: function (response) {
-                            PurchaseId = response;
+                            if (AppGlobal.user.role == "User" || AppGlobal.user.role == "Admin") {
 
-                            $.ajax({
-                                url: '/PurchaseLine/UpsertPurchaseLine',
-                                type: 'post',
-                                dataType: 'json',
-                                data: {
-                                    IdPurchase: PurchaseId, IdDocument: id,
-                                },
-                                cache: false,
-                                success: function (response) {
-
-                                    if (AppGlobal.user.role == "User" || AppGlobal.user.role == "Admin") {
-
+                                $.ajax({
+                                    url: '/PurchaseLine/NbPurchaseLine',
+                                    type: 'post',
+                                    dataType: 'json',
+                                    cache: false,
+                                    success: function (response) {
+                                        $('#NbPurchaseLine').text(response)
+                                        $("#dropdown-content").empty()
                                         $.ajax({
-                                            url: '/PurchaseLine/NbPurchaseLine',
+                                            url: '/PurchaseLine/PurchaseLineUser',
                                             type: 'post',
                                             dataType: 'json',
                                             cache: false,
                                             success: function (response) {
-                                                $('#NbPurchaseLine').text(response)
-                                                $("#dropdown-content").empty()
-                                                $.ajax({
-                                                    url: '/PurchaseLine/PurchaseLineUser',
-                                                    type: 'post',
-                                                    dataType: 'json',
-                                                    cache: false,
-                                                    success: function (response) {
-                                                        if (response != null) {
-                                                            for (var j = 0; j < response.listDocumentPurchased.length; j++) {
-                                                                for (var i = 0; i < response.listPurchaseLine.length; i++) {
-                                                                    if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
-                                                                        $('#dropdown-content').append(`
-                                                                            <div class="row justify-content-center align-content-center p-2">
-                                                                                <div class="col-md-3 text-center">
-                                                                                    <div class="row justify-content-start align-content-center" style="width:80px;">
-                                                                                        <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-9">
-                                                                                    <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                        <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
-                                                                                    </div>
-                                                                                    <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                        <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>`
-                                                                        )
-                                                                    }
-                                                                }
+                                                if (response != null) {
+                                                    for (var j = 0; j < response.listDocumentPurchased.length; j++) {
+                                                        for (var i = 0; i < response.listPurchaseLine.length; i++) {
+                                                            if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
+                                                                $('#dropdown-content').append(`
+                                                                    <div class="row justify-content-center align-content-center p-2">
+                                                                        <div class="col-md-3 text-center">
+                                                                            <div class="row justify-content-start align-content-center" style="width:80px;">
+                                                                                <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
+                                                                            </div>
+                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>`
+                                                                )
                                                             }
-                                                            $('#dropdown-content').append(`
-                                                                <div class="row justify-content-center align-content-center p-2">
-                                                                    <div class="col-md-12">
-                                                                        <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                            <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                                <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>`)
-                                                        } else {
-                                                            $('#dropdown-content').append(`
-                                                                <div class="row justify-content-center align-content-center p-2">
-                                                                    <div class="col-md-12">
-                                                                        <div class="row justify-content-center align-content-center" style="height:25px">
-                                                                            <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                                <b>Panier Vide</b>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>`)
                                                         }
-                                                        const Toast = Swal.mixin({
-                                                            toast: true,
-                                                            position: 'top-end',
-                                                            showConfirmButton: false,
-                                                            timer: 1000,
-                                                            timerProgressBar: true,
-                                                            didOpen: (toast) => {
-                                                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                                            }
-                                                        })
-                                                        Toast.fire({
-                                                            icon: 'success',
-                                                            title: 'Mise a jours du Panier'
-                                                        })
-                                                    },
-                                                    error: function (xhr, error, status) {
-                                                        console.log(error, status);
                                                     }
-                                                });
+                                                    $('#dropdown-content').append(`
+                                                        <div class="row justify-content-center align-content-center p-2">
+                                                            <div class="col-md-12">
+                                                                <div class="row justify-content-start align-content-center" style="height:25px">
+                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                                        <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>`)
+                                                } else {
+                                                    $('#dropdown-content').append(`
+                                                        <div class="row justify-content-center align-content-center p-2">
+                                                            <div class="col-md-12">
+                                                                <div class="row justify-content-center align-content-center" style="height:25px">
+                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                                         <b>@localizer["EmptyCart"]</b>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>`)
+                                                }
+                                                const Toast = Swal.mixin({
+                                                    toast: true,
+                                                    position: 'top-end',
+                                                    showConfirmButton: false,
+                                                    timer: 1000,
+                                                    timerProgressBar: true,
+                                                    didOpen: (toast) => {
+                                                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                    }
+                                                })
+                                                Toast.fire({
+                                                    icon: 'success',
+                                                    title: 'Mise a jours du Panier'
+                                                })
                                             },
                                             error: function (xhr, error, status) {
                                                 console.log(error, status);
                                             }
                                         });
+                                    },
+                                    error: function (xhr, error, status) {
+                                        console.log(error, status);
                                     }
-                                },
-                                error: function (xhr, error, status) {
-                                    console.log(error, status);
-                                }
-                            });
+                                });
+                            }
                         },
                         error: function (xhr, error, status) {
                             console.log(error, status);

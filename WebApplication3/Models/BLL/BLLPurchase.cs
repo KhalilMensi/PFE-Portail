@@ -93,6 +93,7 @@ namespace PortailEbook.Models.BLL
                 jsonResponse.message = AddPurchase(purchase);
                 if (jsonResponse.message == "Ajout avec succes")
                 {
+                    jsonResponse.message = (BLLPurchase.getMaxNumber()-1).ToString();
                     jsonResponse.success = true;
                 }
                 else

@@ -17,10 +17,7 @@ $(document).ready(function () {
                 items: 5
             }
         }
-
     });
-
-
 });
 
 function addProduct(id) {
@@ -39,19 +36,18 @@ function addProduct(id) {
             cache: false,
             success: function (response) {
                 userId = response;
-                addPurchase(userId, id); 
+                addPurchase(userId, id);
             },
             error: function (xhr, error, status) {
                 console.log(error, status);
             }
-        });  
+        });
     } else {
         window.location.href = "/Account/Login"; //will redirect to your blog page (an ex: blog.html)
     }
 }
 
 function addPurchase(userId, id) {
-    var insert = false;
     $.ajax({
         url: '/Purchase/addPurchase',
         type: 'post',
@@ -63,43 +59,35 @@ function addPurchase(userId, id) {
         success: function (response) {
             if (response.success) {
                 $.ajax({
-                    url: '/Purchase/getMax',
-                    type: 'get',
+                    url: '/PurchaseLine/UpsertPurchaseLine',
+                    type: 'post',
                     dataType: 'json',
+                    data: {
+                        IdPurchase: response.message, IdDocument: id,
+                    },
                     cache: false,
                     success: function (response) {
-                        PurchaseId = response;
+                        if (AppGlobal.user.role == "User" || AppGlobal.user.role == "Admin") {
 
-                        $.ajax({
-                            url: '/PurchaseLine/UpsertPurchaseLine',
-                            type: 'post',
-                            dataType: 'json',
-                            data: {
-                                IdPurchase: PurchaseId, IdDocument: id,
-                            },
-                            cache: false,
-                            success: function (response) {
-                                if (AppGlobal.user.role == "User" || AppGlobal.user.role == "Admin") {
-
+                            $.ajax({
+                                url: '/PurchaseLine/NbPurchaseLine',
+                                type: 'post',
+                                dataType: 'json',
+                                cache: false,
+                                success: function (response) {
+                                    $('#NbPurchaseLine').text(response)
+                                    $("#dropdown-content").empty()
                                     $.ajax({
-                                        url: '/PurchaseLine/NbPurchaseLine',
+                                        url: '/PurchaseLine/PurchaseLineUser',
                                         type: 'post',
                                         dataType: 'json',
                                         cache: false,
                                         success: function (response) {
-                                            $('#NbPurchaseLine').text(response)
-                                            $("#dropdown-content").empty()
-                                            $.ajax({
-                                                url: '/PurchaseLine/PurchaseLineUser',
-                                                type: 'post',
-                                                dataType: 'json',
-                                                cache: false,
-                                                success: function (response) {
-                                                    if (response != null) {
-                                                        for (var j = 0; j < response.listDocumentPurchased.length; j++) {
-                                                            for (var i = 0; i < response.listPurchaseLine.length; i++) {
-                                                                if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
-                                                                    $('#dropdown-content').append(`
+                                            if (response != null) {
+                                                for (var j = 0; j < response.listDocumentPurchased.length; j++) {
+                                                    for (var i = 0; i < response.listPurchaseLine.length; i++) {
+                                                        if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
+                                                            $('#dropdown-content').append(`
                                                                     <div class="row justify-content-center align-content-center p-2">
                                                                         <div class="col-md-3 text-center">
                                                                             <div class="row justify-content-start align-content-center" style="width:80px;">
@@ -115,11 +103,11 @@ function addPurchase(userId, id) {
                                                                             </div>
                                                                         </div>
                                                                     </div>`
-                                                                    )
-                                                                }
-                                                            }
+                                                            )
                                                         }
-                                                        $('#dropdown-content').append(`
+                                                    }
+                                                }
+                                                $('#dropdown-content').append(`
                                                         <div class="row justify-content-center align-content-center p-2">
                                                             <div class="col-md-12">
                                                                 <div class="row justify-content-start align-content-center" style="height:25px">
@@ -129,49 +117,44 @@ function addPurchase(userId, id) {
                                                                 </div>
                                                             </div>
                                                         </div>`)
-                                                    } else {
-                                                        $('#dropdown-content').append(`
+                                            } else {
+                                                $('#dropdown-content').append(`
                                                         <div class="row justify-content-center align-content-center p-2">
                                                             <div class="col-md-12">
                                                                 <div class="row justify-content-center align-content-center" style="height:25px">
                                                                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                        <b>Panier Vide</b>
+                                                                         <b>${EmptyCart}</b>
                                                                     </span>
                                                                 </div>
                                                             </div>
                                                         </div>`)
-                                                    }
-                                                    const Toast = Swal.mixin({
-                                                        toast: true,
-                                                        position: 'top-end',
-                                                        showConfirmButton: false,
-                                                        timer: 1000,
-                                                        timerProgressBar: true,
-                                                        didOpen: (toast) => {
-                                                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                                                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                                        }
-                                                    })
-                                                    Toast.fire({
-                                                        icon: 'success',
-                                                        title: 'Mise a jours du Panier'
-                                                    })
-                                                },
-                                                error: function (xhr, error, status) {
-                                                    console.log(error, status);
+                                            }
+                                            const Toast = Swal.mixin({
+                                                toast: true,
+                                                position: 'top-end',
+                                                showConfirmButton: false,
+                                                timer: 1000,
+                                                timerProgressBar: true,
+                                                didOpen: (toast) => {
+                                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
                                                 }
-                                            });
+                                            })
+                                            Toast.fire({
+                                                icon: 'success',
+                                                title: 'Mise a jours du Panier'
+                                            })
                                         },
                                         error: function (xhr, error, status) {
                                             console.log(error, status);
                                         }
                                     });
+                                },
+                                error: function (xhr, error, status) {
+                                    console.log(error, status);
                                 }
-                            },
-                            error: function (xhr, error, status) {
-                                console.log(error, status);
-                            }
-                        });
+                            });
+                        }
                     },
                     error: function (xhr, error, status) {
                         console.log(error, status);
