@@ -88,46 +88,56 @@ function addPurchase(userId, id) {
                                                     for (var i = 0; i < response.listPurchaseLine.length; i++) {
                                                         if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
                                                             $('#dropdown-content').append(`
-                                                                    <div class="row justify-content-center align-content-center p-2">
-                                                                        <div class="col-md-3 text-center">
-                                                                            <div class="row justify-content-start align-content-center" style="width:80px;">
-                                                                                <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-9">
-                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
-                                                                            </div>
-                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>`
+                                                <div class="row justify-content-center align-content-center p-2">
+                                                    <div class="col-md-3 text-center">
+                                                        <div class="row justify-content-start align-content-center" style="width:80px;">
+                                                            <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="row justify-content-start align-content-center" style="height:25px">
+                                                            <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
+                                                        </div>
+                                                        <div class="row justify-content-start align-content-center" style="height:25px">
+                                                            <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>`
                                                             )
                                                         }
                                                     }
                                                 }
                                                 $('#dropdown-content').append(`
-                                                        <div class="row justify-content-center align-content-center p-2">
-                                                            <div class="col-md-12">
-                                                                <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                        <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>`)
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12">
+                                            <div class="row justify-content-start align-content-center" style="height:25px">
+                                                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                    <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12 pb-2">
+                                            <div class="row justify-content-center align-content-center pt-2 pb-2" style="height:25px ">
+                                                <a class="text-center btn btn-light" style="font-size:15px;cursor:pointer;" href="/PurchaseLine/ListPurchaseLine">
+                                                     ${ConfirmPurchase}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+`)
                                             } else {
                                                 $('#dropdown-content').append(`
-                                                        <div class="row justify-content-center align-content-center p-2">
-                                                            <div class="col-md-12">
-                                                                <div class="row justify-content-center align-content-center" style="height:25px">
-                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                         <b>${EmptyCart}</b>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>`)
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12">
+                                            <div class="row justify-content-center align-content-center" style="height:25px">
+                                                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                    <b>@localizer["EmptyCart"]</b>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>`)
                                             }
                                             const Toast = Swal.mixin({
                                                 toast: true,
@@ -140,10 +150,17 @@ function addPurchase(userId, id) {
                                                     toast.addEventListener('mouseleave', Swal.resumeTimer)
                                                 }
                                             })
-                                            Toast.fire({
-                                                icon: 'success',
-                                                title: 'Mise a jours du Panier'
-                                            })
+                                            if (cultureInfo == "fr") {
+                                                Toast.fire({
+                                                    icon: 'success',
+                                                    title: 'Mise a jours du Panier'
+                                                })
+                                            } else {
+                                                Toast.fire({
+                                                    icon: 'success',
+                                                    title: 'Shopping cart was updated'
+                                                })
+                                            }
                                         },
                                         error: function (xhr, error, status) {
                                             console.log(error, status);

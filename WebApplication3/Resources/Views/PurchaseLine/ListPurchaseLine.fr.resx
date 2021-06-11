@@ -123,9 +123,6 @@
   <data name="AmountTTC" xml:space="preserve">
     <value>Montant TTC</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Retour</value>
-  </data>
   <data name="Commander" xml:space="preserve">
     <value>Commander</value>
   </data>

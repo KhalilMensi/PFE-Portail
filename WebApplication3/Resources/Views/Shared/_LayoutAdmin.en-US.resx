@@ -126,6 +126,9 @@
   <data name="AdvancedSearch" xml:space="preserve">
     <value>Advanced Search</value>
   </data>
+  <data name="ConfirmPurchase" xml:space="preserve">
+    <value>Validate order</value>
+  </data>
   <data name="Ebook" xml:space="preserve">
     <value>Ebooks</value>
   </data>

@@ -123,6 +123,9 @@
   <data name="AdvancedSearch" xml:space="preserve">
     <value>Recherche avancée</value>
   </data>
+  <data name="ConfirmPurchase" xml:space="preserve">
+    <value>Valider commande</value>
+  </data>
   <data name="EmptyCart" xml:space="preserve">
     <value>Panier vide</value>
   </data>

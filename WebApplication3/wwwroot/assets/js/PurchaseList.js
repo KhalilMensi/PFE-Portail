@@ -9,6 +9,7 @@ function loadDataTable() {
     }
     if (cultureInfo == "fr") {
         dataTable = $('#myTable').dataTable({
+            "order": [[0, "desc"]],
             "ajax": {
                 "url": "/Purchase/getAll",
                 "dataSrc": ""
@@ -76,6 +77,7 @@ function loadDataTable() {
         });
     } else if (cultureInfo == "en-US") {
         dataTable = $('#myTable').dataTable({
+            "order": [[0, "desc"]],
             "ajax": {
                 "url": "/Purchase/getAll",
                 "dataSrc": ""
@@ -149,36 +151,69 @@ function loadDataTable() {
 
 function deletePurchase(PurchaseId) {
     // alert(PuchaseId)
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.post('/Purchase/delete', { id: PurchaseId }, function (response) {
-                if (response.success) {
-                    Swal.fire(
-                        'Deleted !',
-                        'Purchase has been deleted.',
-                        'success'
-                    );
-                    loadDataTable();
-                }
-                else {
-                    Swal.fire(
-                        'Error!',
-                        response.message,
-                        'error'
-                    )
-                }
-            })
-        }
-    })
+    if (cultureInfo == "en-US") {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post('/Purchase/delete', { id: PurchaseId }, function (response) {
+                    if (response.success) {
+                        Swal.fire(
+                            'Deleted !',
+                            'Purchase has been deleted.',
+                            'success'
+                        );
+                        loadDataTable();
+                    }
+                    else {
+                        Swal.fire(
+                            'Error!',
+                            response.message,
+                            'error'
+                        )
+                    }
+                })
+            }
+        })
+    } else if (cultureInfo == "fr") {
+        Swal.fire({
+            title: 'êtes-vous sûr ?',
+            text: "Vous ne pourrez pas revenir sur cela !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Oui, Supprimez-le !'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post('/Purchase/delete', { id: PurchaseId }, function (response) {
+                    if (response.success) {
+                        Swal.fire(
+                            'Supprimé !',
+                            'La commande a été supprimée !',
+                            'success'
+                        );
+                        loadDataTable();
+                    }
+                    else {
+                        Swal.fire(
+                            'Error!',
+                            response.message,
+                            'error'
+                        )
+                    }
+                })
+            }
+        })
+    }
 }
+
 
 // save the Purchase SUBMIT the Form
 function savePurchase() {

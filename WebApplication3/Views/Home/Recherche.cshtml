@@ -74,28 +74,36 @@
     <div class="container mt-4 mb-4">
         <div class="row ">
             <div class="row col-md-12 pt-3 pl-3 pr-3">
-                <p style="font-size:15px">@localizer["SearchAllProducts"] @ViewBag.search</p>
+                <p style="font-size:15px">@localizer["SearchAllProducts"] @TempData["lastsearch"]</p>
             </div>
 
             <div class="row col-md-12 pl-3 pr-3 pb-3">
-                @if (ViewBag.theme != null)
-                {
-                    <a asp-action="Recherche" asp-controller="Home" asp-route-search="@ViewBag.search">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
-                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                        </svg>
-                        @localizer["Back"]
-                    </a>
-                }
-                else
-                {
-                    <a href="/">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
-                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                        </svg>
-                        @localizer["Back"]
-                    </a>
-                }
+
+                <a href="#" onclick="goBack()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                    </svg>
+                    @localizer["Back"]
+                </a>
+
+                @*@if (ViewBag.theme != null)
+        {
+            <a asp-action="Recherche" asp-controller="Home" asp-route-search="@ViewBag.search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
+                    <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                </svg>
+                @localizer["Back"]
+            </a>
+        }
+        else
+        {
+            <a href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
+                    <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                </svg>
+                @localizer["Back"]
+            </a>
+        }*@
             </div>
             @if (Model == null)
             {
@@ -107,19 +115,19 @@
             {
                 if (Model.Themes.Count() > 1)
                 {
-                    <div class="card row col-md-3 m-1 pb-4 align-content-center" style="height:fit-content;">
-                        <div class="row justify-content-center align-content-center">
-                            <span class="p-3"><b>Themes</b></span>
+        <div class="card row col-md-3 m-1 pb-4 align-content-center" style="height:fit-content;">
+            <div class="row justify-content-center align-content-center">
+                <span class="p-3"><b>Themes</b></span>
+            </div>
+                @foreach (var item in Model.Themes)
+                {
+                    <div class="row m-1">
+                        <div class="input-theme">
+                            <a asp-action="Recherche" asp-controller="Home" asp-route-theme="@item" asp-route-search="@ViewBag.search" asp-route-Home="true" asp-route-mode="List" class="viewTheme p-2">@localizer[@item]</a>
                         </div>
-                        @foreach (var item in Model.Themes)
-                        {
-                            <div class="row m-1">
-                                <div class="input-theme">
-                                    <a asp-action="Recherche" asp-controller="Home" asp-route-theme="@item" asp-route-search="@ViewBag.search" asp-route-mode="List" class="viewTheme p-2">@item</a>
-                                </div>
-                            </div>
-                        }
                     </div>
+                }
+            </div>
                     <div class="container-fluid card col-md-8 m-1">
                         <div class="row col-md-12 pt-2 pb-2">
                             <div class="col-md-10">
@@ -536,10 +544,17 @@
                                                         toast.addEventListener('mouseleave', Swal.resumeTimer)
                                                     }
                                                 })
-                                                Toast.fire({
-                                                    icon: 'success',
-                                                    title: 'Mise a jours du Panier'
-                                                })
+                                                if (cultureInfo == "fr") {
+                                                    Toast.fire({
+                                                        icon: 'success',
+                                                        title: 'Mise a jours du Panier'
+                                                    })
+                                                } else if (cultureInfo == "en-US") {
+                                                    Toast.fire({
+                                                        icon: 'success',
+                                                        title: 'Shopping cart was updated'
+                                                    })
+                                                }
                                             },
                                             error: function (xhr, error, status) {
                                                 console.log(error, status);

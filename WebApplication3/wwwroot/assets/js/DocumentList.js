@@ -148,19 +148,19 @@ function loadDataTable() {
 function deleteDocument(DocumentId) {
     // alert(DocumentId)
     Swal.fire({
-        title: 'Are you sure?',
+        title: AreYouSure,
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: YesDeleteIt
     }).then((result) => {
         if (result.isConfirmed) {
             $.post('/Document/delete', { id: DocumentId }, function (response) {
                 if (response.success) {
                     Swal.fire(
-                        'Deleted!',
+                        Deleted,
                         'Document has been deleted.',
                         'success'
                     );

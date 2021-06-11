@@ -9,6 +9,7 @@ function loadDataTable() {
     }
     if (cultureInfo == "fr") {
         dataTable = $('#myTable').dataTable({
+            "order": [[4, "desc"]],
             "ajax": {
                 "url": "/Ejournal/getAll",
                 "dataSrc": ""
@@ -80,6 +81,7 @@ function loadDataTable() {
         });
     } else if (cultureInfo == "en-US") {
         dataTable = $('#myTable').dataTable({
+            "order": [[4, "desc"]],
             "ajax": {
                 "url": "/Ejournal/getAll",
                 "dataSrc": ""
@@ -156,37 +158,68 @@ function loadDataTable() {
 
 function deleteEjournal(EjournalId) {
     // alert(EbookId)
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.post('/Ejournal/delete', { id: EjournalId }, function (response) {
-                if (response.success) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Ejournal has been deleted.',
-                        'success'
-                    );
-                    loadDataTable();
-                }
-                else {
-                    Swal.fire(
-                        'Error!',
-                        response.message,
-                        'error'
-                    )
-                }
-            })
-        }
-    })
+    if (cultureInfo == "en-US") {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post('/Ejournal/delete', { id: EjournalId }, function (response) {
+                    if (response.success) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Ejournal has been deleted.',
+                            'success'
+                        );
+                        loadDataTable();
+                    }
+                    else {
+                        Swal.fire(
+                            'Error!',
+                            response.message,
+                            'error'
+                        )
+                    }
+                })
+            }
+        })
+    } else if (cultureInfo == "fr") {
+        Swal.fire({
+            title: 'êtes-vous sûr ?',
+            text: "Vous ne pourrez pas revenir sur cela !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Oui, Supprimez-le !'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.post('/Ejournal/delete', { id: EjournalId }, function (response) {
+                    if (response.success) {
+                        Swal.fire(
+                            'Supprimé !',
+                            'La revue a été supprimée !',
+                            'success'
+                        );
+                        loadDataTable();
+                    }
+                    else {
+                        Swal.fire(
+                            'Error!',
+                            response.message,
+                            'error'
+                        )
+                    }
+                })
+            }
+        })
+    }
 }
-
 
 // save the Ebook SUBMIT the Form
 function saveEjournal(bool) {

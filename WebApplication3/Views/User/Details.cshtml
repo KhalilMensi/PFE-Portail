@@ -138,6 +138,7 @@
          }
          if (cultureInfo == "fr") {
              dataTable = $('#myPurchases').dataTable({
+                 "order": [[0, "desc"]],
                  "ajax": {
                      "url": "/Purchase/UserPurchases",
                      "dataSrc": "",
@@ -174,7 +175,8 @@
                  },
              });
          } else if (cultureInfo == "en-US") {
-                          dataTable = $('#myPurchases').dataTable({
+             dataTable = $('#myPurchases').dataTable({
+                 "order": [[0, "desc"]],
                  "ajax": {
                      "url": "/Purchase/UserPurchases",
                      "dataSrc": "",

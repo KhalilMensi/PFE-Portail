@@ -39,9 +39,10 @@ namespace PortailEbook.Controllers
 		public IActionResult Recherche(string search, string mode, string theme)
 		{
 			List<string> themee = new List<string>();
+			TempData["lastsearch"] = search;
 
-			ViewBag.search = search;
 			ViewBag.theme = theme;
+
 			if (theme != null)
 			{
 				List<Ebook> Ebooks = new List<Ebook>();
@@ -54,6 +55,7 @@ namespace PortailEbook.Controllers
 					Themes = themee
 				};
 				ViewBag.theme = theme;
+
 				return View(viewModel);
 			}
 
@@ -75,6 +77,7 @@ namespace PortailEbook.Controllers
 					Mode = mode,
 					Themes = themee
 				};
+				
 				return View(viewModel);
 			}
 			else

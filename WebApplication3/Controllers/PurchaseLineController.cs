@@ -78,7 +78,7 @@ namespace PortailEbook.Controllers
 
 		// Post: PurchaseLineController/Delete/5
 		[Authorize]
-		public IActionResult Delete(int? id)
+		public IActionResult Delete(int id)
 		{
 			PurchaseLine purchaseline = BLLPurchaseLine.getPurchaseLineBy("Id", id.ToString());
 			double prixHT = purchaseline.UnitPrice * purchaseline.Quantity;
@@ -90,8 +90,8 @@ namespace PortailEbook.Controllers
 			}
 
 			Purchase purchase = BLLPurchase.getPurchaseBy("Id", purchaseline.IdPurchase.ToString());
-			purchase.AmountHT = (Double.Parse(purchase.AmountHT) - prixHT).ToString();
-			purchase.AmountTTC = String.Format("{0:0.00}", float.Parse((Double.Parse(purchase.AmountTTC) - prixTTC).ToString()));
+			purchase.AmountHT = (double.Parse(purchase.AmountHT) - prixHT).ToString();
+			purchase.AmountTTC = String.Format("{0:0.00}", float.Parse((double.Parse(purchase.AmountTTC) - prixTTC).ToString()));
 
 			BLLPurchase.UpdatePurchase(purchase);
 

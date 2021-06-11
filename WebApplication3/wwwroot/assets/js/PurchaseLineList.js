@@ -9,6 +9,7 @@ function loadDataTable() {
     }
     if (cultureInfo == "fr") {
         dataTable = $('#myTable').dataTable({
+            "order": [[0, "desc"]],
             "ajax": {
                 "url": "PurchaseLine/getAll",
                 "dataSrc": ""
@@ -45,6 +46,7 @@ function loadDataTable() {
         });
     } else if (cultureInfo == "en-US") {
         dataTable = $('#myTable').dataTable({
+            "order": [[0, "desc"]],
             "ajax": {
                 "url": "PurchaseLine/getAll",
                 "dataSrc": ""

@@ -120,11 +120,17 @@
   <data name="AddToPurchaseline" xml:space="preserve">
     <value>Ajouter au Panier</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Retour</value>
   </data>
   <data name="By" xml:space="preserve">
     <value>Par :</value>
+  </data>
+  <data name="Lettres et civilisation" xml:space="preserve">
+    <value>Lettres et civilisation</value>
   </data>
   <data name="NoDocumentFound" xml:space="preserve">
     <value>Aucun document disponible !!</value>
@@ -134,6 +140,24 @@
   </data>
   <data name="Prix" xml:space="preserve">
     <value>Prix :</value>
+  </data>
+  <data name="Science fondamentale" xml:space="preserve">
+    <value>Science fondamentale</value>
+  </data>
+  <data name="Sciences de l’ingénieur" xml:space="preserve">
+    <value>Sciences de l’ingénieur</value>
+  </data>
+  <data name="Sciences humaines, sociales et religieuses" xml:space="preserve">
+    <value>Sciences humaines, sociales et religieuses</value>
+  </data>
+  <data name="Sciences juridiques et politiques" xml:space="preserve">
+    <value>Sciences juridiques et politiques</value>
+  </data>
+  <data name="Sciences médicales" xml:space="preserve">
+    <value>Sciences médicales</value>
+  </data>
+  <data name="Sciences économiques et gestion" xml:space="preserve">
+    <value>Sciences économiques et gestion</value>
   </data>
   <data name="SearchAllProducts" xml:space="preserve">
     <value>Accueil &gt; Tous les produits &gt;</value>

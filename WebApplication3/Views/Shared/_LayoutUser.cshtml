@@ -439,7 +439,20 @@
     <script>
          var cultureInfo = '@System.Globalization.CultureInfo.CurrentCulture.Name';
          var InvalidInput = '@localizer["InvalidInput"]';
-         var EmptyCart = '@localizer["EmptyCart"]';
+        var EmptyCart = '@localizer["EmptyCart"]';
+        var ConfirmPurchase = '@localizer["ConfirmPurchase"]';
+
+        var AreYouSure = '@localizer["AreYouSure"]';
+        var YouWontBeAbleToRevertThis = '@localizer["YouWontBeAbleToRevertThis"]';
+        var YesDeleteIt = '@localizer["YesDeleteIt"]';
+        var Cancel = '@localizer["Cancel"]';
+        var Deleted = '@localizer["Deleted"]';
+        var PurchaseDeleted = '@localizer["OrderHasBeenDeleted"]';
+        var PurchaseLineDeleted = '@localizer["PurchaseLineHasBeenDeleted"]';
+        var UserDeleted = '@localizer["UserHasBeenDeleted"]';
+        var EbookDeleted = '@localizer["EbookHasBeenDeleted"]';
+        var EjournalDeleted = '@localizer["EjournalHasBeenDeleted"]';
+
           var AppGlobal = {
                "user" : {
                       "role": "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Role)?.Value",
@@ -497,7 +510,17 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    </div>`)
+                                    </div>
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12 pb-2">
+                                            <div class="row justify-content-center align-content-center pt-2 pb-2" style="height:25px ">
+                                                <a class="text-center btn btn-light" style="font-size:15px;cursor:pointer;" href="/PurchaseLine/ListPurchaseLine">
+                                                     @localizer["ConfirmPurchase"]
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+`)
                                 } else {
                                     $('#dropdown-content').append(`
                                     <div class="row justify-content-center align-content-center p-2">

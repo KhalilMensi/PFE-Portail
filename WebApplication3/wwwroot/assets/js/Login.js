@@ -1,5 +1,6 @@
 ﻿function SignIn() {
     if ($('#email').val().length > 7 && emailIsValid($('#email').val()) == true && $('#password').val().length > 0) {
+
         $('#validEmail').text('')
         $('#validPassword').text('')
 
@@ -45,11 +46,17 @@
                                         toast.addEventListener('mouseleave', Swal.resumeTimer)
                                     }
                                 })
-
-                                Toast.fire({
-                                    icon: 'success',
-                                    title: 'Logged in successfully'
-                                })
+                                if (cultureInfo == "en-US") {
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: 'Logged in successfully'
+                                    })
+                                } else if (cultureInfo == "fr") {
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: 'Connexion réussie'
+                                    })
+                                }
                             }
                             setTimeout(function () {
                                 window.location.href = "/"; //will redirect to your blog page (an ex: blog.html)

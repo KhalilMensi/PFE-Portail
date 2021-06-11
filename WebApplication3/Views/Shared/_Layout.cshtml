@@ -141,9 +141,16 @@
                             <!-- Search Form -->
                             <div class="col-12 col-md-9">
                                 <div class="search-bloc clearfix">
-                                    <form asp-action="Recherche" asp-route-mode="List" asp-controller="Home" method="post">
+                                    <form asp-action="Recherche" asp-route-mode="List" asp-controller="Home" method="get">
                                         <div class="input-search">
-                                            <input type="text" name="search" id="search">
+                                            @if (TempData["lastsearch"] == null)
+                                            {
+                                                <input type="text" name="search" id="search">
+                                            }
+                                            else
+                                            {
+                                                <input type="text" name="search" id="search" value="@TempData["lastsearch"]">
+                                            }
                                         </div>
                                         <div class="input-submit">
                                             <button type="submit" class="send-form">@localizer["QuickSearch"]</button>
@@ -213,6 +220,7 @@
         var InvalidEmail = '@localizer["InvalidEmail"]';
         var InvalidPassword = '@localizer["InvalidPassword"]';
         var EmptyCart = '@localizer["EmptyCart"]';
+         var ConfirmPurchase = '@localizer["ConfirmPurchase"]';
         var AppGlobal = {
            "user" : {
                   "role": "@User.FindFirst(claim=>claim.Type==System.Security.Claims.ClaimTypes.Role)?.Value",
@@ -268,7 +276,17 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    </div>`)
+                                    </div>
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12 pb-2">
+                                            <div class="row justify-content-center align-content-center pt-2 pb-2" style="height:25px ">
+                                                <a class="text-center btn btn-light" style="font-size:15px;cursor:pointer;" href="/PurchaseLine/ListPurchaseLine">
+                                                     @localizer["ConfirmPurchase"]
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+`)
                                 } else {
                                     $('#dropdown-content').append(`
                                     <div class="row justify-content-center align-content-center p-2">
