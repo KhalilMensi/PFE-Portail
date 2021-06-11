@@ -276,7 +276,7 @@ function saveEjournal(bool) {
                             icon: 'success',
                             title: 'Ejournal Updated successfully',
                         })
-                        setTimeout(function () { window.location = "/Ejouenal"; }, 2000);
+                        setTimeout(function () { window.location = "/Ejournal"; }, 2000);
 
                     }
                 } else {
