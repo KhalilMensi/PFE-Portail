@@ -117,58 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddToPurchaseline" xml:space="preserve">
-    <value>Add to cart</value>
+  <data name="AddPurchase" xml:space="preserve">
+    <value>أضف شراء</value>
   </data>
-  <data name="Architecture" xml:space="preserve">
-    <value>Architecture</value>
+  <data name="AmountTTC" xml:space="preserve">
+    <value>المبلغ بدون ضريبة</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Back</value>
+  <data name="Annulée" xml:space="preserve">
+    <value>ألغيت</value>
   </data>
-  <data name="By" xml:space="preserve">
-    <value>By</value>
+  <data name="BackToList" xml:space="preserve">
+    <value>العودة للقائمة</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
+  <data name="EnCours" xml:space="preserve">
+    <value>في تقدم...</value>
   </data>
-  <data name="Lettres et civilisation" xml:space="preserve">
-    <value>Letters and civilization</value>
+  <data name="Livrée" xml:space="preserve">
+    <value>تم التوصيل</value>
   </data>
-  <data name="NoDocumentFound" xml:space="preserve">
-    <value>No document available !!</value>
+  <data name="PurchaseDate" xml:space="preserve">
+    <value>تاريخ الشراء</value>
   </data>
-  <data name="Pages" xml:space="preserve">
-    <value>Pages :</value>
+  <data name="PurchaseLineText" xml:space="preserve">
+    <value>خط الشراء</value>
   </data>
-  <data name="Prix" xml:space="preserve">
-    <value>Price :</value>
+  <data name="PurchaseList" xml:space="preserve">
+    <value>قائمة المشتريات</value>
   </data>
-  <data name="Science fondamentale" xml:space="preserve">
-    <value>Basic science</value>
+  <data name="PurchaseNumber" xml:space="preserve">
+    <value>رقم الطلب</value>
   </data>
-  <data name="Sciences de l’ingénieur" xml:space="preserve">
-    <value>Engineering Sciences</value>
+  <data name="PurchaseText" xml:space="preserve">
+    <value>طلب</value>
   </data>
-  <data name="Sciences humaines, sociales et religieuses" xml:space="preserve">
-    <value>Human, social and religious sciences</value>
+  <data name="SavePurchase" xml:space="preserve">
+    <value>حفظ الشراء</value>
   </data>
-  <data name="Sciences juridiques et politiques" xml:space="preserve">
-    <value>Legal and political sciences</value>
+  <data name="SelectPurchaseState" xml:space="preserve">
+    <value>- حدد حالة الشراء -</value>
   </data>
-  <data name="Sciences médicales" xml:space="preserve">
-    <value>Medical science</value>
+  <data name="SelectPurchaseType" xml:space="preserve">
+    <value>- اختر نوع الشراء -</value>
   </data>
-  <data name="Sciences économiques et gestion" xml:space="preserve">
-    <value>Economics and Management</value>
+  <data name="State" xml:space="preserve">
+    <value>الحالة</value>
   </data>
-  <data name="SearchAllProducts" xml:space="preserve">
-    <value>Home &gt; All products &gt;</value>
+  <data name="TextCreatePurchase" xml:space="preserve">
+    <value>يرجى ملء هذا النموذج لإنشاء عملية شراء جديدة *</value>
   </data>
-  <data name="ViewDetails" xml:space="preserve">
-    <value>View details</value>
+  <data name="UpdatePurchase" xml:space="preserve">
+    <value>تحديث الشراء</value>
   </data>
-  <data name="Year" xml:space="preserve">
-    <value>Year :</value>
+  <data name="User" xml:space="preserve">
+    <value>المستعمل</value>
   </data>
 </root>

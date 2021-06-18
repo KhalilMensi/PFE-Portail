@@ -1,4 +1,4 @@
-
+﻿
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
         loop: false,
@@ -126,7 +126,7 @@ function addPurchase(userId, id) {
                                             </div>
                                         </div>
                                     </div>
-`)
+                                    `)
                                             } else {
                                                 $('#dropdown-content').append(`
                                     <div class="row justify-content-center align-content-center p-2">
@@ -155,10 +155,15 @@ function addPurchase(userId, id) {
                                                     icon: 'success',
                                                     title: 'Mise a jours du Panier'
                                                 })
-                                            } else {
+                                            } else if (cultureInfo == "en-US") {
                                                 Toast.fire({
                                                     icon: 'success',
                                                     title: 'Shopping cart was updated'
+                                                })
+                                            } else {
+                                                Toast.fire({
+                                                    icon: 'success',
+                                                    title: 'تم تحديث عربة التسوق'
                                                 })
                                             }
                                         },

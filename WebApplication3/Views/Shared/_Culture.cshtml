@@ -4,32 +4,42 @@
     var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
 }
 
-@*<div class="col-md-6">
-        <form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
-            <select name="culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit();"></select>
-        </form>
-    </div>*@
 @if (culture.RequestCulture.UICulture.Name == "en-US")
 {
-<a class="nav-link" href="https://flag-sprites.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="~/images/flag-en.png" alt="EN" /> @localizer[culture.RequestCulture.UICulture.Name]
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 2 16 16">
-        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-    </svg>
-</a>
+    <a class="nav-link" href="https://flag-sprites.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="~/images/flag-en.png" alt="EN" /> @localizer[culture.RequestCulture.UICulture.Name]
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 2 16 16">
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+    </a>
     <div class="dropdown-menu" aria-labelledby="dropdown09">
-        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="fr" class="dropdown-item"> <img src="~/images/flag-fr.png" alt="EN" style="width:23px;height:17px;" />@localizer["Français"]</a>
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="fr" class="dropdown-item"> <img src="~/images/flag-fr.png" alt="EN" style="width:23px;height:17px;padding-right:4px;" />@localizer["Français"]</a>
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="ar" class="dropdown-item"> <img src="~/images/tunisia-flag.png" alt="EN" style="width:23px;height:17px;padding-right:4px;" />@localizer["Arabic"]</a>
     </div>
 }
 else if (culture.RequestCulture.UICulture.Name == "fr")
 {
-<a class="nav-link" href="https://flag-sprites.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="~/images/flag-fr.png" style="width:23px;height:17px;" alt="EN" /> @localizer[culture.RequestCulture.UICulture.Name]
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 2 16 16">
-        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-    </svg>
-</a>
+    <a class="nav-link" href="https://flag-sprites.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="~/images/flag-fr.png" style="width:23px;height:17px;" alt="EN" /> @localizer[culture.RequestCulture.UICulture.Name]
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 2 16 16">
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+    </a>
     <div class="dropdown-menu" aria-labelledby="dropdown09">
-        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="en-US" class="dropdown-item"> <img src="~/images/flag-en.png" alt="EN" />@localizer["English"]</a>
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="en-US" class="dropdown-item"> <img src="~/images/flag-en.png" alt="EN" style="width:23px;height:17px;padding-right:4px;" />@localizer["English"]</a>
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="ar" class="dropdown-item"> <img src="~/images/tunisia-flag.png" alt="EN" style="width:23px;height:17px;padding-right:4px;" />@localizer["Arabic"]</a>
+    </div>
+}
+else if (culture.RequestCulture.UICulture.Name == "ar")
+{
+    <a class="nav-link" href="https://flag-sprites.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="~/images/tunisia-flag.png" style="width:23px;height:17px;" alt="EN" /> @localizer[culture.RequestCulture.UICulture.Name]
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 2 16 16">
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdown09">
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="en-US" class="dropdown-item"> <img src="~/images/flag-en.png" alt="EN" style="width:23px;height:17px;padding-right:4px;" />@localizer["English"]</a>
+        <a asp-action="CultureManagement" asp-controller="Home" asp-route-returnUrl="@returnUrl" asp-route-culture="fr" class="dropdown-item"> <img src="~/images/flag-fr.png" alt="EN" style="width:23px;height:17px;padding-right:4px;"/>@localizer["Français"]</a>
     </div>
 }

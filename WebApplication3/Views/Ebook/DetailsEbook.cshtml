@@ -452,10 +452,21 @@
                                                             <div class="book-detail-author">
                                                                 <h4><a href="#">@Model.Editor</a></h4>
                                                             </div>
-                                                            <div class="book-detail-isbn">
-                                                                <span><strong>ISBN : </strong>@Model.ISBN</span>
-                                                                <span><strong>DOI : </strong>@Model.ISBN</span>
-                                                            </div>
+                                                            @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                                                            {
+                                                                <div class="book-detail-isbn">
+                                                                    <span>@Model.ISBN : <strong> الرقم الدولي للكتاب</strong></span>
+                                                                    <span>@Model.ISBN : <strong>معرّف الكائن الرقمي</strong></span>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="book-detail-isbn">
+                                                                    <span><strong>ISBN : </strong>@Model.ISBN</span>
+                                                                    <span><strong>DOI : </strong>@Model.ISBN</span>
+                                                                </div>
+                                                            }
+
                                                             <div class="book-detail-maison">
                                                                 <span><strong>@localizer["EditionPlace"] : </strong> @Model.EditionPlace</span>
                                                             </div>

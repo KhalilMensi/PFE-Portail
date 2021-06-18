@@ -117,58 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddToPurchaseline" xml:space="preserve">
-    <value>Add to cart</value>
+  <data name="Download" xml:space="preserve">
+    <value>تحميل</value>
   </data>
-  <data name="Architecture" xml:space="preserve">
-    <value>Architecture</value>
+  <data name="Ebook" xml:space="preserve">
+    <value>كتب إلكترونية</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Back</value>
+  <data name="EditionNum" xml:space="preserve">
+    <value>رقم الطبعة</value>
   </data>
-  <data name="By" xml:space="preserve">
-    <value>By</value>
+  <data name="EditionPlace" xml:space="preserve">
+    <value>مكان الطبعة</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
+  <data name="Editor" xml:space="preserve">
+    <value>دار النشر</value>
   </data>
-  <data name="Lettres et civilisation" xml:space="preserve">
-    <value>Letters and civilization</value>
+  <data name="Ejournal" xml:space="preserve">
+    <value>المجلات الإلكترونية</value>
   </data>
-  <data name="NoDocumentFound" xml:space="preserve">
-    <value>No document available !!</value>
+  <data name="Keywords" xml:space="preserve">
+    <value>الكلمات الدالة</value>
   </data>
-  <data name="Pages" xml:space="preserve">
-    <value>Pages :</value>
+  <data name="Knowledge" xml:space="preserve">
+    <value>معرفة</value>
   </data>
-  <data name="Prix" xml:space="preserve">
-    <value>Price :</value>
+  <data name="ProductOverview" xml:space="preserve">
+    <value>نظرة عامة على المنتج</value>
   </data>
-  <data name="Science fondamentale" xml:space="preserve">
-    <value>Basic science</value>
+  <data name="Préface" xml:space="preserve">
+    <value>مقدمة</value>
   </data>
-  <data name="Sciences de l’ingénieur" xml:space="preserve">
-    <value>Engineering Sciences</value>
+  <data name="PublicationDate" xml:space="preserve">
+    <value>تاريخ النشر</value>
   </data>
-  <data name="Sciences humaines, sociales et religieuses" xml:space="preserve">
-    <value>Human, social and religious sciences</value>
+  <data name="ReadAbout" xml:space="preserve">
+    <value>أقرأ عنه</value>
   </data>
-  <data name="Sciences juridiques et politiques" xml:space="preserve">
-    <value>Legal and political sciences</value>
+  <data name="Résumé" xml:space="preserve">
+    <value>التلخيص</value>
   </data>
-  <data name="Sciences médicales" xml:space="preserve">
-    <value>Medical science</value>
+  <data name="share" xml:space="preserve">
+    <value>مشاركة</value>
   </data>
-  <data name="Sciences économiques et gestion" xml:space="preserve">
-    <value>Economics and Management</value>
+  <data name="Summarize" xml:space="preserve">
+    <value>ملخص</value>
   </data>
-  <data name="SearchAllProducts" xml:space="preserve">
-    <value>Home &gt; All products &gt;</value>
-  </data>
-  <data name="ViewDetails" xml:space="preserve">
-    <value>View details</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Year :</value>
+  <data name="WithoutBoundaries" xml:space="preserve">
+    <value>بلا حدود</value>
   </data>
 </root>

@@ -39,7 +39,8 @@ namespace PortailEbook
 				var supportedCultures = new List<CultureInfo>
 				{
 					new CultureInfo("en-US"),
-					new CultureInfo("fr")
+					new CultureInfo("fr"),
+					new CultureInfo("ar")
 				};
 
 				opt.DefaultRequestCulture = new RequestCulture(supportedCultures[0]);

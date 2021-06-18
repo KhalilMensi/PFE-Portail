@@ -118,57 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddToPurchaseline" xml:space="preserve">
-    <value>Add to cart</value>
+    <value>أضف إلى السلة</value>
   </data>
   <data name="Architecture" xml:space="preserve">
-    <value>Architecture</value>
+    <value>هندسة معمارية</value>
   </data>
   <data name="Back" xml:space="preserve">
-    <value>Back</value>
+    <value>عودة</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>By</value>
+    <value>من قبل</value>
+  </data>
+  <data name="Collection" xml:space="preserve">
+    <value>مجموعة</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description</value>
+    <value>وصف</value>
+  </data>
+  <data name="item" xml:space="preserve">
+    <value>عناصر</value>
   </data>
   <data name="Lettres et civilisation" xml:space="preserve">
-    <value>Letters and civilization</value>
+    <value>آداب وحضارة</value>
   </data>
   <data name="NoDocumentFound" xml:space="preserve">
-    <value>No document available !!</value>
+    <value>لا توجد وثيقة متاحة !!</value>
   </data>
   <data name="Pages" xml:space="preserve">
-    <value>Pages :</value>
+    <value>الصفحات:</value>
   </data>
   <data name="Prix" xml:space="preserve">
-    <value>Price :</value>
+    <value>سعر :</value>
   </data>
   <data name="Science fondamentale" xml:space="preserve">
-    <value>Basic science</value>
+    <value>العلوم الأساسية</value>
   </data>
   <data name="Sciences de l’ingénieur" xml:space="preserve">
-    <value>Engineering Sciences</value>
+    <value>العلوم الهندسية</value>
   </data>
   <data name="Sciences humaines, sociales et religieuses" xml:space="preserve">
-    <value>Human, social and religious sciences</value>
+    <value>العلوم الإنسانية والاجتماعية والدينية</value>
   </data>
   <data name="Sciences juridiques et politiques" xml:space="preserve">
-    <value>Legal and political sciences</value>
+    <value>العلوم القانونية والسياسية</value>
   </data>
   <data name="Sciences médicales" xml:space="preserve">
-    <value>Medical science</value>
+    <value>علم الطب</value>
   </data>
   <data name="Sciences économiques et gestion" xml:space="preserve">
-    <value>Economics and Management</value>
+    <value>الاقتصاد والإدارة</value>
   </data>
   <data name="SearchAllProducts" xml:space="preserve">
-    <value>Home &gt; All products &gt;</value>
+    <value>الصفحة الرئيسية &gt; جميع المنتجات &gt;</value>
+  </data>
+  <data name="Themes" xml:space="preserve">
+    <value>الموضوعات</value>
   </data>
   <data name="ViewDetails" xml:space="preserve">
-    <value>View details</value>
+    <value>عرض التفاصيل</value>
   </data>
   <data name="Year" xml:space="preserve">
-    <value>Year :</value>
+    <value>سنة :</value>
   </data>
 </root>

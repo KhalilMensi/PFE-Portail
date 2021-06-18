@@ -85,25 +85,6 @@
                     </svg>
                     @localizer["Back"]
                 </a>
-
-                @*@if (ViewBag.theme != null)
-        {
-            <a asp-action="Recherche" asp-controller="Home" asp-route-search="@ViewBag.search">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
-                    <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                </svg>
-                @localizer["Back"]
-            </a>
-        }
-        else
-        {
-            <a href="/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 3 16 16">
-                    <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                </svg>
-                @localizer["Back"]
-            </a>
-        }*@
             </div>
             @if (Model == null)
             {
@@ -117,7 +98,7 @@
                 {
         <div class="card row col-md-3 m-1 pb-4 align-content-center" style="height:fit-content;">
             <div class="row justify-content-center align-content-center">
-                <span class="p-3"><b>Themes</b></span>
+                <span class="p-3"><b>@localizer["Themes"]</b></span>
             </div>
                 @foreach (var item in Model.Themes)
                 {
@@ -131,7 +112,7 @@
                     <div class="container-fluid card col-md-8 m-1">
                         <div class="row col-md-12 pt-2 pb-2">
                             <div class="col-md-10">
-                                <span>@Model.Ebooks.Count() Articles</span>
+                                <span>@Model.Ebooks.Count() @localizer["item"]</span>
                             </div>
                             <div class="col-md-2" style="display:flex" id="show">
                                 <a asp-action="Recherche" asp-route-search="@ViewBag.search" asp-route-theme="@ViewBag.theme" asp-route-mode="Grid" asp-controller="Home" class="col-md-6">
@@ -239,21 +220,42 @@
                                                     <div class="row col-md-12">
                                                         <span style="font-family: 'Roboto', sans-serif;font-size:25px">@document.OriginalTitle</span>
                                                     </div>
-                                                    <div class="row col-md-12">
-                                                        <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">@localizer["By"] <b style="color:#3d84b8">@document.Editor</b></h3>
-                                                    </div>
+                                                    @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                                                    {
+                                                        <div class="row col-md-12">
+                                                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px"><b style="color:#3d84b8;padding-left:2px;padding-right:2px">@document.Editor</b>@localizer["By"]</h3>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="row col-md-12">
+                                                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">@localizer["By"] <b style="color:#3d84b8">@document.Editor</b></h3>
+                                                        </div>
+                                                    }
                                                     <div class="row col-md-12">
                                                         <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">@localizer["Year"]<b>@document.PublicationDate</b></h3>
                                                     </div>
                                                     <div class="row col-md-12">
                                                         <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">@localizer["Pages"]<b>@document.NbPages</b></h3>
                                                     </div>
-                                                    <div class="row col-md-12">
-                                                        <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">Collection : <b>@document.Collection</b></h3>
-                                                    </div>
-                                                    <div class="row col-md-12">
-                                                        <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">@localizer["Prix"]<b>@document.Price</b> DT</h3>
-                                                    </div>
+                                                    @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                                                    {
+                                                        <div class="row col-md-12">
+                                                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px"><b>@document.Collection</b>: @localizer["Collection"] </h3>
+                                                        </div>
+                                                        <div class="row col-md-12">
+                                                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">@localizer["Prix"]<b> @document.Price دينار</b> </h3>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="row col-md-12">
+                                                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px"> @localizer["Collection"] :<b>@document.Collection</b> </h3>
+                                                        </div>
+                                                        <div class="row col-md-12">
+                                                            <h3 style="font-family: 'Roboto', sans-serif;font-size:15px">@localizer["Prix"]<b>@document.Price DT</b> </h3>
+                                                        </div>
+                                                    }
                                                 </div>
                                             </div>
                                             <div class="col-md-3 p-2">
@@ -390,13 +392,13 @@
                                                     </div>
                                                     <div class="row col-md-12">
                                                         <h3 style="font-family: 'Roboto', sans-serif;font-size:15px;padding-right:3px;" class="pr-3"><b style="color:#3d84b8">@localizer["Pages"]</b>@document.NbPages </h3>
-                                                        <h3 style="font-family: 'Roboto', sans-serif;font-size:15px"><b style="color:#3d84b8">Collection : </b>@document.Collection </h3>
+                                                        <h3 style="font-family: 'Roboto', sans-serif;font-size:15px"><b style="color:#3d84b8">@localizer["Collection"] :</b>@document.Collection </h3>
                                                     </div>
                                                     <div class="row col-md-12">
                                                         <h3 style="font-family: 'Roboto', sans-serif;font-size:15px;padding-right:3px;"><b style="color:#3d84b8">@localizer["Prix"]</b>@document.Price DT</h3>
                                                     </div>
                                                     <div class="row col-md-12">
-                                                        <h3 style="font-family: 'Roboto', sans-serif;font-size:15px"><span style="font-family: 'Roboto', sans-serif;font-size:15px"><b style="color:#3d84b8">Description :</b></span>Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. </h3>
+                                                        <h3 style="font-family: 'Roboto', sans-serif;font-size:15px"><span style="font-family: 'Roboto', sans-serif;font-size:15px"><b style="color:#3d84b8">@localizer["Description"] :</b></span>Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. </h3>
                                                     </div>
                                                 </div>
                                             </div>

@@ -117,58 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddToPurchaseline" xml:space="preserve">
-    <value>Add to cart</value>
+  <data name="AmountHT" xml:space="preserve">
+    <value>المبلغ بدون ضريبة</value>
   </data>
-  <data name="Architecture" xml:space="preserve">
-    <value>Architecture</value>
+  <data name="AmountTTC" xml:space="preserve">
+    <value>المبلغ مع الضريبة</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Back</value>
+  <data name="PurchaseDate" xml:space="preserve">
+    <value>تاريخ الشراء</value>
   </data>
-  <data name="By" xml:space="preserve">
-    <value>By</value>
+  <data name="PurchaseNumber" xml:space="preserve">
+    <value>رقم الشراء</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
+  <data name="State" xml:space="preserve">
+    <value>حالة</value>
   </data>
-  <data name="Lettres et civilisation" xml:space="preserve">
-    <value>Letters and civilization</value>
-  </data>
-  <data name="NoDocumentFound" xml:space="preserve">
-    <value>No document available !!</value>
-  </data>
-  <data name="Pages" xml:space="preserve">
-    <value>Pages :</value>
-  </data>
-  <data name="Prix" xml:space="preserve">
-    <value>Price :</value>
-  </data>
-  <data name="Science fondamentale" xml:space="preserve">
-    <value>Basic science</value>
-  </data>
-  <data name="Sciences de l’ingénieur" xml:space="preserve">
-    <value>Engineering Sciences</value>
-  </data>
-  <data name="Sciences humaines, sociales et religieuses" xml:space="preserve">
-    <value>Human, social and religious sciences</value>
-  </data>
-  <data name="Sciences juridiques et politiques" xml:space="preserve">
-    <value>Legal and political sciences</value>
-  </data>
-  <data name="Sciences médicales" xml:space="preserve">
-    <value>Medical science</value>
-  </data>
-  <data name="Sciences économiques et gestion" xml:space="preserve">
-    <value>Economics and Management</value>
-  </data>
-  <data name="SearchAllProducts" xml:space="preserve">
-    <value>Home &gt; All products &gt;</value>
-  </data>
-  <data name="ViewDetails" xml:space="preserve">
-    <value>View details</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Year :</value>
+  <data name="UserCommand" xml:space="preserve">
+    <value>مشترياتك</value>
   </data>
 </root>
