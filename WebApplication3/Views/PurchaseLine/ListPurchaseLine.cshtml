@@ -39,18 +39,46 @@
                         <div class="row col-md-12 mt-3 mb-1">
                             <span style="font-family: 'Inter', sans-serif; font-size: 35px;" id="NbArt">@localizer["PurchaseNumber"] : @Model.Purchase.Id (@a @localizer["item"])</span>
                         </div>
-                        <div class="row col-md-12 mt-3">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@a @localizer["item"] </span>
-                        </div>
+                        @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                        {
+                            <div class="row col-md-12 mt-3">
+                                <span style="font-family: 'Inter', sans-serif; font-size: 15px;"> @localizer["item"] @a</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row col-md-12 mt-3">
+                                <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@a @localizer["item"] </span>
+                            </div>
+                        }
                         <div class="row col-md-12">
                             <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@localizer["ValidateOn"] @Model.Purchase.PurchaseDate</span>
                         </div>
-                        <div class="row col-md-12">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@localizer["AmountTTC"] : @Model.Purchase.AmountTTC DT</span>
-                        </div>
-                        <div class="row col-md-12">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@localizer["AmountHT"] : @Model.Purchase.AmountHT DT</span>
-                        </div>
+                        @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                        {
+                            <div class="row col-md-12">
+                                <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@localizer["AmountTTC"] :  @Model.Purchase.AmountTTC دينار</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row col-md-12">
+                                <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@localizer["AmountTTC"] : @Model.Purchase.AmountTTC DT</span>
+                            </div>
+                        }
+                        @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                        {
+                            <div class="row col-md-12">
+                                <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@localizer["AmountHT"] :  @Model.Purchase.AmountHT دينار</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row col-md-12">
+                                <span style="font-family: 'Inter', sans-serif; font-size: 15px;">@localizer["AmountHT"] : @Model.Purchase.AmountHT DT</span>
+                            </div>
+                        }
+
                         <hr class="mb-5" />
                     }
                 }
@@ -137,14 +165,39 @@
                     }
                 }
             }
-            <div class="row col-md-11 justify-content-end mt-5 mb-3">
-                @if (Model == null || Model.Purchase.AmountTTC == null)
+        <div class="row col-md-11 justify-content-end mt-5 mb-3">
+            @if (Model == null || Model.Purchase.AmountTTC == null)
+            {
+                @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                {
+                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
+                        المبلغ الإجمالي مع الضريبة: <span style="color:coral;">
+                            0 دينار
+                        </span>
+                    </span>
+                }
+                else
                 {
                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
                         Total TTC : <span style="color:coral;">
                             0 DT
                         </span>
                     </span>
+                }
+            }
+            else
+            {
+                @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                {
+                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
+                        @localizer["AmountHT"] :
+                        <span style="color:coral;">
+                            @Model.Purchase.AmountHT   دينار
+                        </span>
+                    </span>
+
+
+                    <span class="col-md-1"></span>
                 }
                 else
                 {
@@ -155,6 +208,18 @@
                         </span>
                     </span>
                     <span class="col-md-1"></span>
+                }
+                @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
+                {
+                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
+                        @localizer["AmountTTC"] :
+                        <span style="color:coral;">
+                            @Model.Purchase.AmountTTC  دينار
+                        </span>
+                    </span>
+                }
+                else
+                {
                     <span style="font-family: 'Roboto Condensed', sans-serif;font-size:20px;">
                         @localizer["AmountTTC"] :
                         <span style="color:coral;">
@@ -162,7 +227,8 @@
                         </span>
                     </span>
                 }
-            </div>
+            }
+        </div>
             @if (Model != null)
             {
                 @if (Model.Purchase.Type == "PurchaseLine")

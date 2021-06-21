@@ -132,6 +132,9 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="item" xml:space="preserve">
+    <value>Articles</value>
+  </data>
   <data name="Lettres et civilisation" xml:space="preserve">
     <value>Letters and civilization</value>
   </data>

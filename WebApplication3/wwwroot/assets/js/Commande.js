@@ -64,24 +64,26 @@ function loadDataTable() {
                 { "data": "state" },
             ],
             "language": {
-                "emptyTable": "ليست هناك بيانات متاحة في الجدول",
-                "loadingRecords": "جارٍ التحميل...",
-                "processing": "جارٍ التحميل...",
-                "lengthMenu": "أظهر _MENU_ مدخلات",
-                "zeroRecords": "لم يعثر على أية سجلات",
-                "info": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-                "infoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-                "infoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-                "search": "ابحث:",
+                "emptyTable": "No data available in table",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "Showing 0 to 0 of 0 entries",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "infoThousands": ",",
+                "lengthMenu": "Show _MENU_ entries",
+                "loadingRecords": "Loading...",
+                "processing": "Processing...",
+                "search": "Search:",
+                "zeroRecords": "No matching records found",
+                "thousands": ",",
                 "paginate": {
-                    "first": "الأول",
-                    "previous": "السابق",
-                    "next": "التالي",
-                    "last": "الأخير"
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
                 },
                 "aria": {
-                    "sortAscending": ": تفعيل لترتيب العمود تصاعدياً",
-                    "sortDescending": ": تفعيل لترتيب العمود تنازلياً"
+                    "sortAscending": ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
                 },
             },
         });

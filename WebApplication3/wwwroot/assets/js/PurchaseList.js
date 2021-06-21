@@ -286,6 +286,7 @@ function deletePurchase(PurchaseId) {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
+            cancelButtonText: 'إلغاء',
             confirmButtonText: 'نعم ، احذفها!'
         }).then((result) => {
             if (result.isConfirmed) {

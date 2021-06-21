@@ -455,26 +455,26 @@
                                                             @if (System.Globalization.CultureInfo.CurrentCulture.Name == "ar")
                                                             {
                                                                 <div class="book-detail-isbn">
-                                                                    <span>@Model.ISBN : <strong> الرقم الدولي للكتاب</strong></span>
-                                                                    <span>@Model.ISBN : <strong>معرّف الكائن الرقمي</strong></span>
+                                                                    <span><b>@Model.ISBN : </b><strong> الرقم الدولي للكتاب</strong></span>
+                                                                    <span><b>@Model.Doi : </b><strong>معرّف الكائن الرقمي</strong></span>
                                                                 </div>
                                                             }
                                                             else
                                                             {
                                                                 <div class="book-detail-isbn">
-                                                                    <span><strong>ISBN : </strong>@Model.ISBN</span>
-                                                                    <span><strong>DOI : </strong>@Model.ISBN</span>
+                                                                    <span><strong><b>ISBN : </b></strong>@Model.ISBN</span>
+                                                                    <span><strong><b>DOI : </b></strong>@Model.Doi</span>
                                                                 </div>
                                                             }
 
                                                             <div class="book-detail-maison">
-                                                                <span><strong>@localizer["EditionPlace"] : </strong> @Model.EditionPlace</span>
+                                                                <span><strong><b>@localizer["EditionPlace"] : </b></strong> @Model.EditionPlace</span>
                                                             </div>
                                                             <div class="book-detail-date">
-                                                                <span><strong>@localizer["PublicationDate"] : </strong> @Model.PublicationDate</span>
+                                                                <span><strong><b>@localizer["PublicationDate"] : </b></strong> @Model.PublicationDate</span>
                                                             </div>
                                                             <div class="book-detail-key">
-                                                                <p><span>@localizer["Keywords"]</span> : @Model.Keywords</p>
+                                                                <p><span><b>@localizer["Keywords"]</b></span> : @Model.Keywords</p>
                                                             </div>
                                                             <div class="book-detail-links">
                                                                 <a href="#">@localizer["ReadAbout"]</a>
@@ -647,52 +647,62 @@
                                                 dataType: 'json',
                                                 cache: false,
                                                 success: function (response) {
-                                                    if (response != null) {
-                                                        for (var j = 0; j < response.listDocumentPurchased.length; j++) {
-                                                            for (var i = 0; i < response.listPurchaseLine.length; i++) {
-                                                                if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
-                                                                    $('#dropdown-content').append(`
-                                                                    <div class="row justify-content-center align-content-center p-2">
-                                                                        <div class="col-md-3 text-center">
-                                                                            <div class="row justify-content-start align-content-center" style="width:80px;">
-                                                                                <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-9">
-                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
-                                                                            </div>
-                                                                            <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                                <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>`
-                                                                    )
-                                                                }
-                                                            }
-                                                        }
-                                                        $('#dropdown-content').append(`
-                                                        <div class="row justify-content-center align-content-center p-2">
-                                                            <div class="col-md-12">
-                                                                <div class="row justify-content-start align-content-center" style="height:25px">
-                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                        <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>`)
-                                                    } else {
-                                                        $('#dropdown-content').append(`
-                                                        <div class="row justify-content-center align-content-center p-2">
-                                                            <div class="col-md-12">
-                                                                <div class="row justify-content-center align-content-center" style="height:25px">
-                                                                    <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
-                                                                        <b>@localizer["EmptyCart"]</b>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>`)
-                                                    }
+                                                   if (response != null) {
+                                    for (var j = 0; j < response.listDocumentPurchased.length; j++) {
+                                        for (var i = 0; i < response.listPurchaseLine.length; i++) {
+                                            if (response.listDocumentPurchased[j].id == response.listPurchaseLine[i].idDocument) {
+                                                $('#dropdown-content').append(`
+                                                <div class="row justify-content-center align-content-center p-2">
+                                                    <div class="col-md-3 text-center">
+                                                        <div class="row justify-content-start align-content-center" style="width:80px;">
+                                                            <img src="${"../../uploads/CoverPage/" + response.listDocumentPurchased[j].coverPageName}" class="col-md-12" style="border-radius: 50%; height:50px">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="row justify-content-start align-content-center" style="height:25px">
+                                                            <span style="font-family: 'Roboto', sans-serif;font-size:15px"><b>${response.listDocumentPurchased[j].originalTitle} </b></span>
+                                                        </div>
+                                                        <div class="row justify-content-start align-content-center" style="height:25px">
+                                                            <span style="font-family: 'Roboto', sans-serif;font-size:12px">${response.listPurchaseLine[i].unitPrice} DT * ${response.listPurchaseLine[i].quantity}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>`
+                                                )
+                                            }
+                                        }
+                                    }
+                                    $('#dropdown-content').append(`
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12">
+                                            <div class="row justify-content-start align-content-center" style="height:25px">
+                                                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                    <b style="color:#7868e6">Total TTC : </b>${response.purchase.amountTTC} DT
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12 pb-2">
+                                            <div class="row justify-content-center align-content-center pt-2 pb-2" style="height:25px ">
+                                                <a class="text-center btn btn-light" style="font-size:15px;cursor:pointer;" href="/PurchaseLine/ListPurchaseLine">
+                                                     @localizer["ConfirmPurchase"]
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+`)
+                                } else {
+                                    $('#dropdown-content').append(`
+                                    <div class="row justify-content-center align-content-center p-2">
+                                        <div class="col-md-12">
+                                            <div class="row justify-content-center align-content-center" style="height:25px">
+                                                <span style="font-family: 'Roboto Condensed', sans-serif;font-size:15px;color:coral">
+                                                    <b>@localizer["EmptyCart"]</b>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>`)
+                                }
                                                     const Toast = Swal.mixin({
                                                         toast: true,
                                                         position: 'top-end',

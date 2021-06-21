@@ -126,6 +126,9 @@
   <data name="AmountTTC" xml:space="preserve">
     <value>Amount TTC</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="NumberOfPurchases" xml:space="preserve">
     <value>Number of Purchases</value>
   </data>

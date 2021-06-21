@@ -126,6 +126,9 @@
   <data name="AmountTTC" xml:space="preserve">
     <value>المبلغ مع الضريبة</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>عودة</value>
+  </data>
   <data name="NumberOfPurchases" xml:space="preserve">
     <value>عدد المشتريات</value>
   </data>
