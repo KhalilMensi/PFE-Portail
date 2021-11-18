@@ -14,8 +14,8 @@ namespace PortailEbook.Models
         static string smtpAddress = "smtp.gmail.com";
         static int portNumber = 587;
         static bool enableSSL = true;
-        static string emailFromAddress = "khalilmensi0@gmail.com"; //Sender Email Address  
-        static string password = "Reyen&+\"(24679246790"; //Sender Password  
+        static string emailFromAddress = "*******"; //Sender Email Address  
+        static string password = "******"; //Sender Password  
         static string subject = "Password Reset";
 
         static string body ;
